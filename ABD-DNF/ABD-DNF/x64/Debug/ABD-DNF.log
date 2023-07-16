@@ -1,2 +1,33 @@
-﻿  Program.cpp
+﻿  Player.cpp
+C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Framework\Math\Vector2.h(11,17): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Framework\Math\Vector2.h(11,14): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(399,45): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(399,42): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(399,39): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(399,36): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(451,45): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(451,42): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(451,39): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(451,36): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(149,77): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              _Ty=int
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2006): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::_Construct_in_place<_Ty,int>(_Ty &,int &&) noexcept(false)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Ty=CircleCollider
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2725): message : 컴파일되는 함수 템플릿 인스턴스화 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<int>(int &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Ty=CircleCollider
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2726): message : 컴파일되는 함수 템플릿 인스턴스화 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<int>(int &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Ty=CircleCollider
+          ]
+C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(10): message : 컴파일되는 함수 템플릿 인스턴스화 'std::shared_ptr<CircleCollider> std::make_shared<CircleCollider,int>(int &&)'에 대한 참조를 확인하세요.
   ABD-DNF.vcxproj -> C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\x64\Debug\ABD-DNF.exe

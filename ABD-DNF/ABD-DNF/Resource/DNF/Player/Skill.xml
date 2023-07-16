@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:3e9e2d1d2328ac7e8be136c92297b093:1fa99f25f07b1b8b2d65dad721c3232b:7440e7fa8531b8907b672b47c1b87c17$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+with polygon mode enabled:
+vertices   => points in sprite coordinate system (x0,y0,x1,y1,x2,y2, ...)
+verticesUV => points in sheet coordinate system (x0,y0,x1,y1,x2,y2, ...)
+triangles  => sprite triangulation, 3 vertex indices per triangle
+-->
+<TextureAtlas imagePath="Skill_backup.bmp" width="9100" height="1050">
+  <leftbattleIDLE loop="1" pingpong ="1">
+    <sprite n="3_BIDLE_left_0.png" x="1" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="3_BIDLE_left_1.png" x="351" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="3_BIDLE_left_2.png" x="701" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="3_BIDLE_left_3.png" x="1051" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="3_BIDLE_left_4.png" x="1401" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="3_BIDLE_left_5.png" x="1751" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+  </leftbattleIDLE>
+  <rightbattleIDLE loop="1" pingpong ="1">
+    <sprite n="3_BIDLE_right_0.png" x="2101" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="3_BIDLE_right_1.png" x="2451" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="3_BIDLE_right_2.png" x="2801" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="3_BIDLE_right_3.png" x="3151" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="3_BIDLE_right_4.png" x="3501" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="3_BIDLE_right_5.png" x="3851" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+  </rightbattleIDLE>
+  <leftbattleWALK loop="1" pingpong ="1">
+    <sprite n="4_BattleWalk_left_0.png" x="4201" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="4_BattleWalk_left_1.png" x="4551" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+  </leftbattleWALK>
+  <rightbattleWALK loop="1" pingpong ="1">
+    <sprite n="4_BattleWalk_right_0.png" x="4901" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="4_BattleWalk_right_1.png" x="5251" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+  </rightbattleWALK>
+  <leftSmash loop="0" pingpong="0">
+    <sprite n="5_Smash_left_0.png" x="5601" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="5_Smash_left_1.png" x="5951" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="5_Smash_left_2.png" x="6301" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="5_Smash_left_3.png" x="6651" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="5_Smash_left_4.png" x="7001" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="5_Smash_left_5.png" x="7351" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="5_Smash_left_6.png" x="7701" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="5_Smash_left_7.png" x="8051" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="5_Smash_left_8.png" x="8401" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+  </leftSmash>
+  <rightSmash loop="0" pingpong="0">
+    <sprite n="5_Smash_right_0.png" x="8751" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="5_Smash_right_1.png" x="1" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="5_Smash_right_2.png" x="351" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="5_Smash_right_3.png" x="701" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="5_Smash_right_4.png" x="1051" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="5_Smash_right_5.png" x="1401" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="5_Smash_right_6.png" x="1751" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="5_Smash_right_7.png" x="2101" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="5_Smash_right_8.png" x="2451" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+  </rightSmash>
+  <leftPlusTult loop="0" pingpong="0">
+    <sprite n="6_PlusUlt_left_0.png" x="2801" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="6_PlusUlt_left_1.png" x="3151" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+  </leftPlusTult>
+  <rightPlusTult loop="0" pingpong="0">
+    <sprite n="6_PlusUlt_right_0.png" x="3501" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="6_PlusUlt_right_1.png" x="3851" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+  </rightPlusTult>
+  <leftUnited loop="0" pingpong="0">
+    <sprite n="7_UnitedSlash_left_0.png" x="4201" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_left_1.png" x="4551" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_left_2.png" x="4901" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_left_3.png" x="5251" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_left_4.png" x="5601" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_left_5.png" x="5951" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_left_6.png" x="6301" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_left_7.png" x="6651" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_left_8.png" x="7001" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_left_9.png" x="7351" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_left_10.png" x="7701" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_left_11.png" x="8051" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_left_12.png" x="8401" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_left_13.png" x="8751" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_left_14.png" x="1" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_left_15.png" x="351" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_left_16.png" x="701" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_left_17.png" x="1051" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_left_18.png" x="1401" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+  </leftUnited>
+  <rightUnited loop="0" pingpong="0">
+    <sprite n="7_UnitedSlash_right_0.png" x="1751" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_right_1.png" x="2101" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_right_2.png" x="2451" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_right_3.png" x="2801" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_right_4.png" x="3151" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_right_5.png" x="3501" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_right_6.png" x="3851" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_right_7.png" x="4201" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_right_8.png" x="4551" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_right_9.png" x="4901" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_right_10.png" x="5251" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_right_11.png" x="5601" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_right_12.png" x="5951" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_right_13.png" x="6301" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_right_14.png" x="6651" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_right_15.png" x="7001" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_right_16.png" x="7351" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_right_17.png" x="7701" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="7_UnitedSlash_right_18.png" x="8051" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    </rightUnited>
+</TextureAtlas>

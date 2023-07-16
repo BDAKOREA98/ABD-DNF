@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:dd949a1753940f8364cae0121053118d:d187dbf1a8c8986f850665b7eb3fb139:e7e4175020ddb63707234a09a41a202f$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+with polygon mode enabled:
+vertices   => points in sprite coordinate system (x0,y0,x1,y1,x2,y2, ...)
+verticesUV => points in sheet coordinate system (x0,y0,x1,y1,x2,y2, ...)
+triangles  => sprite triangulation, 3 vertex indices per triangle
+-->
+<TextureAtlas imagePath="PlusUltEff.bmp" width="8050" height="700">
+  <leftPlusUltEff loop="0" pingpong="0">
+    <sprite n="PlusUlt_left_0.png" x="1" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_1.png" x="351" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_2.png" x="701" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_3.png" x="1051" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_4.png" x="1401" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_5.png" x="1751" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_6.png" x="2101" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_7.png" x="2451" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_8.png" x="2801" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_9.png" x="3151" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_10.png" x="3501" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_11.png" x="3851" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_12.png" x="4201" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_13.png" x="4551" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_14.png" x="4901" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_15.png" x="5251" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_16.png" x="5601" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_17.png" x="5951" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_18.png" x="6301" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_19.png" x="6651" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_20.png" x="7001" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_21.png" x="7351" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_left_22.png" x="7701" y="1" w="348" h="348" pX="0.5" pY="0.5"/>
+  </leftPlusUltEff>
+  <rightPlusUltEff>
+    <sprite n="PlusUlt_right_0.png" x="1" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_1.png" x="351" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_2.png" x="701" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_3.png" x="1051" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_4.png" x="1401" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_5.png" x="1751" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_6.png" x="2101" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_7.png" x="2451" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_8.png" x="2801" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_9.png" x="3151" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_10.png" x="3501" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_11.png" x="3851" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_12.png" x="4201" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_13.png" x="4551" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_14.png" x="4901" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_15.png" x="5251" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_16.png" x="5601" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_17.png" x="5951" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_18.png" x="6301" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_19.png" x="6651" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_20.png" x="7001" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_21.png" x="7351" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="PlusUlt_right_22.png" x="7701" y="351" w="348" h="348" pX="0.5" pY="0.5"/>
+  </rightPlusUltEff>
+</TextureAtlas>

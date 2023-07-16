@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:4f30b653a506431d1e732350a4db90b6:a6a6c66af693e2e59cfe022fb590d39c:14ebaa7462d84579e5d64d6be581af11$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+with polygon mode enabled:
+vertices   => points in sprite coordinate system (x0,y0,x1,y1,x2,y2, ...)
+verticesUV => points in sheet coordinate system (x0,y0,x1,y1,x2,y2, ...)
+triangles  => sprite triangulation, 3 vertex indices per triangle
+-->
+<TextureAtlas imagePath="tau1.bmp" width="1750" height="3000">
+  <leftidle loop="0" pingpong ="0">    
+    <sprite n="0_Left_IDLE.png" x="1" y="1" w="348" h="298" pX="0.5" pY="0.5"/>
+  </leftidle>
+  <rightidle loop="0" pingpong ="0">
+    <sprite n="0_Right_IDLE.png" x="351" y="1" w="348" h="298" pX="0.5" pY="0.5"/>
+  </rightidle>
+  <leftattack loop="0" pingpong ="0">
+    <sprite n="1_Left_Attack0.png" x="701" y="1" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="1_Left_Attack1.png" x="1051" y="1" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="1_Left_Attack2.png" x="1401" y="1" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="1_Left_Attack3.png" x="1" y="301" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="1_Left_Attack4.png" x="351" y="301" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="1_Left_Attack5.png" x="701" y="301" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="1_Left_Attack6.png" x="1051" y="301" w="348" h="298" pX="0.5" pY="0.5"/>
+  </leftattack>
+  <rightattack loop="0" pingpong ="0">
+    <sprite n="1_Right_Attack0.png" x="1401" y="301" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="1_Right_Attack1.png" x="1" y="601" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="1_Right_Attack2.png" x="351" y="601" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="1_Right_Attack3.png" x="701" y="601" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="1_Right_Attack4.png" x="1051" y="601" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="1_Right_Attack5.png" x="1401" y="601" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="1_Right_Attack6.png" x="1" y="901" w="348" h="298" pX="0.5" pY="0.5"/>
+  </rightattack>
+  <leftdamaged loop="0" pingpong ="0">
+    <sprite n="2_Left_Damaged0.png" x="351" y="901" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="2_Left_Damaged1.png" x="701" y="901" w="348" h="298" pX="0.5" pY="0.5"/>
+  </leftdamaged>
+  <rightdamaged loop="0" pingpong ="0">
+    <sprite n="2_Right_Damaged0.png" x="1051" y="901" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="2_Right_Damaged1.png" x="1401" y="901" w="348" h="298" pX="0.5" pY="0.5"/>
+  </rightdamaged>
+  <leftwalk loop="1" pingpong ="1">
+    <sprite n="3_Left_Walk0.png" x="1" y="1201" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="3_Left_Walk1.png" x="351" y="1201" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="3_Left_Walk2.png" x="701" y="1201" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="3_Left_Walk3.png" x="1051" y="1201" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="3_Left_Walk4.png" x="1401" y="1201" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="3_Left_Walk5.png" x="1" y="1501" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="3_Left_Walk6.png" x="351" y="1501" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="3_Left_Walk7.png" x="701" y="1501" w="348" h="298" pX="0.5" pY="0.5"/>
+  </leftwalk>
+  <rightwalk loop="1" pingpong ="1">
+    <sprite n="3_Right_Walk0.png" x="1051" y="1501" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="3_Right_Walk1.png" x="1401" y="1501" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="3_Right_Walk2.png" x="1" y="1801" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="3_Right_Walk3.png" x="351" y="1801" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="3_Right_Walk4.png" x="701" y="1801" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="3_Right_Walk5.png" x="1051" y="1801" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="3_Right_Walk6.png" x="1401" y="1801" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="3_Right_Walk7.png" x="1" y="2101" w="348" h="298" pX="0.5" pY="0.5"/>
+  </rightwalk>
+  <leftdown loop="0" pingpong ="0">
+    <sprite n="4_Left_Down0.png" x="351" y="2101" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="4_Left_Down1.png" x="701" y="2101" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="4_Left_Down2.png" x="1051" y="2101" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="4_Left_Down3.png" x="1401" y="2101" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="4_Left_Down4.png" x="1" y="2401" w="348" h="298" pX="0.5" pY="0.5"/>
+  </leftdown>
+  <rightdown loop="0" pingpong ="0">
+    <sprite n="4_Right_Down0.png" x="351" y="2401" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="4_Right_Down1.png" x="701" y="2401" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="4_Right_Down2.png" x="1051" y="2401" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="4_Right_Down3.png" x="1401" y="2401" w="348" h="298" pX="0.5" pY="0.5"/>
+    <sprite n="4_Right_Down4.png" x="1" y="2701" w="348" h="298" pX="0.5" pY="0.5"/>
+  </rightdown>
+</TextureAtlas>

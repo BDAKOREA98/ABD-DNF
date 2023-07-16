@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:5a8bc060d49a6a873b5fc675fca5c232:2e2a63fc67eb300df0e5ec424e63cfc4:17a2223860230c36d6cae15838482dcf$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+with polygon mode enabled:
+vertices   => points in sprite coordinate system (x0,y0,x1,y1,x2,y2, ...)
+verticesUV => points in sheet coordinate system (x0,y0,x1,y1,x2,y2, ...)
+triangles  => sprite triangulation, 3 vertex indices per triangle
+-->
+<TextureAtlas imagePath="ATTACK.bmp" width="3850" height="2450">
+    <sprite n="4_BAGICA_right_0.png" x="2451" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="4_BAGICA_right_1.png" x="2801" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="4_BAGICA_right_2.png" x="3151" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="4_BAGICA_right_3.png" x="3501" y="701" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="4_BAGICA_right_4.png" x="1" y="1051" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="4_BAGICA_right_5.png" x="351" y="1051" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="4_BAGICA_right_6.png" x="701" y="1051" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="4_BAGICA_right_7.png" x="1051" y="1051" w="348" h="348" pX="0.5" pY="0.5"/>
+    <sprite n="4_BAGICA_right_8.png" x="1401" y="1051" w="348" h="348" pX="0.5" pY="0.5"/>
+</TextureAtlas>

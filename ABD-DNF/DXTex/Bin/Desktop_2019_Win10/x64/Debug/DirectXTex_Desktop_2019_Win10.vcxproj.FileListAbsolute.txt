@@ -1,0 +1,2 @@
+C:\Users\82103\Desktop\덕\Github\강사님\DX_2023_03\DX_1800\DXTex\Bin\Desktop_2019_Win10\x64\Debug\DirectXTex.lib
+C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\DXTex\Bin\Desktop_2019_Win10\x64\Debug\DirectXTex.lib
