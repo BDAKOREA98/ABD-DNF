@@ -1,14 +1,14 @@
 ﻿  Player.cpp
 C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Framework\Math\Vector2.h(11,17): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Framework\Math\Vector2.h(11,14): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(399,45): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(399,42): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(399,39): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(399,36): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(451,45): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(451,42): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(451,39): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(451,36): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(343,45): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(343,42): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(343,39): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(343,36): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(395,45): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(395,42): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(395,39): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(395,36): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(149,77): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
           with
           [
