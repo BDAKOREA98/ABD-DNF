@@ -9,8 +9,8 @@ Camera::Camera()
 	_uiView->Update();
 	_projection = make_shared<MatrixBuffer>();
 
-	XMMATRIX projMatrix = XMMatrixOrthographicOffCenterLH(0,WIN_WIDTH,0,WIN_HEIGHT,0.0f, 1.0f);
-	//XMMATRIX projMatrix = XMMatrixOrthographicLH(WIN_WIDTH, WIN_HEIGHT, 0.0f, 1.0f);
+	//XMMATRIX projMatrix = XMMatrixOrthographicOffCenterLH(0,WIN_WIDTH,0,WIN_HEIGHT,0.0f, 1.0f);
+	XMMATRIX projMatrix = XMMatrixOrthographicLH(WIN_WIDTH, WIN_HEIGHT, 0.0f, 1.0f);
 	_projection->SetData(projMatrix);
 	_projection->Update_Resource();
 
@@ -28,17 +28,14 @@ void Camera::Update()
 	else
 		FollowMode();
 
-	//Shake();
+	
 
 	_view->Update();
 }
 
 void Camera::PostRender()
 {
-	/*if (ImGui::Button("Shake", { 50,50 }))
-	{
-		ShakeStart(5.0f, 0.3f);
-	}*/
+	
 
 	Vector2 temp = GetWorldMousePos();
 	ImGui::Text("World_mousePos: { %.0f, %.0f }", temp.x, temp.y);
@@ -173,25 +170,29 @@ void Camera::FreeMode()
 		{
 			AddVector2(-RIGHT_VECTOR * DELTA_TIME * _speed);
 		}
+		
+		
+	
+
 	}
 }
 
 void Camera::FollowMode()
 {
 	Vector2 targetPos = _target.lock()->GetWorldPos() - _offset;
-
+	
 	if (targetPos.x < _leftBottom.x + WIN_WIDTH * 0.5f)
 		targetPos.x = _leftBottom.x + WIN_WIDTH * 0.5f;
-
+	
 	if (targetPos.x > _rightTop.x - WIN_WIDTH * 0.5f)
 		targetPos.x = _rightTop.x - WIN_WIDTH * 0.5f;
-
+	
 	if (targetPos.y < _leftBottom.y + WIN_HEIGHT * 0.5f)
 		targetPos.y = _leftBottom.y + WIN_HEIGHT * 0.5f;
-
+	
 	if (targetPos.y > _rightTop.y - WIN_HEIGHT * 0.5f)
 		targetPos.y = _rightTop.y - WIN_HEIGHT * 0.5f;
-
+	
 	Vector2 temp = LERP(-_view->GetWorldPos(), targetPos, 0.04f);
 
 	SetPosition(temp);

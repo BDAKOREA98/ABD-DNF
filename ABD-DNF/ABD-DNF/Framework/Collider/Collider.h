@@ -27,6 +27,9 @@ public:
 
 	void SetColorRed() { _color = RED; }
 	void SetColorGreen() { _color = GREEN; }
+	void SetColorBlue() { _color = BLUE; }
+	void SetColorBlack() { _color = BLACK; }
+	void SetColorWhite() { _color = WHITE; }
 
 	shared_ptr<Transform> GetTransform() { return _transform; }
 	Vector2 GetWorldPos() { return _transform->GetWorldPos(); }

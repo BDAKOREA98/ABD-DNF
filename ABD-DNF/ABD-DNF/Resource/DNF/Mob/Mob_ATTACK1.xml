@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Mob_ATTACK1.png" width="93" height="231">
+	<sprite n="Mob_ATTACK1_1.png" x="0" y="0" w="93" h="65" pX="0.5" pY="0.5"/>
+	<sprite n="Mob_ATTACK1_2.png" x="0" y="69" w="93" h="54" pX="0.5" pY="0.5"/>
+	<sprite n="Mob_ATTACK1_3.png" x="0" y="127" w="93" h="53" pX="0.5" pY="0.5"/>
+	<sprite n="Mob_ATTACK1_4.png" x="0" y="179" w="93" h="54" pX="0.5" pY="0.5"/>
+	
+</TextureAtlas>

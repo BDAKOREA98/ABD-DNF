@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ABD-DNF.h" />
+    <ClInclude Include="Object\DUN\Monster_mad.h" />
     <ClInclude Include="Object\DUN\Creature.h" />
     <ClInclude Include="Framework\Animation\Action.h" />
     <ClInclude Include="Object\DUN\Map.h" />
@@ -206,6 +207,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ABD-DNF.cpp" />
+    <ClCompile Include="Object\DUN\Monster_mad.cpp" />
     <ClCompile Include="Object\DUN\Creature.cpp" />
     <ClCompile Include="Framework\Animation\Action.cpp" />
     <ClCompile Include="Object\DUN\Map.cpp" />
@@ -251,6 +253,7 @@
   <ItemGroup>
     <Image Include="ABD-DNF.ico" />
     <Image Include="Resource\chaewon.png" />
+    <Image Include="Resource\DNF\Mob\Mob_ATTACK3.png" />
     <Image Include="Resource\Texture\Bow.png" />
     <Image Include="Resource\Texture\Bullet.png" />
     <Image Include="Resource\Texture\chaewon.png" />

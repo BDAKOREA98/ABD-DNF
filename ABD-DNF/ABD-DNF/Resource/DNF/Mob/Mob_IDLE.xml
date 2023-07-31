@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Mob_IDLE.png" width="59" height="377">
+	<sprite n="MAD_IDLE_1.png" x="0" y="0" w="57" h="60" pX="0.5" pY="0.5"/>
+	<sprite n="MAD_IDLE_2.png" x="0" y="65" w="57" h="60" pX="0.5" pY="0.5"/>
+	<sprite n="MAD_IDLE_3.png" x="0" y="130" w="57" h="60" pX="0.5" pY="0.5"/>
+	<sprite n="MAD_IDLE_4.png" x="0" y="195" w="57" h="60" pX="0.5" pY="0.5"/>
+	<sprite n="MAD_IDLE_5.png" x="0" y="255" w="57" h="60" pX="0.5" pY="0.5"/>
+	<sprite n="MAD_IDLE_6.png" x="0" y="315" w="57" h="60" pX="0.5" pY="0.5"/>
+</TextureAtlas>

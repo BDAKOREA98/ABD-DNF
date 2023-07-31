@@ -108,7 +108,7 @@ float CircleCollider::GetWorldRadius()
 {
     Vector2 worldScale = _transform->GetWorldScale();
 
-    float temp = (worldScale.x + worldScale.y) / 2;
+    float temp = (abs(worldScale.x) + worldScale.y) / 2;
 
     return _radius * temp;
 }

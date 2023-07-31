@@ -100,6 +100,7 @@ using namespace Microsoft::WRL;
 #include "Object/DUN/Map.h"
 #include "Object/DUN/Creature.h"
 #include "Object/DUN/Player.h"
+#include "Object/DUN/Monster_mad.h"
 // Scene
 #include "Scene/Scene.h"
 

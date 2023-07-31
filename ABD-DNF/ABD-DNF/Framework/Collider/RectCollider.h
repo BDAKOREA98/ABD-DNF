@@ -40,6 +40,7 @@ public:
 
 	bool Block(shared_ptr<RectCollider> col);
 	bool Block(shared_ptr<CircleCollider> col);
+	bool InBlock(shared_ptr<CircleCollider> col);
 
 	AABB_Info GetAABB_Info();
 	OBB_Info GetOBB_info();

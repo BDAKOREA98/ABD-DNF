@@ -15,6 +15,9 @@ public:
 		{
 
 		}
+
+		
+		
 	};
 
 	enum Type
@@ -27,6 +30,8 @@ public:
 	Action(vector<Clip> clips, string name = "", Type type = Type::LOOP, float speed = 0.1f);
 	~Action();
 
+	
+
 	void Update();
 
 	void Play();
@@ -35,6 +40,11 @@ public:
 	void Reset();
 
 	Clip GetCurClip() { return _clips[_curClipIndex]; }
+
+	Vector2  GetStartPos()
+	{
+		return _clips[_curClipIndex].startPos;
+	}
 
 	void SetEndEvent(CallBack event_) { _endEvent = event_; }
 

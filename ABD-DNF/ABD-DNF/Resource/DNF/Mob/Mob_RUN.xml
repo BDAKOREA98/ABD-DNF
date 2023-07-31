@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Mob_RUN.png" width="70" height="230">
+	<sprite n="Mob_RUN_1.png" x="0" y="0" w="63" h="57" pX="0.5" pY="0.5"/>
+	<sprite n="Mob_RUN_2.png" x="0" y="57" w="68" h="57" pX="0.5" pY="0.5"/>
+	<sprite n="Mob_RUN_3.png" x="0" y="115" w="64" h="57" pX="0.5" pY="0.5"/>
+	<sprite n="Mob_RUN_4.png" x="0" y="172" w="64" h="57" pX="0.5" pY="0.5"/>
+</TextureAtlas>

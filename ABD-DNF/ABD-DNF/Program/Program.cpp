@@ -39,6 +39,7 @@ void Program::Render()
 	ImGui::NewFrame();
 
 	ALPHA->SetState();
+	//ADDITIVE->SetState();
 	_curScene->Render();
 	EFFECT->Render();
 

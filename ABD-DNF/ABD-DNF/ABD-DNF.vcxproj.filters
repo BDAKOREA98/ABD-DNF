@@ -171,6 +171,9 @@
     <ClInclude Include="Object\DUN\Player.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Object\DUN\Monster_mad.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ABD-DNF.cpp">
@@ -290,6 +293,9 @@
     <ClCompile Include="Object\DUN\Player.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Object\DUN\Monster_mad.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ABD-DNF.rc">
@@ -334,6 +340,9 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="Resource\Texture\zelda.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\DNF\Mob\Mob_ATTACK3.png">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

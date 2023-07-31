@@ -1,33 +1,13 @@
-﻿  Player.cpp
-C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Framework\Math\Vector2.h(11,17): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Framework\Math\Vector2.h(11,14): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(343,45): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(343,42): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(343,39): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(343,36): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(395,45): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(395,42): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(395,39): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(395,36): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(149,77): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-          with
-          [
-              _Ty=int
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2006): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::_Construct_in_place<_Ty,int>(_Ty &,int &&) noexcept(false)'에 대한 참조를 확인하세요.
-          with
-          [
-              _Ty=CircleCollider
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2725): message : 컴파일되는 함수 템플릿 인스턴스화 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<int>(int &&)'에 대한 참조를 확인하세요.
-          with
-          [
-              _Ty=CircleCollider
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2726): message : 컴파일되는 함수 템플릿 인스턴스화 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<int>(int &&)'에 대한 참조를 확인하세요.
-          with
-          [
-              _Ty=CircleCollider
-          ]
-C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\ABD-DNF\Object\DUN\Player.cpp(10): message : 컴파일되는 함수 템플릿 인스턴스화 'std::shared_ptr<CircleCollider> std::make_shared<CircleCollider,int>(int &&)'에 대한 참조를 확인하세요.
+﻿  compilation object save succeeded; see C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\x64\Debug\DNF_Player_PS.cso
+C:\Users\82103\Desktop\????Ʈ??��????��(����)\ABD-DNF\ABD-DNF\ABD-DNF\Shader\FilterPS.hlsl(40,35): warning X4000: use of potentially uninitialized variable (Blur)
+C:\Users\82103\Desktop\????Ʈ??��????��(����)\ABD-DNF\ABD-DNF\ABD-DNF\Shader\FilterPS.hlsl(63,35): warning X4000: use of potentially uninitialized variable (OctaBlur)
+C:\Users\82103\Desktop\????Ʈ??��????��(����)\ABD-DNF\ABD-DNF\ABD-DNF\Shader\FilterPS.hlsl(154,28): warning X4000: use of potentially uninitialized variable (OutLine)
+  
+  compilation object save succeeded; see C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\x64\Debug\FilterPS.cso
+  compilation object save succeeded; see C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\x64\Debug\ActionPS.cso
+  compilation object save succeeded; see C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\x64\Debug\ColliderPS.cso
+  compilation object save succeeded; see C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\x64\Debug\TexturePS.cso
+  compilation object save succeeded; see C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\x64\Debug\TextureVS.cso
+  compilation object save succeeded; see C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\x64\Debug\ColliderVS.cso
+  LINK : C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\x64\Debug\ABD-DNF.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
   ABD-DNF.vcxproj -> C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\x64\Debug\ABD-DNF.exe

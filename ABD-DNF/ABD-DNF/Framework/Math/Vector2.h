@@ -127,6 +127,18 @@ public:
 		y /= length;
 	}
 
+	void DNF()
+	{
+		float direction;
+		this->x *= -1;
+	}
+
+	void DNF_A()
+	{
+		this->x *= 1.02f;
+	}
+
+
 	bool IsBetween(Vector2 a, Vector2 b);
 
 	int ManhattenDistance(const Vector2& other) const;

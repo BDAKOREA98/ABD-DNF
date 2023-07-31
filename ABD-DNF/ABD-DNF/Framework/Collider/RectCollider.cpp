@@ -279,6 +279,44 @@ bool RectCollider::Block(shared_ptr<CircleCollider> col)
 
     AABB_Info infoA = GetAABB_Info();
 
+    Vector2 halfSizeA = Vector2(abs(infoA.right - infoA.left), abs(infoA.top - infoA.bottom)) * 0.5f;
+    float radius = col->GetWorldRadius();
+
+    Vector2 dir = col->GetWorldPos() - GetWorldPos();
+
+    Vector2 overlap;
+    overlap.x = (halfSizeA.x + radius) - abs(dir.x);
+    overlap.y = (halfSizeA.y + radius) - abs(dir.y);
+
+    if (overlap.y > overlap.x)
+    {
+        Vector2 temp = col->GetWorldPos();
+        dir.y = 0;
+        dir.Normalize();
+        temp.x += dir.x * overlap.x;
+
+        col->GetTransform()->SetPosition(temp);
+    }
+    else
+    {
+        Vector2 temp = col->GetWorldPos();
+        dir.x = 0;
+        dir.Normalize();
+        temp.y += dir.y * overlap.y;
+
+        col->GetTransform()->SetPosition(temp);
+    }
+
+    return true;
+}
+
+bool RectCollider::InBlock(shared_ptr<CircleCollider> col)
+{
+    if (!IsCollision(col))
+        return false;
+
+    AABB_Info infoA = GetAABB_Info();
+
     Vector2 halfSizeA = Vector2(infoA.right - infoA.left, infoA.top - infoA.bottom) * 0.5f;
     float radius = col->GetWorldRadius();
 
