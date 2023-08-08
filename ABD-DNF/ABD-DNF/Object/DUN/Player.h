@@ -29,19 +29,21 @@ public:
 
 	void MOVE();
 	void Attack();
-	
+	void Backstep();
 	
 	void SetAction(State state);
 	
-	shared_ptr<CircleCollider> GetAttack() {		return _playercol2;	}
+	shared_ptr<CircleCollider> GetAttack() {return _playercol2;	}
 
 
 
 private:
 	bool _isAttack = false;
 
-	int Hp = 100;
-	int damage = 12;
+	float Hp = 100.0f;
+	float Damage = 20.0f;
+
+	float timer = 0.0f;
 
 	unsigned int _value = 0;
 	

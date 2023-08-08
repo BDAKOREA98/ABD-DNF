@@ -60,6 +60,13 @@ void Action::Update()
 			break;
 		}
 	}
+
+	
+}
+
+void Action::ChangeType()
+{
+	_repeatType = END;
 }
 
 void Action::Play()

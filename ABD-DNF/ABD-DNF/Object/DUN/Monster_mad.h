@@ -36,8 +36,6 @@ private:
 	float _attackKey = 0.0f;
 
 
-	int Damage = 10;
-	int HP = 10;
 
 	State _state = State::Mob_IDLE;
 

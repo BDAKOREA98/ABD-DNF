@@ -2,30 +2,30 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\x64\Debug\ABD-DNF.exe</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD-DNF\ABD-DNF\x64\Debug\ABD-DNF.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles>
     <ContentFile>
-      <FullPath>C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\x64\Debug\DNF_Player_PS.cso</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD-DNF\ABD-DNF\x64\Debug\DNF_Player_PS.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\x64\Debug\FilterPS.cso</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD-DNF\ABD-DNF\x64\Debug\FilterPS.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\x64\Debug\ActionPS.cso</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD-DNF\ABD-DNF\x64\Debug\ActionPS.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\x64\Debug\ColliderPS.cso</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD-DNF\ABD-DNF\x64\Debug\ColliderPS.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\x64\Debug\TexturePS.cso</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD-DNF\ABD-DNF\x64\Debug\TexturePS.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\x64\Debug\TextureVS.cso</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD-DNF\ABD-DNF\x64\Debug\TextureVS.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\x64\Debug\ColliderVS.cso</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD-DNF\ABD-DNF\x64\Debug\ColliderVS.cso</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />

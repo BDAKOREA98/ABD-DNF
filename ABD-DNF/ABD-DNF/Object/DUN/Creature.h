@@ -36,11 +36,11 @@ public:
 		}
 	}
 
+
 protected:
 
-	int Hp = 100;
-	int Damage = 12;
-
+	float Hp;
+	float Damage;
 	vector<shared_ptr<Action>> _actions;
 	shared_ptr<CircleCollider> _col;
 	shared_ptr<Transform> _trans;

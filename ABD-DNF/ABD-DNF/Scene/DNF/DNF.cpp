@@ -34,24 +34,24 @@ void DNF::Update()
 		if (_map1->GetBottom()->Block(_player->GetCol()))
 		{
 
-			_player->GetAttack()->SetColorWhite();
+			
 			_player->GetCol()->GetTransform()->SetPosition({ _player->GetCol()->GetTransform()->GetPos().x, 2.0 });
 
 		}
 		if (_map1->GetLeft()->Block(_player->GetCol()))
 		{
 
-			_player->GetAttack()->SetColorWhite();
+			
 		}
 		if (_map1->GetRight()->Block(_player->GetCol()))
 		{
 
-			_player->GetAttack()->SetColorWhite();
+			
 		}
 		if (_map1->GetTop()->Block(_player->GetCol()))
 		{
 
-			_player->GetAttack()->SetColorWhite();
+			
 		}
 
 		{
@@ -108,7 +108,7 @@ void DNF::Monstermove()
 		}
 
 
-		_mob1->GetCol()->GetTransform()->AddVector2(Direction);
+		_mob1->GetCol()->GetTransform()->AddVector2(Direction * DELTA_TIME * 50.0f);
 
 	}
 	else if (_mob1->GetCol()->IsCollision(_player->GetCol()))

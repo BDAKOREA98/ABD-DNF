@@ -5,10 +5,8 @@ Player::Player()
 {
 
 
-
-
 	_col = make_shared<CircleCollider>(50);
-	_playercol2 = make_shared<CircleCollider>(50);
+	_playercol2 = make_shared<CircleCollider>(40);
 	_trans = make_shared<Transform>();
 
 	CreateAction("Idle_L", L"Resource/DNF/Player/");
@@ -18,17 +16,18 @@ Player::Player()
 	CreateAction("ATTACK_L2", L"Resource/DNF/Player/");
 	CreateAction("ATTACK_L3", L"Resource/DNF/Player/");
 	CreateAction("ATTACK_L4", L"Resource/DNF/Player/");
+	CreateAction("Skill", L"Resource/DNF/Player/");
 
 
-	_col->GetTransform()->SetPosition({-100, 350
-});
+	_col->GetTransform()->SetPosition({-100, 350});
 	_playercol2->GetTransform()->SetParent(_col->GetTransform());
-	
+
 	_trans->SetParent(_col->GetTransform());
 	
 	
 	ChangePS(L"Shader/DNF_Player_PS.hlsl");
 
+	
 	SetLEFT();
 }
 
@@ -38,7 +37,7 @@ Player::~Player()
 
 void Player::Update()
 {
-
+	_playercol2->SetColorBlue();
 	_actions[_curState]->Update();
 
 	_sprites[_curState]->SetCurClip(_actions[_curState]->GetCurClip());
@@ -58,6 +57,10 @@ void Player::Update()
 	{
 		_attackkey += DELTA_TIME;
 	}
+	if (_curState != SKILL)
+	{
+		timer = 0;
+	}
 	
 
 	if (_key >= 0.3f &&  _curState == IDLE)
@@ -67,7 +70,7 @@ void Player::Update()
 
 		MOVE();
 	
-	
+		Backstep();
 	Attack();
 
 }
@@ -94,8 +97,9 @@ void Player::PostRender()
 	ImGui::Text("Pos.y : %f", _col->GetTransform()->GetPos().y);
 	ImGui::Text("WorldPos.x : %f", _col->GetTransform()->GetWorldPos().x);
 	ImGui::Text("WorldPos.y : %f", _col->GetTransform()->GetWorldPos().y);
-	ImGui::Text("WorldPos.y : %d", Hp);
-	ImGui::Text("WorldPos.y : %d", Damage);
+	ImGui::Text("HP : %f", Hp);
+	ImGui::Text("Damage : %f", Damage);
+	ImGui::Text("timer : %f", timer);
 
 
 
@@ -286,6 +290,35 @@ void Player::Attack()
 	
 }
 
+void Player::Backstep()
+{
+
+	if (KEY_DOWN(('C')) && timer == 0)
+	{
+		SetAction(SKILL);
+		
+	}
+	if (_curState == State::SKILL)
+	{
+		_attackkey = 0.0f;
+		timer += DELTA_TIME;
+		if (timer > 0.4f)
+		{
+			SetAction(IDLE);
+		}
+		if (_col->GetTransform()->GetScale().x < 0.0f)
+		{
+			_col->GetTransform()->AddVector2(RIGHT_VECTOR * 4.0);
+			_playercol2->GetTransform()->SetPosition(Vector2(0, 0));
+		}
+		else if (_col->GetTransform()->GetScale().x > 0.0f)
+		{
+			_col->GetTransform()->AddVector2(-RIGHT_VECTOR * 4.0);
+			_playercol2->GetTransform()->SetPosition(Vector2(0, 0));
+		}
+	}
+}
+
 
 
 void Player::SetAction(State state)
@@ -300,7 +333,6 @@ void Player::SetAction(State state)
 	_actions[_oldState]->Pause();
 
 	_actions[_curState]->Play();
-
 	_oldState = _curState;
 }
 

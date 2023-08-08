@@ -34,6 +34,8 @@ public:
 
 	void Update();
 
+	void ChangeType();
+
 	void Play();
 	void Pause();
 	void Stop();
@@ -47,7 +49,7 @@ public:
 	}
 
 	void SetEndEvent(CallBack event_) { _endEvent = event_; }
-
+	float GetTime() { return _time; }
 private:
 	string _name;
 	vector<Clip> _clips;
