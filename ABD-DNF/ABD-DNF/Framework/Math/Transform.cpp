@@ -20,6 +20,7 @@ void Transform::Update_SRT()
 {
 	_scaleM = XMMatrixScaling(_scale.x, _scale.y, 1.0f);
 	_rotateM = XMMatrixRotationZ(_angle);
+	
 	_translateM = XMMatrixTranslation(_pos.x, _pos.y, 0);
 
 	_srtMatrix = _scaleM * _rotateM * _translateM;

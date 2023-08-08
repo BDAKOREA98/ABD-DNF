@@ -27,7 +27,7 @@ Player::Player()
 	_trans->SetParent(_col->GetTransform());
 	
 	
-
+	ChangePS(L"Shader/DNF_Player_PS.hlsl");
 
 	SetLEFT();
 }
@@ -94,8 +94,13 @@ void Player::PostRender()
 	ImGui::Text("Pos.y : %f", _col->GetTransform()->GetPos().y);
 	ImGui::Text("WorldPos.x : %f", _col->GetTransform()->GetWorldPos().x);
 	ImGui::Text("WorldPos.y : %f", _col->GetTransform()->GetWorldPos().y);
+	ImGui::Text("WorldPos.y : %d", Hp);
+	ImGui::Text("WorldPos.y : %d", Damage);
+
+
 
 }
+
 
 void Player::MOVE()
 {

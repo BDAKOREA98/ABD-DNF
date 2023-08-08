@@ -23,11 +23,22 @@ public:
 	virtual void PostRender() override;
 	
 	void SetAction(State state);
-
+	
 	void Input();
 	void Attack();
+	void Attack2();
+	
+	State GetcurState() { return _curState; }
 
 private:
+
+
+	float _attackKey = 0.0f;
+
+
+	int Damage = 10;
+	int HP = 10;
+
 	State _state = State::Mob_IDLE;
 
 
@@ -37,7 +48,7 @@ private:
 
 	State _curState = State::Mob_IDLE;
 	State _oldState = State::Mob_IDLE;
-	shared_ptr<FilterBuffer> _filter;
+	//shared_ptr<FilterBuffer> _filter;
 
 
 };

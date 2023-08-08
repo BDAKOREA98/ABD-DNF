@@ -37,5 +37,10 @@ float4 PS(PixelInput input) : SV_TARGET
 
 	float4 color = resource.Sample(samp, resultUV);
 
+	if (color.x + color.y + color.z <= 0.1)
+	{
+		color = float4(1, 1, 1, 0);
+	}
+
 return color;
 }

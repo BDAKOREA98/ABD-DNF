@@ -113,6 +113,15 @@ void DNF::Monstermove()
 	}
 	else if (_mob1->GetCol()->IsCollision(_player->GetCol()))
 	{
+
 		_mob1->Attack();
+		_player->TakenDamage(15);
+
 	}
+
+
+
+
+	
+
 }

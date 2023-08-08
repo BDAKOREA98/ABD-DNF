@@ -18,17 +18,17 @@ Monster_mad::Monster_mad()
 	CreateAction("Mob_RUN", L"Resource/DNF/Mob/");
 	CreateAction("Mob_ATTACK1", L"Resource/DNF/Mob/");
 	CreateAction("Mob_ATTACK2", L"Resource/DNF/Mob/");
+
+	
 	
 
 	_mobcol->SetColorWhite();
 
+	
 
 
 
-
-	_filter = make_shared<FilterBuffer>();
-	_filter->_data.imageSize = _sprites[State::Mob_RUN]->GetImageSize();
-	_filter->_data.selected = 1;
+	
 
 }
 
@@ -42,9 +42,14 @@ void Monster_mad::Update()
 
 	_sprites[_curState]->SetCurClip(_actions[_curState]->GetCurClip());
 	_sprites[_curState]->Update();
-	
+
 	Input();
 
+	if (_curState != Mob_ATTACK1 && _curState != Mob_ATTACK2)
+	{
+	
+	_attackKey = 0;
+	}
 	_col->Update();
 	_mobcol->Update();
 	_trans->Update();
@@ -55,7 +60,7 @@ void Monster_mad::Render()
 
 	//ADDITIVE->SetState();
 	_trans->SetWorldBuffer(0);
-	_filter->SetPS_Buffer(2);
+	//_filter->SetPS_Buffer(2);
 	_sprites[_curState]->Render();
 	_col->Render();
 	_mobcol->Render();
@@ -70,6 +75,7 @@ void Monster_mad::PostRender()
 	//ImGui::Text("_curStateStartPos.y : %f", _actions[_curState]->GetStartPos().y);
 	ImGui::Text("Pos.x : %f", _col->GetTransform()->GetPos().x);
 	ImGui::Text("Pos.y : %f", _col->GetTransform()->GetPos().y);
+	ImGui::Text("_attack : %f", _attackKey);
 	
 }
 
@@ -123,10 +129,28 @@ void Monster_mad::Input()
 
 void Monster_mad::Attack()
 {
+	_attackKey += DELTA_TIME;
 
-	SetAction(Mob_ATTACK1);
+	if (_attackKey >= 1.5)
+	{
+		_attackKey = 0.0f;
+	}
+	if (_attackKey >= 0.0f && _attackKey <= 0.7f)
+	{
+		SetAction(Mob_ATTACK1);
+	}
+	else if (_attackKey >= 0.8f && _attackKey <= 1.4f)
+	{
+		SetAction(Mob_ATTACK2);
+	}
 
+	
+}	
 
+void Monster_mad::Attack2()
+{
+	_attackKey += DELTA_TIME;
+	
 }
 
 

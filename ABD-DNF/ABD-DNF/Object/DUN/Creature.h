@@ -12,11 +12,14 @@ public:
 	virtual void PostRender() abstract;
 
 	virtual void CreateAction(string name, wstring file, float speed = 0.1f, Action::Type type = Action::Type::LOOP, CallBack callBack = nullptr);
-	
+	virtual void TakenDamage(int damage);
 
 
 	virtual shared_ptr<Transform> GetTrans() { return _trans; }
 	virtual shared_ptr<CircleCollider> GetCol() { return _col; }
+
+	virtual void ChangePS(wstring ps);
+
 
 	virtual void SetLEFT()
 	{
@@ -34,6 +37,9 @@ public:
 	}
 
 protected:
+
+	int Hp = 100;
+	int Damage = 12;
 
 	vector<shared_ptr<Action>> _actions;
 	shared_ptr<CircleCollider> _col;

@@ -25,6 +25,8 @@ public:
 	virtual void Render() override;
 	virtual void PostRender() override;
 
+	
+
 	void MOVE();
 	void Attack();
 	
@@ -37,6 +39,9 @@ public:
 
 private:
 	bool _isAttack = false;
+
+	int Hp = 100;
+	int damage = 12;
 
 	unsigned int _value = 0;
 	

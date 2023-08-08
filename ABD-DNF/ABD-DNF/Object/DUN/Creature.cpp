@@ -63,3 +63,18 @@ void Creature::CreateAction(string name, wstring file, float speed, Action::Type
 	sprite->SetPS(ADD_PS(L"Shader/ActionPS.hlsl"));
 	_sprites.push_back(sprite);
 }
+
+void Creature::TakenDamage(int damage)
+{
+	Hp -= damage;
+}
+
+void Creature::ChangePS(wstring ps)
+{
+
+	for (auto sprite : _sprites)
+	{
+		sprite->SetPS(ADD_PS(ps));
+	}
+
+}
