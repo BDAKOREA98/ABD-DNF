@@ -3,7 +3,8 @@
 
 Player::Player()
 {
-
+	Hp = 100.0f;
+	Damage = 20.0f;
 
 	_col = make_shared<CircleCollider>(50);
 	_playercol2 = make_shared<CircleCollider>(40);
@@ -243,6 +244,7 @@ void Player::Attack()
 	{
 		_playercol2->GetTransform()->SetPosition({0.0f,0.0f});
 		_value = 0;
+		_isAttack = false;
 	}
 
 
@@ -254,29 +256,34 @@ void Player::Attack()
 			SetAction(ATTACK1);
 			_value++;
 			_playercol2->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
+			_isAttack = true;
 		}
 		else if (KEY_DOWN('X') && _value == 1 && _attackkey >= 0.8f)
 		{
 			SetAction(ATTACK2);
 			_value++;
 			_playercol2->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
+			
 		}
 		else if (KEY_DOWN('X') && _value == 2 && _attackkey >= 1.5f)
 		{
 			SetAction(ATTACK3);
 			_value++;
 			_playercol2->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
+			
 		}
 		else if (KEY_DOWN('X') && _value == 3 && _attackkey >= 2.2f)
 		{
 			SetAction(ATTACK4);
 			_playercol2->GetTransform()->SetPosition(Vector2(60.0f, 0.0f));
 			_value++;
+			
 		}
 		else if (KEY_DOWN('X') && _value >= 4 && _attackkey >= 2.9f)
 		{
 			_value = 0;
 			_attackkey = 0;
+			
 		}
 		
 
@@ -286,6 +293,8 @@ void Player::Attack()
 	{
 		SetAction(ATTACK4);
 		_playercol2->GetTransform()->SetPosition(Vector2(60.0f, 0.0f));
+		_isAttack = true;
+
 	}
 	
 }
@@ -334,5 +343,10 @@ void Player::SetAction(State state)
 
 	_actions[_curState]->Play();
 	_oldState = _curState;
+}
+
+Player::State Player::GetCurState()
+{
+	return _curState;
 }
 

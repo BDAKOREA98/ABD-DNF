@@ -3,10 +3,14 @@
 
 Monster_mad::Monster_mad()
 {
+
+	Hp = 500.0f;
+	Damage = 30.0f;
+
 	_col = make_shared<CircleCollider>(50);
 	
 	
-	_mobcol = make_shared<CircleCollider>(75);
+	_mobcol = make_shared<CircleCollider>(40);
 
 	_trans = make_shared<Transform>();
 	_col->GetTransform()->SetPosition(CENTER);
@@ -18,6 +22,7 @@ Monster_mad::Monster_mad()
 	CreateAction("Mob_RUN", L"Resource/DNF/Mob/");
 	CreateAction("Mob_ATTACK1", L"Resource/DNF/Mob/");
 	CreateAction("Mob_ATTACK2", L"Resource/DNF/Mob/");
+	CreateAction("Mob_TAKENDAMAGE", L"Resource/DNF/Mob/");
 
 	
 	
@@ -44,12 +49,7 @@ void Monster_mad::Update()
 	_sprites[_curState]->Update();
 
 	Input();
-
-	if (_curState != Mob_ATTACK1 && _curState != Mob_ATTACK2)
-	{
 	
-	_attackKey = 0;
-	}
 	_col->Update();
 	_mobcol->Update();
 	_trans->Update();
@@ -75,7 +75,9 @@ void Monster_mad::PostRender()
 	//ImGui::Text("_curStateStartPos.y : %f", _actions[_curState]->GetStartPos().y);
 	ImGui::Text("Pos.x : %f", _col->GetTransform()->GetPos().x);
 	ImGui::Text("Pos.y : %f", _col->GetTransform()->GetPos().y);
-	ImGui::Text("_attack : %f", _attackKey);
+	ImGui::Text("Hp : %f", Hp);
+	ImGui::Text("Damage : %f", Damage);
+	//ImGui::Text("_attack : %f", _attackKey);
 	
 }
 
@@ -129,28 +131,38 @@ void Monster_mad::Input()
 
 void Monster_mad::Attack()
 {
+	
 	_attackKey += DELTA_TIME;
+	
+	if (_attackKey >= 1.0f)
+	{
+		_attackKey = 0.0f;
+		
+	}
 
-	if (_attackKey >= 1.5)
+
+
+
+
+	if (_attackKey >= 0.9)
 	{
 		_attackKey = 0.0f;
 	}
-	if (_attackKey >= 0.0f && _attackKey <= 0.7f)
+	if (_attackKey >= 0.0f && _attackKey <= 0.4f)
 	{
+		Damage = 30.0f;
 		SetAction(Mob_ATTACK1);
+		_mobcol->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
 	}
-	else if (_attackKey >= 0.8f && _attackKey <= 1.4f)
+	else if (_attackKey >= 0.5f && _attackKey <= 0.9f)
 	{
 		SetAction(Mob_ATTACK2);
+		_mobcol->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
+		Damage = 40.0f;
 	}
 
 	
 }	
 
-void Monster_mad::Attack2()
-{
-	_attackKey += DELTA_TIME;
-	
-}
 
 

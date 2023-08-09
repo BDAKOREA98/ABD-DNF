@@ -9,6 +9,7 @@ public:
 		Mob_RUN,
 		Mob_ATTACK1,
 		Mob_ATTACK2,
+		Mob_TAKENDAMAGE
 		
 	};
 	Monster_mad();
@@ -26,9 +27,10 @@ public:
 	
 	void Input();
 	void Attack();
-	void Attack2();
 	
 	State GetcurState() { return _curState; }
+
+	//shared_ptr<CircleCollider> GetMobcol() { return _mobcol; }
 
 private:
 

@@ -38,9 +38,9 @@ public:
 
 
 protected:
-
 	float Hp;
 	float Damage;
+	
 	vector<shared_ptr<Action>> _actions;
 	shared_ptr<CircleCollider> _col;
 	shared_ptr<Transform> _trans;

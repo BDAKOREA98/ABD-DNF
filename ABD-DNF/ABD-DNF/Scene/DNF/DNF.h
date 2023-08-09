@@ -15,6 +15,9 @@ public:
 	virtual void PostRender();
 
 	void Monstermove();
+	void MapCollision();
+	void Attack();
+
 
 private:
 

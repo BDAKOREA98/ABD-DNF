@@ -35,13 +35,14 @@ public:
 	
 	shared_ptr<CircleCollider> GetAttack() {return _playercol2;	}
 
+	State GetCurState();
 
+	bool AttackT_F() { return _isAttack; }
 
 private:
 	bool _isAttack = false;
 
-	float Hp = 100.0f;
-	float Damage = 20.0f;
+	
 
 	float timer = 0.0f;
 
