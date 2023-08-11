@@ -26,15 +26,16 @@ public:
 	void SetAction(State state);
 	
 	void Input();
-	void Attack();
-	
+	void Attack(shared_ptr<CircleCollider> other);
+	bool AttackT_F() { return _isAttack; }
 	State GetcurState() { return _curState; }
 
-	//shared_ptr<CircleCollider> GetMobcol() { return _mobcol; }
+	shared_ptr<CircleCollider> GetMobcol() { return _mobcol; }
+	shared_ptr<CircleCollider> GetMovecol() { return _movecol; }
 
 private:
 
-
+	bool _isAttack = false;
 	float _attackKey = 0.0f;
 
 
@@ -43,6 +44,7 @@ private:
 
 
 	shared_ptr<CircleCollider> _mobcol;
+	shared_ptr<CircleCollider> _movecol;
 
 	Vector2 _direction = { 0.0f,0.0f };
 

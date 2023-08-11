@@ -20,6 +20,8 @@ public:
 
 
 private:
+	bool _mobMove = true;
+
 
 	shared_ptr<Map> _map1;
 	shared_ptr<Player> _player;

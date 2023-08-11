@@ -26,16 +26,16 @@ void DNF::Update()
 	MapCollision();
 	Attack();
 	
-	_map1->Update();
+	_player->Attack();
 
-	_mob1->Update();
-
-	_player->Update();
 	
 	
 
 	
 	
+	 _map1->Update();
+	 _mob1->Update();
+	 _player->Update();
 	
 
 
@@ -52,47 +52,49 @@ void DNF::PostRender()
 {
 	_mob1->PostRender();
 	_player->PostRender();
-	_map1->PostRender();
+	//_map1->PostRender();
 }
 
 void DNF::Monstermove()
 {
-
-	if (_mob1->GetCol()->IsCollision(_player->GetCol()) == false)
+	if (_mobMove == true)
 	{
-		_mob1->SetAction(_mob1->Mob_RUN);
-
-		Vector2 Direction;
-		Vector2 MobPos;
-		Vector2 PlayerPos;
-		MobPos = _mob1->GetCol()->GetTransform()->GetPos();
-		PlayerPos = _player->GetCol()->GetTransform()->GetPos();
-
-		Direction = PlayerPos - MobPos;
-		Direction.Normalize();
-
-
-
-		if (MobPos.x >= PlayerPos.x)
+		if (_mob1->GetMovecol()->IsCollision(_player->GetCol()) == false)
 		{
-			_mob1->SetLEFT();
+			_mob1->SetAction(_mob1->Mob_RUN);
+
+			Vector2 Direction;
+			Vector2 MobPos;
+			Vector2 PlayerPos;
+			MobPos = _mob1->GetCol()->GetTransform()->GetPos();
+			PlayerPos = _player->GetCol()->GetTransform()->GetPos();
+
+			Direction = PlayerPos - MobPos;
+			Direction.Normalize();
+
+
+
+			if (MobPos.x >= PlayerPos.x)
+			{
+				_mob1->SetLEFT();
+			}
+			else if (MobPos.x < PlayerPos.x)
+			{
+				_mob1->SetRIGHT();
+			}
+
+
+			_mob1->GetCol()->GetTransform()->AddVector2(Direction * DELTA_TIME * 250.0f);
+
 		}
-		else if (MobPos.x < PlayerPos.x)
+		else if (_mob1->GetMovecol()->IsCollision(_player->GetCol()))
 		{
-			_mob1->SetRIGHT();
+
+			_mob1->Attack(_player->GetCol());
 		}
 
-
-		_mob1->GetCol()->GetTransform()->AddVector2(Direction * DELTA_TIME * 250.0f);
 
 	}
-	else if (_mob1->GetCol()->IsCollision(_player->GetCol()))
-	{
-
-		_mob1->Attack();
-	}
-
-
 
 
 	
@@ -141,14 +143,27 @@ void DNF::Attack()
 
 	Direction =  MobPos - PlayerPos;
 	Direction.Normalize();
-	if (_player->AttackT_F() && _player->GetCol()->IsCollision(_mob1->GetCol()))
+	if (_player->AttackT_F() && _player->GetAttack()->IsCollision(_mob1->GetCol()))
 	{
+		Direction = MobPos - PlayerPos;
+		Direction.Normalize();
 		_mob1->SetAction(_mob1->Mob_TAKENDAMAGE);
-		_mob1->GetCol()->GetTransform()->AddVector2(Direction * 10.0f);
-
+		//_mob1->GetCol()->GetTransform()->AddVector2(Direction * 20.0f);
+		_mob1->TakenDamage(_player->Damage());
+		_player->GetAttack()->GetTransform()->SetPosition(Vector2(0.0f, 0.0f));
 	}
-	
+	if (_mob1->AttackT_F() && _mob1->GetMobcol()->IsCollision(_player->GetCol()))
+	{
+		
+		Direction = PlayerPos - MobPos;
+		Direction.Normalize();
+		//_player->SetAction(_player->IDLE);
+		//_player->GetCol()->GetTransform()->AddVector2(Direction * 20.0f);
+		_player->TakenDamage(_mob1->Damage());
+		_mob1->GetMobcol()->GetTransform()->SetPosition(Vector2(0.0f, 0.0f));
+	}
 
+	
 
 
 }

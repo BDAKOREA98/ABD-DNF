@@ -3,8 +3,8 @@
 
 Player::Player()
 {
-	Hp = 100.0f;
-	Damage = 20.0f;
+	_Hp = 100.0f;
+	_Damage = 20.0f;
 
 	_col = make_shared<CircleCollider>(50);
 	_playercol2 = make_shared<CircleCollider>(40);
@@ -72,7 +72,7 @@ void Player::Update()
 		MOVE();
 	
 		Backstep();
-	Attack();
+	
 
 }
 
@@ -98,8 +98,8 @@ void Player::PostRender()
 	ImGui::Text("Pos.y : %f", _col->GetTransform()->GetPos().y);
 	ImGui::Text("WorldPos.x : %f", _col->GetTransform()->GetWorldPos().x);
 	ImGui::Text("WorldPos.y : %f", _col->GetTransform()->GetWorldPos().y);
-	ImGui::Text("HP : %f", Hp);
-	ImGui::Text("Damage : %f", Damage);
+	ImGui::Text("HP : %f", _Hp);
+	ImGui::Text("Damage : %f", _Damage);
 	ImGui::Text("timer : %f", timer);
 
 
@@ -296,6 +296,9 @@ void Player::Attack()
 		_isAttack = true;
 
 	}
+
+
+
 	
 }
 
@@ -317,12 +320,12 @@ void Player::Backstep()
 		}
 		if (_col->GetTransform()->GetScale().x < 0.0f)
 		{
-			_col->GetTransform()->AddVector2(RIGHT_VECTOR * 4.0);
+			_col->GetTransform()->AddVector2(RIGHT_VECTOR * 8.0);
 			_playercol2->GetTransform()->SetPosition(Vector2(0, 0));
 		}
 		else if (_col->GetTransform()->GetScale().x > 0.0f)
 		{
-			_col->GetTransform()->AddVector2(-RIGHT_VECTOR * 4.0);
+			_col->GetTransform()->AddVector2(-RIGHT_VECTOR * 8.0);
 			_playercol2->GetTransform()->SetPosition(Vector2(0, 0));
 		}
 	}

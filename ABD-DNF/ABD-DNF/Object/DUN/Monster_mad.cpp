@@ -4,19 +4,22 @@
 Monster_mad::Monster_mad()
 {
 
-	Hp = 500.0f;
-	Damage = 30.0f;
+	_Hp = 500.0f;
+	_Damage = 30.0f;
 
 	_col = make_shared<CircleCollider>(50);
 	
 	
 	_mobcol = make_shared<CircleCollider>(40);
-
+	_movecol = make_shared<CircleCollider>(70);
+	
 	_trans = make_shared<Transform>();
 	_col->GetTransform()->SetPosition(CENTER);
 	_trans->SetParent(_col->GetTransform());
 	_trans->SetScale({ 1.5f, 1.5f });
 	_mobcol->GetTransform()->SetParent(_col->GetTransform());
+	_movecol->GetTransform()->SetParent(_col->GetTransform());
+	_col->GetTransform()->SetScale({ 1.5f, 1.5f });
 	
 	CreateAction("Mob_IDLE", L"Resource/DNF/Mob/");
 	CreateAction("Mob_RUN", L"Resource/DNF/Mob/");
@@ -28,7 +31,7 @@ Monster_mad::Monster_mad()
 	
 
 	_mobcol->SetColorWhite();
-
+	_movecol->SetColorBlack();
 	
 
 
@@ -53,6 +56,8 @@ void Monster_mad::Update()
 	_col->Update();
 	_mobcol->Update();
 	_trans->Update();
+	_movecol->Update();
+
 }
 
 void Monster_mad::Render()
@@ -64,7 +69,7 @@ void Monster_mad::Render()
 	_sprites[_curState]->Render();
 	_col->Render();
 	_mobcol->Render();
-
+	_movecol->Render();
 }
 
 void Monster_mad::PostRender()
@@ -75,8 +80,8 @@ void Monster_mad::PostRender()
 	//ImGui::Text("_curStateStartPos.y : %f", _actions[_curState]->GetStartPos().y);
 	ImGui::Text("Pos.x : %f", _col->GetTransform()->GetPos().x);
 	ImGui::Text("Pos.y : %f", _col->GetTransform()->GetPos().y);
-	ImGui::Text("Hp : %f", Hp);
-	ImGui::Text("Damage : %f", Damage);
+	ImGui::Text("Hp : %f", _Hp);
+	ImGui::Text("Damage : %f", _Damage);
 	//ImGui::Text("_attack : %f", _attackKey);
 	
 }
@@ -129,7 +134,7 @@ void Monster_mad::Input()
 
 }
 
-void Monster_mad::Attack()
+void Monster_mad::Attack(shared_ptr<CircleCollider> other)
 {
 	
 	_attackKey += DELTA_TIME;
@@ -137,7 +142,7 @@ void Monster_mad::Attack()
 	if (_attackKey >= 1.0f)
 	{
 		_attackKey = 0.0f;
-		
+		_isAttack = false;
 	}
 
 
@@ -147,18 +152,41 @@ void Monster_mad::Attack()
 	if (_attackKey >= 0.9)
 	{
 		_attackKey = 0.0f;
+		_isAttack = false;
 	}
 	if (_attackKey >= 0.0f && _attackKey <= 0.4f)
 	{
-		Damage = 30.0f;
+		_Damage = 30.0f;
 		SetAction(Mob_ATTACK1);
-		_mobcol->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
+
+		if (other->GetTransform()->GetPos().x - this->GetCol()->GetTransform()->GetPos().x >= 0.0f)
+		{
+			_mobcol->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
+			_isAttack = true;
+		}
+		else if (other->GetTransform()->GetPos().x - this->GetCol()->GetTransform()->GetPos().x < 0.0f)
+		{
+			_mobcol->GetTransform()->SetPosition(Vector2(-40.0f, 0.0f));
+			_isAttack = true;
+		}
 	}
 	else if (_attackKey >= 0.5f && _attackKey <= 0.9f)
 	{
 		SetAction(Mob_ATTACK2);
 		_mobcol->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
-		Damage = 40.0f;
+		_Damage = 40.0f;
+
+		if (other->GetTransform()->GetPos().x - this->GetCol()->GetTransform()->GetPos().x >= 0.0f)
+		{
+			_mobcol->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
+			_isAttack = true;
+		}
+		else if (other->GetTransform()->GetPos().x - this->GetCol()->GetTransform()->GetPos().x < 0.0f)
+		{
+			_mobcol->GetTransform()->SetPosition(Vector2(-40.0f, 0.0f));
+			_isAttack = true;
+		}
+
 	}
 
 	

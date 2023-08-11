@@ -36,10 +36,13 @@ public:
 		}
 	}
 
+	virtual float Damage() { return _Damage; }
+	virtual float Hp() { return _Hp; }
+
 
 protected:
-	float Hp;
-	float Damage;
+	float _Hp;
+	float _Damage;
 	
 	vector<shared_ptr<Action>> _actions;
 	shared_ptr<CircleCollider> _col;
