@@ -4,7 +4,7 @@
 Player::Player()
 {
 	_Hp = 100.0f;
-	_Damage = 20.0f;
+	_Damage = 200.0f;
 
 	_col = make_shared<CircleCollider>(50);
 	_playercol2 = make_shared<CircleCollider>(40);
@@ -38,69 +38,77 @@ Player::~Player()
 
 void Player::Update()
 {
-	_playercol2->SetColorBlue();
-	_actions[_curState]->Update();
-
-	_sprites[_curState]->SetCurClip(_actions[_curState]->GetCurClip());
-	_sprites[_curState]->Update();
-
-	_col->Update();
-	_trans->Update();
-	_playercol2->Update();
-	
-
-	if (_curState != IDLE)
+	if (_Hp > 0.0f)
 	{
-		_key += DELTA_TIME;
-	}
+		_playercol2->SetColorBlue();
+		_actions[_curState]->Update();
 
-	if (_curState == ATTACK1 || _curState == ATTACK2 || _curState == ATTACK3 || _curState == ATTACK4)
-	{
-		_attackkey += DELTA_TIME;
-	}
-	if (_curState != SKILL)
-	{
-		timer = 0;
-	}
-	
+		_sprites[_curState]->SetCurClip(_actions[_curState]->GetCurClip());
+		_sprites[_curState]->Update();
 
-	if (_key >= 0.3f &&  _curState == IDLE)
-		_key = 0;
+		_col->Update();
+		_trans->Update();
+		_playercol2->Update();
 
-	
+
+		if (_curState != IDLE)
+		{
+			_key += DELTA_TIME;
+		}
+
+		if (_curState == ATTACK1 || _curState == ATTACK2 || _curState == ATTACK3 || _curState == ATTACK4)
+		{
+			_attackkey += DELTA_TIME;
+		}
+		if (_curState != SKILL)
+		{
+			timer = 0;
+		}
+
+
+		if (_key >= 0.3f && _curState == IDLE)
+			_key = 0;
+
+
 
 		MOVE();
-	
-		Backstep();
-	
 
+		Backstep();
+
+	}
+	else
+		return;
 }
 
 void Player::Render()
 {
-	
-	_trans->SetWorldBuffer(0);
-	_sprites[_curState]->Render();
-	_col->Render();
-	_playercol2->Render();
-
+	if (_Hp > 0.0f)
+	{
+		_trans->SetWorldBuffer(0);
+		_sprites[_curState]->Render();
+		_col->Render();
+		_playercol2->Render();
+	}
+	else
+		return;
 }
 
 void Player::PostRender()
 {
 
 	ImGui::Text("Player");
-	ImGui::Text("_key : %1f", _key);
-	ImGui::Text("_attackkey : %1f", _attackkey);
-	ImGui::Text("_value : %d", _value);
-	ImGui::Text("_curState : %d", _curState);
-	ImGui::Text("Pos.x : %f", _col->GetTransform()->GetPos().x);
-	ImGui::Text("Pos.y : %f", _col->GetTransform()->GetPos().y);
-	ImGui::Text("WorldPos.x : %f", _col->GetTransform()->GetWorldPos().x);
-	ImGui::Text("WorldPos.y : %f", _col->GetTransform()->GetWorldPos().y);
+	//ImGui::Text("_key : %1f", _key);
+	//ImGui::Text("_attackkey : %1f", _attackkey);
+	//ImGui::Text("_value : %d", _value);
+	//ImGui::Text("_curState : %d", _curState);
+	//ImGui::Text("Pos.x : %f", _col->GetTransform()->GetPos().x);
+	//ImGui::Text("Pos.y : %f", _col->GetTransform()->GetPos().y);
+	//ImGui::Text("WorldPos.x : %f", _col->GetTransform()->GetWorldPos().x);
+	//ImGui::Text("WorldPos.y : %f", _col->GetTransform()->GetWorldPos().y);
 	ImGui::Text("HP : %f", _Hp);
 	ImGui::Text("Damage : %f", _Damage);
 	ImGui::Text("timer : %f", timer);
+	ImGui::Text("invincibility : %f", invincibility);
 
 
 
@@ -347,6 +355,11 @@ void Player::SetAction(State state)
 	_actions[_curState]->Play();
 	_oldState = _curState;
 }
+
+void Player::deda()
+{
+}
+
 
 Player::State Player::GetCurState()
 {

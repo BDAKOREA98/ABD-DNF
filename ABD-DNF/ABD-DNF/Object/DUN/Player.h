@@ -33,14 +33,21 @@ public:
 	
 	void SetAction(State state);
 	
+	void deda();
+
+
 	shared_ptr<CircleCollider> GetAttack() {return _playercol2;	}
 
 	State GetCurState();
 
+
+
 	bool AttackT_F() { return _isAttack; }
+	float invincibility = 0.0f;
 
 private:
 	bool _isAttack = false;
+
 
 	
 

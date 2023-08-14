@@ -5,13 +5,13 @@ Monster_mad::Monster_mad()
 {
 
 	_Hp = 500.0f;
-	_Damage = 30.0f;
+	_Damage = 1.0f;
 
 	_col = make_shared<CircleCollider>(50);
 	
 	
 	_mobcol = make_shared<CircleCollider>(40);
-	_movecol = make_shared<CircleCollider>(70);
+	_movecol = make_shared<CircleCollider>(65);
 	
 	_trans = make_shared<Transform>();
 	_col->GetTransform()->SetPosition(CENTER);
@@ -46,30 +46,41 @@ Monster_mad::~Monster_mad()
 
 void Monster_mad::Update()
 {
-	_actions[_curState]->Update();
+	if (_Hp > 0.0f)
+	{
+		_actions[_curState]->Update();
 
-	_sprites[_curState]->SetCurClip(_actions[_curState]->GetCurClip());
-	_sprites[_curState]->Update();
+		_sprites[_curState]->SetCurClip(_actions[_curState]->GetCurClip());
+		_sprites[_curState]->Update();
 
-	Input();
-	
-	_col->Update();
-	_mobcol->Update();
-	_trans->Update();
-	_movecol->Update();
+		Input();
 
+		_col->Update();
+		_mobcol->Update();
+		_trans->Update();
+		_movecol->Update();
+	}
+	else
+	{
+		
+		_col->GetTransform()->SetPosition({ -10000.0f, -10000.0f });
+	}
 }
 
 void Monster_mad::Render()
 {
-
-	//ADDITIVE->SetState();
-	_trans->SetWorldBuffer(0);
-	//_filter->SetPS_Buffer(2);
-	_sprites[_curState]->Render();
-	_col->Render();
-	_mobcol->Render();
-	_movecol->Render();
+	if (_Hp > 0.0f)
+	{
+		//ADDITIVE->SetState();
+		_trans->SetWorldBuffer(0);
+		//_filter->SetPS_Buffer(2);
+		_sprites[_curState]->Render();
+		_col->Render();
+		_mobcol->Render();
+		_movecol->Render();
+	}
+	else
+		return;
 }
 
 void Monster_mad::PostRender()
@@ -137,6 +148,7 @@ void Monster_mad::Input()
 void Monster_mad::Attack(shared_ptr<CircleCollider> other)
 {
 	
+
 	_attackKey += DELTA_TIME;
 	
 	if (_attackKey >= 1.0f)
@@ -156,35 +168,49 @@ void Monster_mad::Attack(shared_ptr<CircleCollider> other)
 	}
 	if (_attackKey >= 0.0f && _attackKey <= 0.4f)
 	{
-		_Damage = 30.0f;
+		_Damage = 10.0f;
 		SetAction(Mob_ATTACK1);
 
 		if (other->GetTransform()->GetPos().x - this->GetCol()->GetTransform()->GetPos().x >= 0.0f)
 		{
-			_mobcol->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
-			_isAttack = true;
+		
+				_isAttack = true;
+				_mobcol->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
+		
 		}
 		else if (other->GetTransform()->GetPos().x - this->GetCol()->GetTransform()->GetPos().x < 0.0f)
 		{
-			_mobcol->GetTransform()->SetPosition(Vector2(-40.0f, 0.0f));
-			_isAttack = true;
+		
+
+				_isAttack = true;
+				_mobcol->GetTransform()->SetPosition(Vector2(-40.0f, 0.0f));
+		
+
 		}
 	}
 	else if (_attackKey >= 0.5f && _attackKey <= 0.9f)
 	{
 		SetAction(Mob_ATTACK2);
-		_mobcol->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
-		_Damage = 40.0f;
+		
+		_Damage = 20.0f;
 
 		if (other->GetTransform()->GetPos().x - this->GetCol()->GetTransform()->GetPos().x >= 0.0f)
 		{
-			_mobcol->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
-			_isAttack = true;
+		
+
+				_isAttack = true;
+				_mobcol->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
+		
 		}
 		else if (other->GetTransform()->GetPos().x - this->GetCol()->GetTransform()->GetPos().x < 0.0f)
 		{
-			_mobcol->GetTransform()->SetPosition(Vector2(-40.0f, 0.0f));
-			_isAttack = true;
+		
+		
+
+				_isAttack = true;
+				_mobcol->GetTransform()->SetPosition(Vector2(-40.0f, 0.0f));
+		
+
 		}
 
 	}

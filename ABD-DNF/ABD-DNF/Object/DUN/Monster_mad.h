@@ -28,16 +28,16 @@ public:
 	void Input();
 	void Attack(shared_ptr<CircleCollider> other);
 	bool AttackT_F() { return _isAttack; }
+	void AttackChange(bool active) { _isAttack = active; }
 	State GetcurState() { return _curState; }
 
 	shared_ptr<CircleCollider> GetMobcol() { return _mobcol; }
 	shared_ptr<CircleCollider> GetMovecol() { return _movecol; }
-
+	float GetAttackKey() { return _attackKey; }
 private:
 
 	bool _isAttack = false;
 	float _attackKey = 0.0f;
-
 
 
 	State _state = State::Mob_IDLE;
