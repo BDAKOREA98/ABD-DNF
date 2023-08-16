@@ -103,6 +103,7 @@ using namespace Microsoft::WRL;
 #include "Object/DUN/Monster_mad.h"
 // Scene
 #include "Scene/Scene.h"
+#include "Scene/SceneManager.h"
 
 // Program
 #include "Program/Program.h"

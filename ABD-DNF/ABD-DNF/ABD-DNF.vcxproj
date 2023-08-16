@@ -172,6 +172,7 @@
     <ClInclude Include="Framework\Utility\tinyxml2.h" />
     <ClInclude Include="Object\BasicObject\Quad.h" />
     <ClInclude Include="Object\DUN\Player.h" />
+    <ClInclude Include="Scene\SceneManager.h" />
     <ClInclude Include="Scene\DNF\DNF.h" />
     <ClInclude Include="Framework\Device\Device.h" />
     <ClInclude Include="framework.h" />
@@ -226,6 +227,7 @@
     <ClCompile Include="Framework\Utility\tinyxml2.cpp" />
     <ClCompile Include="Object\BasicObject\Quad.cpp" />
     <ClCompile Include="Object\DUN\Player.cpp" />
+    <ClCompile Include="Scene\SceneManager.cpp" />
     <ClCompile Include="Scene\DNF\DNF.cpp" />
     <ClCompile Include="Framework\Device\Device.cpp" />
     <ClCompile Include="Framework\Utility\InputManager.cpp" />

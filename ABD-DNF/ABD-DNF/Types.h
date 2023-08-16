@@ -16,6 +16,8 @@
 #define BLACK		{0.0f,0.0f,0.0f,1.0f}
 #define WHITE		{1.0f,1.0f,1.0f,1.0f}
 
+#define SCENE   SceneManager::GetInstance()
+
 #define DEVICE	Device::GetInstance()->GetDevice()
 #define DC		Device::GetInstance()->GetDC()
 

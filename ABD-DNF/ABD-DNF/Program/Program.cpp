@@ -7,7 +7,7 @@ Program::Program()
 {
 	srand(static_cast<unsigned int>(time(nullptr)));
 
-	_curScene = make_shared<DNF>();
+	
 
 	Timer::GetInstance()->LockFPS(60);
 }
@@ -21,10 +21,11 @@ void Program::Update()
 	Timer::GetInstance()->Update();
 	InputManager::GetInstance()->Update();
 	CAMERA->Update();
-	_curScene->Update();
+	//_curScene->Update();
 
 	EFFECT->Update();
 	SOUND->Update();
+	SCENE->Update();
 }
 
 void Program::Render()
@@ -40,16 +41,17 @@ void Program::Render()
 
 	ALPHA->SetState();
 	//ADDITIVE->SetState();
-	_curScene->Render();
+	//_curScene->Render();
 	EFFECT->Render();
+	SCENE->Render();
 
 	ImGui::Text("FPS : %d", FPS);
 	ImGui::Text("DeltaTime : %1f", DELTA_TIME);
 	ImGui::Text("RunTime : %1f", RUN_TIME);
 	CAMERA->PostRender();
-
+	SCENE->PostRender();
 	CAMERA->SetUIViewBuffer();
-	_curScene->PostRender();
+	//_curScene->PostRender();
 	ImGui::Render();
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 

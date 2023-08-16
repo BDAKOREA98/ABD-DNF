@@ -76,8 +76,10 @@ void Player::Update()
 		Backstep();
 
 	}
-	else
-		return;
+	else if (_Hp <= 0.0f)
+	{
+		_col->GetTransform()->SetPosition({ -1000.0f,-1000.0f });
+	}
 }
 
 void Player::Render()
@@ -118,223 +120,230 @@ void Player::PostRender()
 void Player::MOVE()
 {
 #pragma region MOVE
-	if (KEY_DOWN(VK_LEFT))
-	{	
-		SetAction(WALK);
-		_col->GetTransform()->SetScale({ -1, +1 });
-	}
-	else if (KEY_UP(VK_LEFT) && _curState == WALK)
-	{
-		SetAction(IDLE);
-	}
-	if (KEY_DOWN(VK_RIGHT))
-	{
-		
-		SetAction(WALK);
-		_col->GetTransform()->SetScale({ +1, +1 });
-	
-		
-	}
-	else if (KEY_UP(VK_RIGHT) && _curState == WALK)
-	{
-		SetAction(IDLE);
-	}
 
-	if (_key >= 0.01f && KEY_DOWN(VK_LEFT))
+	if (_Hp > 0.0f)
 	{
-		
-		SetAction(RUN);
-		
-	}
-	else if (KEY_UP(VK_LEFT) && _curState == RUN)
-	{
-		SetAction(IDLE);
-	}
+		if (KEY_DOWN(VK_LEFT))
+		{
+			SetAction(WALK);
+			_col->GetTransform()->SetScale({ -1, +1 });
+		}
+		else if (KEY_UP(VK_LEFT) && _curState == WALK)
+		{
+			SetAction(IDLE);
+		}
+		if (KEY_DOWN(VK_RIGHT))
+		{
 
-	if (_key >= 0.01f && KEY_DOWN(VK_RIGHT))
-	{
-	
-		SetAction(RUN);
-		
-	}
-	else if (KEY_UP(VK_RIGHT) && _curState == RUN)
-	{
-		SetAction(IDLE);
-	}
-
-	if (_curState == IDLE && KEY_DOWN(VK_UP))
-	{
-		SetAction(WALK);
-	}
-	else if (KEY_UP(VK_UP) && KEY_UP(VK_LEFT))
-	{
-		SetAction(IDLE);
-	}
-	else if (KEY_UP(VK_UP) && KEY_UP(VK_RIGHT))
-	{
-		SetAction(IDLE);
-	}
-	else if (KEY_UP(VK_UP) && KEY_UP(VK_RIGHT) && KEY_UP(VK_LEFT))
-	{
-		SetAction(IDLE);
-	}
-
-	if (_curState == IDLE && KEY_DOWN(VK_DOWN))
-	{
-		SetAction(WALK);
-	}
-	else if (KEY_UP(VK_DOWN) && KEY_UP(VK_LEFT) )
-	{
-		SetAction(IDLE);
-	}
-	else if (KEY_UP(VK_DOWN) && KEY_UP(VK_RIGHT))
-	{
-		SetAction(IDLE);
-	}
-	else if (KEY_UP(VK_DOWN) && KEY_UP(VK_RIGHT) && KEY_UP(VK_LEFT))
-	{
-		SetAction(IDLE);
-	}
+			SetAction(WALK);
+			_col->GetTransform()->SetScale({ +1, +1 });
 
 
-	
+		}
+		else if (KEY_UP(VK_RIGHT) && _curState == WALK)
+		{
+			SetAction(IDLE);
+		}
+
+		if (_key >= 0.01f && KEY_DOWN(VK_LEFT))
+		{
+
+			SetAction(RUN);
+
+		}
+		else if (KEY_UP(VK_LEFT) && _curState == RUN)
+		{
+			SetAction(IDLE);
+		}
+
+		if (_key >= 0.01f && KEY_DOWN(VK_RIGHT))
+		{
+
+			SetAction(RUN);
+
+		}
+		else if (KEY_UP(VK_RIGHT) && _curState == RUN)
+		{
+			SetAction(IDLE);
+		}
+
+		if (_curState == IDLE && KEY_DOWN(VK_UP))
+		{
+			SetAction(WALK);
+		}
+		else if (KEY_UP(VK_UP) && KEY_UP(VK_LEFT))
+		{
+			SetAction(IDLE);
+		}
+		else if (KEY_UP(VK_UP) && KEY_UP(VK_RIGHT))
+		{
+			SetAction(IDLE);
+		}
+		else if (KEY_UP(VK_UP) && KEY_UP(VK_RIGHT) && KEY_UP(VK_LEFT))
+		{
+			SetAction(IDLE);
+		}
+
+		if (_curState == IDLE && KEY_DOWN(VK_DOWN))
+		{
+			SetAction(WALK);
+		}
+		else if (KEY_UP(VK_DOWN) && KEY_UP(VK_LEFT))
+		{
+			SetAction(IDLE);
+		}
+		else if (KEY_UP(VK_DOWN) && KEY_UP(VK_RIGHT))
+		{
+			SetAction(IDLE);
+		}
+		else if (KEY_UP(VK_DOWN) && KEY_UP(VK_RIGHT) && KEY_UP(VK_LEFT))
+		{
+			SetAction(IDLE);
+		}
 
 
-	
+
+
+
+
 #pragma endregion
 
-	if (_curState == WALK)
-	{
-		if (KEY_PRESS(VK_LEFT))
+		if (_curState == WALK)
 		{
-			
-			_col->GetTransform()->AddVector2(-RIGHT_VECTOR * DELTA_TIME * 100.0f);
+			if (KEY_PRESS(VK_LEFT))
+			{
+
+				_col->GetTransform()->AddVector2(-RIGHT_VECTOR * DELTA_TIME * 100.0f);
+			}
+			if (KEY_PRESS(VK_RIGHT))
+			{
+				_col->GetTransform()->AddVector2(RIGHT_VECTOR * DELTA_TIME * 100.0f);
+			}
+			if (KEY_PRESS(VK_UP))
+			{
+				_col->GetTransform()->AddVector2(UP_VECTOR * DELTA_TIME * 100.0f);
+			}
+			if (KEY_PRESS(VK_DOWN))
+			{
+
+				_col->GetTransform()->AddVector2(-UP_VECTOR * DELTA_TIME * 100.0f);
+			}
 		}
-		if (KEY_PRESS(VK_RIGHT)  )
+		else if (_curState == RUN)
 		{
-			_col->GetTransform()->AddVector2(RIGHT_VECTOR * DELTA_TIME * 100.0f);
-		}
-		if (KEY_PRESS(VK_UP)   )
-		{
-			_col->GetTransform()->AddVector2(UP_VECTOR * DELTA_TIME * 100.0f);
-		}
-		if (KEY_PRESS(VK_DOWN)  )
-		{
-			
-			_col->GetTransform()->AddVector2(-UP_VECTOR * DELTA_TIME * 100.0f);
-		}
-	}
-	else if (_curState == RUN)
-	{
-		if (KEY_PRESS(VK_LEFT)  )
-		{
-			_col->GetTransform()->AddVector2(-RIGHT_VECTOR * DELTA_TIME * 300.0f);
-		}
-		if (KEY_PRESS(VK_RIGHT)  )
-		{
-			_col->GetTransform()->AddVector2(RIGHT_VECTOR * DELTA_TIME * 300.0f);
-		}
-		if (KEY_PRESS(VK_UP)  )
-		{
-			_col->GetTransform()->AddVector2(UP_VECTOR * DELTA_TIME * 300.0f);
-		}
-		if (KEY_PRESS(VK_DOWN)  )
-		{
-			_col->GetTransform()->AddVector2(-UP_VECTOR * DELTA_TIME * 300.0f);
+			if (KEY_PRESS(VK_LEFT))
+			{
+				_col->GetTransform()->AddVector2(-RIGHT_VECTOR * DELTA_TIME * 300.0f);
+			}
+			if (KEY_PRESS(VK_RIGHT))
+			{
+				_col->GetTransform()->AddVector2(RIGHT_VECTOR * DELTA_TIME * 300.0f);
+			}
+			if (KEY_PRESS(VK_UP))
+			{
+				_col->GetTransform()->AddVector2(UP_VECTOR * DELTA_TIME * 300.0f);
+			}
+			if (KEY_PRESS(VK_DOWN))
+			{
+				_col->GetTransform()->AddVector2(-UP_VECTOR * DELTA_TIME * 300.0f);
+			}
 		}
 	}
 }
 
 void Player::Attack()
 {
-
-	if (_curState == IDLE || _curState == WALK || _curState == RUN)
+	if (_Hp > 0.0f)
 	{
-		_playercol2->GetTransform()->SetPosition({0.0f,0.0f});
-		_value = 0;
-		_isAttack = false;
-	}
+		if (_curState == IDLE || _curState == WALK || _curState == RUN)
+		{
+			_playercol2->GetTransform()->SetPosition({ 0.0f,0.0f });
+			_value = 0;
+			_isAttack = false;
+		}
 
 
 
-	if (_curState != RUN)
-	{
-		if (KEY_DOWN('X') && _value == 0 && _attackkey >= 0.00f)
+		if (_curState != RUN)
 		{
-			SetAction(ATTACK1);
-			_value++;
-			_playercol2->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
-			_isAttack = true;
+			if (KEY_DOWN('X') && _value == 0 && _attackkey >= 0.00f)
+			{
+				SetAction(ATTACK1);
+				_value++;
+				_playercol2->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
+				_isAttack = true;
+			}
+			else if (KEY_DOWN('X') && _value == 1 && _attackkey >= 0.8f)
+			{
+				SetAction(ATTACK2);
+				_value++;
+				_playercol2->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
+
+			}
+			else if (KEY_DOWN('X') && _value == 2 && _attackkey >= 1.5f)
+			{
+				SetAction(ATTACK3);
+				_value++;
+				_playercol2->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
+
+			}
+			else if (KEY_DOWN('X') && _value == 3 && _attackkey >= 2.2f)
+			{
+				SetAction(ATTACK4);
+				_playercol2->GetTransform()->SetPosition(Vector2(60.0f, 0.0f));
+				_value++;
+
+			}
+			else if (KEY_DOWN('X') && _value >= 4 && _attackkey >= 2.9f)
+			{
+				_value = 0;
+				_attackkey = 0;
+
+			}
+
+
 		}
-		else if (KEY_DOWN('X') && _value == 1 && _attackkey >= 0.8f)
-		{
-			SetAction(ATTACK2);
-			_value++;
-			_playercol2->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
-			
-		}
-		else if (KEY_DOWN('X') && _value == 2 && _attackkey >= 1.5f)
-		{
-			SetAction(ATTACK3);
-			_value++;
-			_playercol2->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
-			
-		}
-		else if (KEY_DOWN('X') && _value == 3 && _attackkey >= 2.2f)
+
+		if (KEY_DOWN('X') && _curState == RUN)
 		{
 			SetAction(ATTACK4);
 			_playercol2->GetTransform()->SetPosition(Vector2(60.0f, 0.0f));
-			_value++;
-			
+			_isAttack = true;
+
 		}
-		else if (KEY_DOWN('X') && _value >= 4 && _attackkey >= 2.9f)
-		{
-			_value = 0;
-			_attackkey = 0;
-			
-		}
-		
+
 
 	}
-
-	if (KEY_DOWN('X') && _curState == RUN)
-	{
-		SetAction(ATTACK4);
-		_playercol2->GetTransform()->SetPosition(Vector2(60.0f, 0.0f));
-		_isAttack = true;
-
-	}
-
-
-
 	
 }
 
 void Player::Backstep()
 {
+	if (_Hp > 0.0f)
+	{
+		if (KEY_DOWN(('C')) && timer == 0)
+		{
+			SetAction(SKILL);
 
-	if (KEY_DOWN(('C')) && timer == 0)
-	{
-		SetAction(SKILL);
-		
-	}
-	if (_curState == State::SKILL)
-	{
-		_attackkey = 0.0f;
-		timer += DELTA_TIME;
-		if (timer > 0.4f)
-		{
-			SetAction(IDLE);
 		}
-		if (_col->GetTransform()->GetScale().x < 0.0f)
+		if (_curState == State::SKILL)
 		{
-			_col->GetTransform()->AddVector2(RIGHT_VECTOR * 8.0);
-			_playercol2->GetTransform()->SetPosition(Vector2(0, 0));
-		}
-		else if (_col->GetTransform()->GetScale().x > 0.0f)
-		{
-			_col->GetTransform()->AddVector2(-RIGHT_VECTOR * 8.0);
-			_playercol2->GetTransform()->SetPosition(Vector2(0, 0));
+			_attackkey = 0.0f;
+			timer += DELTA_TIME;
+			if (timer > 0.4f)
+			{
+				SetAction(IDLE);
+			}
+			if (_col->GetTransform()->GetScale().x < 0.0f)
+			{
+				_col->GetTransform()->AddVector2(RIGHT_VECTOR * 8.0);
+				_playercol2->GetTransform()->SetPosition(Vector2(0, 0));
+			}
+			else if (_col->GetTransform()->GetScale().x > 0.0f)
+			{
+				_col->GetTransform()->AddVector2(-RIGHT_VECTOR * 8.0);
+				_playercol2->GetTransform()->SetPosition(Vector2(0, 0));
+			}
 		}
 	}
 }

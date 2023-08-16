@@ -58,6 +58,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     EffectManager::Create();
     SoundManager::Create();
     Camera::Create();
+    SceneManager::Create();
 
     shared_ptr<Program> program = make_shared<Program>();
 
@@ -83,6 +84,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     }
 
     // 삭제
+    SceneManager::Delete();
     Camera::Delete();
     SoundManager::Delete();
     EffectManager::Delete();
@@ -91,6 +93,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     SRVManager::Delete();
     InputManager::Delete();
     Timer::Delete();
+
 
     ImGui_ImplDX11_Shutdown();
     ImGui_ImplWin32_Shutdown();

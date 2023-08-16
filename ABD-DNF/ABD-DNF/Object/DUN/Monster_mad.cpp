@@ -46,7 +46,8 @@ Monster_mad::~Monster_mad()
 
 void Monster_mad::Update()
 {
-	if (_Hp > 0.0f)
+
+	 if (_Hp > 0.0f)
 	{
 		_actions[_curState]->Update();
 
@@ -60,16 +61,11 @@ void Monster_mad::Update()
 		_trans->Update();
 		_movecol->Update();
 	}
-	else
-	{
-		
-		_col->GetTransform()->SetPosition({ -10000.0f, -10000.0f });
-	}
 }
 
 void Monster_mad::Render()
 {
-	if (_Hp > 0.0f)
+	if (_Hp > 0.0f )
 	{
 		//ADDITIVE->SetState();
 		_trans->SetWorldBuffer(0);
@@ -115,107 +111,110 @@ void Monster_mad::SetAction(State state)
 
 void Monster_mad::Input()
 {
-	if (KEY_DOWN(VK_NUMPAD1))
+	if (_Hp > 0.0f)
 	{
-		SetAction(Mob_IDLE);
-	}
-	if (KEY_DOWN(VK_NUMPAD2))
-	{
-		SetAction(Mob_RUN);
-	}
-	if (KEY_DOWN(VK_NUMPAD3))
-	{
-		SetAction(Mob_ATTACK1);
-	}
-	if (KEY_DOWN(VK_NUMPAD4))
-	{
-		SetAction(Mob_ATTACK2);
-	}
-	
-
-	if (KEY_DOWN('O'))
-	{
-		_actions[_curState]->Pause();
-	}
-	else if (KEY_DOWN('P'))
-	{
-		_actions[_curState]->Play();
-	}
+		if (KEY_DOWN(VK_NUMPAD1))
+		{
+			SetAction(Mob_IDLE);
+		}
+		if (KEY_DOWN(VK_NUMPAD2))
+		{
+			SetAction(Mob_RUN);
+		}
+		if (KEY_DOWN(VK_NUMPAD3))
+		{
+			SetAction(Mob_ATTACK1);
+		}
+		if (KEY_DOWN(VK_NUMPAD4))
+		{
+			SetAction(Mob_ATTACK2);
+		}
 
 
+		if (KEY_DOWN('O'))
+		{
+			_actions[_curState]->Pause();
+		}
+		else if (KEY_DOWN('P'))
+		{
+			_actions[_curState]->Play();
+		}
+
+	}
 }
 
 void Monster_mad::Attack(shared_ptr<CircleCollider> other)
 {
 	
-
-	_attackKey += DELTA_TIME;
-	
-	if (_attackKey >= 1.0f)
+	if (_Hp > 0.0f)
 	{
-		_attackKey = 0.0f;
-		_isAttack = false;
-	}
+		_attackKey += DELTA_TIME;
 
-
-
-
-
-	if (_attackKey >= 0.9)
-	{
-		_attackKey = 0.0f;
-		_isAttack = false;
-	}
-	if (_attackKey >= 0.0f && _attackKey <= 0.4f)
-	{
-		_Damage = 10.0f;
-		SetAction(Mob_ATTACK1);
-
-		if (other->GetTransform()->GetPos().x - this->GetCol()->GetTransform()->GetPos().x >= 0.0f)
+		if (_attackKey >= 1.0f)
 		{
-		
-				_isAttack = true;
-				_mobcol->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
-		
+			_attackKey = 0.0f;
+			_isAttack = false;
 		}
-		else if (other->GetTransform()->GetPos().x - this->GetCol()->GetTransform()->GetPos().x < 0.0f)
+
+
+
+
+
+		if (_attackKey >= 0.9)
 		{
-		
-
-				_isAttack = true;
-				_mobcol->GetTransform()->SetPosition(Vector2(-40.0f, 0.0f));
-		
-
+			_attackKey = 0.0f;
+			_isAttack = false;
 		}
-	}
-	else if (_attackKey >= 0.5f && _attackKey <= 0.9f)
-	{
-		SetAction(Mob_ATTACK2);
-		
-		_Damage = 20.0f;
-
-		if (other->GetTransform()->GetPos().x - this->GetCol()->GetTransform()->GetPos().x >= 0.0f)
+		if (_attackKey >= 0.0f && _attackKey <= 0.4f)
 		{
-		
+			_Damage = 10.0f;
+			SetAction(Mob_ATTACK1);
+
+			if (other->GetTransform()->GetPos().x - this->GetCol()->GetTransform()->GetPos().x >= 0.0f)
+			{
 
 				_isAttack = true;
 				_mobcol->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
-		
-		}
-		else if (other->GetTransform()->GetPos().x - this->GetCol()->GetTransform()->GetPos().x < 0.0f)
-		{
-		
-		
+
+			}
+			else if (other->GetTransform()->GetPos().x - this->GetCol()->GetTransform()->GetPos().x < 0.0f)
+			{
+
 
 				_isAttack = true;
 				_mobcol->GetTransform()->SetPosition(Vector2(-40.0f, 0.0f));
-		
+
+
+			}
+		}
+		else if (_attackKey >= 0.5f && _attackKey <= 0.9f)
+		{
+			SetAction(Mob_ATTACK2);
+
+			_Damage = 20.0f;
+
+			if (other->GetTransform()->GetPos().x - this->GetCol()->GetTransform()->GetPos().x >= 0.0f)
+			{
+
+
+				_isAttack = true;
+				_mobcol->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
+
+			}
+			else if (other->GetTransform()->GetPos().x - this->GetCol()->GetTransform()->GetPos().x < 0.0f)
+			{
+
+
+
+				_isAttack = true;
+				_mobcol->GetTransform()->SetPosition(Vector2(-40.0f, 0.0f));
+
+
+			}
 
 		}
 
 	}
-
-	
 }	
 
 
