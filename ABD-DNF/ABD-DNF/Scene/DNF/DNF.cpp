@@ -26,12 +26,12 @@ void DNF::Update()
 	
 
 
-	_mob1->GetMobcol()->GetTransform()->SetPosition(Vector2(0.0f, 0.0f));
-	Monstermove();
-	MapCollision();
-	Attack();
-
-	_player->Attack();
+	//_mob1->GetMobcol()->GetTransform()->SetPosition(Vector2(0.0f, 0.0f));
+	//Monstermove();
+	//MapCollision();
+	//Attack();
+	//
+	//_player->Attack();
 
 
 	if (_player->invincibility >= 0.5f)
@@ -53,7 +53,7 @@ void DNF::Update()
 	}
 	
 		
-		_map1->Update();
+		//_map1->Update();
 		
 		
 
@@ -61,7 +61,7 @@ void DNF::Update()
 
 void DNF::Render()
 {
-	_map1->Render();
+	//_map1->Render();
 	
 		_player->Render();
 		_mob1->Render();

@@ -177,6 +177,12 @@
     <ClInclude Include="Scene\SceneManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Object\DUN\Item.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\DUN\Inventory.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ABD-DNF.cpp">
@@ -302,6 +308,12 @@
     <ClCompile Include="Scene\SceneManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Object\DUN\Item.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\DUN\Inventory.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ABD-DNF.rc">
@@ -349,6 +361,12 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="Resource\DNF\Mob\Mob_ATTACK3.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\DNF\Inventory\chaewon.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\DNF\Inventory\inventory.png">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

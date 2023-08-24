@@ -62,7 +62,6 @@ private:
 	
 	shared_ptr<CircleCollider> _playercol2;
 	
-	
 	State _state = State::IDLE;
 	
 	
@@ -72,6 +71,8 @@ private:
 	State _curState = State::IDLE;
 	State _oldState = State::IDLE;
 	
+	shared_ptr<Item> _item;
+	shared_ptr<Inventory> _inven;
 
 };
 

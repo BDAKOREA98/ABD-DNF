@@ -28,7 +28,9 @@ Player::Player()
 	
 	ChangePS(L"Shader/DNF_Player_PS.hlsl");
 
-	
+	_item = make_shared<Item>();
+	_inven = make_shared<Inventory>();
+
 	SetLEFT();
 }
 
@@ -38,6 +40,9 @@ Player::~Player()
 
 void Player::Update()
 {
+	_item->Update();
+	_inven->Update();
+
 	if (_Hp > 0.0f)
 	{
 		_playercol2->SetColorBlue();
@@ -80,10 +85,19 @@ void Player::Update()
 	{
 		_col->GetTransform()->SetPosition({ -1000.0f,-1000.0f });
 	}
+
+	if (KEY_DOWN('I'))
+	{
+		_inven->_rect->GetTransform()->SetPosition(_col->GetWorldPos());
+		//_item->_rect->GetTransform()->SetPosition(_col->GetWorldPos());
+		_inven->active = true;
+		
+	}
 }
 
 void Player::Render()
 {
+	_inven->Render();
 	if (_Hp > 0.0f)
 	{
 		_trans->SetWorldBuffer(0);
@@ -93,6 +107,8 @@ void Player::Render()
 	}
 	else
 		return;
+
+	_item->Render();
 }
 
 void Player::PostRender()
