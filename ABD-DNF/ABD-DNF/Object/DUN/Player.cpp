@@ -86,18 +86,22 @@ void Player::Update()
 		_col->GetTransform()->SetPosition({ -1000.0f,-1000.0f });
 	}
 
-	if (KEY_DOWN('I'))
+	if (KEY_DOWN('I') && _inven->active == false)
 	{
 		_inven->_rect->GetTransform()->SetPosition(_col->GetWorldPos());
 		//_item->_rect->GetTransform()->SetPosition(_col->GetWorldPos());
 		_inven->active = true;
 		
 	}
+	else if (KEY_DOWN('I') && _inven->active == true)
+	{
+		_inven->active = false;
+	}
 }
 
 void Player::Render()
 {
-	_inven->Render();
+	
 	if (_Hp > 0.0f)
 	{
 		_trans->SetWorldBuffer(0);
@@ -129,7 +133,7 @@ void Player::PostRender()
 	ImGui::Text("invincibility : %f", invincibility);
 
 
-
+	_inven->Render();
 }
 
 

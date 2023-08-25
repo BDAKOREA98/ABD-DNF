@@ -5,28 +5,32 @@ Inventory::Inventory()
 {
 	_quad = make_shared<Quad>(L"Resource/DNF/Inventory/inventory.png");
 	_trans = make_shared<Transform>();
-	_rect = make_shared<RectCollider>(Vector2(50.0f, 50.0f));
+	_rect = make_shared<RectCollider>(_quad->GetImageSize());
 
 	_trans->SetParent(_rect->GetTransform());
 
+	_rect->GetTransform()->SetPosition(Vector2(100, 100));
 	
+	_items.resize(32);
+
 	
 
-	_slots.reserve(32);
-	
-	for (int i = 0; i < 32; i++)
-
+	for (int y = 0; y < _poolCountY; y++)
 	{
-		_slots.push_back(_slots[i] = make_shared<RectCollider>(26.0f, 26.0f));
+		_items.reserve(32);
+
+		for (int x = 0; x < _poolCountX; x++)
+		{
+			shared_ptr<Item> item = make_shared<Item>();
+			item->_rect->GetTransform()->SetParent(_rect->GetTransform());
+			
+			item->_rect->GetTransform()->SetPosition(Vector2 ((x * 32) - 115 , (y * 32) - 80));
+
+			_items[y].push_back(item);
+		}
 	}
 
 
-	
-	for (int i = 0; i < 32; i++)
-	{
-		_slots[i]->GetTransform()->SetParent(_rect->GetTransform());
-		_slots[i]->GetTransform()->SetPosition(Vector2(0.0f, 10.0f * i));
-	}
 }
 
 Inventory::~Inventory()
@@ -39,11 +43,15 @@ void Inventory::Update()
 	_quad->Update();
 	_trans->Update();
 
-	for (int i = 0; i < _slots.size(); i++)
-	{
-		_slots[i]->Update();
-	}
 	
+	for (auto itemarr : _items)
+	{
+		for (auto item : itemarr)
+		{
+			item->Update();
+		}
+	}
+
 }
 
 void Inventory::Render()
@@ -53,11 +61,17 @@ void Inventory::Render()
 		_trans->SetWorldBuffer(0);
 		_quad->Render();
 		_rect->Render();
-		for (int i = 0; i < _slots.size(); i++)
+	
+		for (auto itemarr : _items)
 		{
-			_slots[i]->Render();
+			for (auto item : itemarr)
+			{
+				item->Render();
+			}
 		}
 	}
+
+	
 
 
 }

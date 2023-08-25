@@ -3,9 +3,9 @@
 
 Item::Item()
 {
-	_quad = make_shared<Quad>(L"", Vector2(26.0f, 26.0f));
+	_quad = make_shared<Quad>(L"Resource/DNF/Inventory/chaewon.png", Vector2(26.0f, 26.0f));
 	_trans = make_shared<Transform>();
-	_rect = make_shared<RectCollider>(Vector2(26.0f, 26.0f));
+	_rect = make_shared<RectCollider>(Vector2(30.0f, 30.0f));
 
 	_trans->SetParent(_rect->GetTransform());
 
