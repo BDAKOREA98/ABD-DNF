@@ -4,7 +4,7 @@
 Monster_mad::Monster_mad()
 {
 
-	_Hp = 500.0f;
+	_Hp = 000.0f;
 	_Damage = 1.0f;
 
 	_col = make_shared<CircleCollider>(50);
