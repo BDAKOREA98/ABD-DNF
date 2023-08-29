@@ -11,6 +11,7 @@ public:
 	virtual void Render();
 	void Drag();
 	void Equipment();
+	void CreateInven();
 
 public:
 	shared_ptr<RectCollider> _rect;
@@ -25,6 +26,8 @@ public:
 	UINT _poolCountY = 4;
 
 	vector<vector<shared_ptr<Item>>> _items;
+	vector<vector<shared_ptr<Item>>> _haven;
+
 	vector<shared_ptr<Item>> _equipment;
 
 	bool active = false;

@@ -21,30 +21,10 @@ Inventory::Inventory()
 	
 	_equipment.resize(10);
 	
-	for (int i = 0; i < _equipment.size(); i++)
-	{
-		_equipment[i] = make_shared<Item>();
-		_equipment[i]->_rect->GetTransform()->SetParent(_rect->GetTransform());
-	}
+	_haven.resize(32);
 
 
-
-	for (int y = 0; y < _poolCountY; y++)
-	{
-		_items.reserve(32);
-
-		for (int x = 0; x < _poolCountX; x++)
-		{
-			shared_ptr<Item> item = make_shared<Item>();
-			item->_rect->GetTransform()->SetParent(_rect->GetTransform());
-			
-			item->_rect->GetTransform()->SetPosition(Vector2 ((x * 32) - 115 , (y * 32) - 80));
-
-			_items[y].push_back(item);
-		}
-	}
-
-
+	CreateInven();
 }
 
 Inventory::~Inventory()
@@ -69,6 +49,15 @@ void Inventory::Update()
 		for (auto item : itemarr)
 		{
 			item->Update();
+			item->dragactive = false;
+		}
+	}
+	for (auto havenarr : _haven)
+	{
+		for (auto haven : havenarr)
+		{
+			haven->Update();
+			
 		}
 	}
 
@@ -94,6 +83,14 @@ void Inventory::Render()
 		for (int i = 0; i < _equipment.size(); i++)
 		{
 			_equipment[i]->Render();
+		}
+
+		for (auto havenarr : _haven)
+		{
+			for (auto haven : havenarr)
+			{
+				haven->Render();
+			}
 		}
 
 	}
@@ -132,4 +129,46 @@ void Inventory::Equipment()
 	_equipment[9]->_rect->GetTransform()->SetPosition(Vector2(+112.0f, 110.0f));
 
 
+}
+
+void Inventory::CreateInven()
+{
+	for (int i = 0; i < _equipment.size(); i++)
+	{
+		_equipment[i] = make_shared<Item>();
+		_equipment[i]->_rect->GetTransform()->SetParent(_rect->GetTransform());
+	}
+
+
+
+	for (int y = 0; y < _poolCountY; y++)
+	{
+		_items.reserve(32);
+
+		for (int x = 0; x < _poolCountX; x++)
+		{
+			shared_ptr<Item> item = make_shared<Item>();
+			item->_rect->GetTransform()->SetParent(_rect->GetTransform());
+
+			item->_rect->GetTransform()->SetPosition(Vector2((x * 32) - 115, (y * 32) - 80));
+
+			_items[y].push_back(item);
+		}
+	}
+
+	for (int y = 0; y < _poolCountY; y++)
+	{
+		_haven.reserve(32);
+
+		for (int x = 0; x < _poolCountX; x++)
+		{
+			shared_ptr<Item> item = make_shared<Item>();
+			item->_rect->GetTransform()->SetParent(_rect->GetTransform());
+
+			item->_rect->GetTransform()->SetPosition(Vector2((x * 32) - 115, (y * 32) - 80));
+
+			_haven[y].push_back(item);
+		}
+	}
+	
 }

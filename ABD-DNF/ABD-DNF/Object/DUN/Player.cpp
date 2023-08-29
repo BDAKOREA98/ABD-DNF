@@ -32,6 +32,9 @@ Player::Player()
 	_inven = make_shared<Inventory>();
 
 	SetLEFT();
+
+	_inven->_haven[3][0]->SetQuad(L"Resource/DNF/Inventory/chaewon.png");
+
 }
 
 Player::~Player()
