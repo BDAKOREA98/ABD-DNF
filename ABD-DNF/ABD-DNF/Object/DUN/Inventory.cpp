@@ -106,6 +106,31 @@ void Inventory::Drag()
 	{
 		_rect->GetTransform()->SetPosition({W_MOUSE_POS.x, W_MOUSE_POS.y - 200.0f});
 	}
+	for (auto havenarr : _haven)
+	{
+		for (auto haven : havenarr)
+		{
+			if (KEY_UP(VK_LBUTTON))
+			{
+				itemdrag = false;
+			}
+			if (KEY_PRESS(VK_LBUTTON)&&haven->_rect->IsCollision(W_MOUSE_POS))
+			{
+				
+				itemdrag = true;
+			}
+			if (itemdrag)
+			{
+				if (haven->_rect->IsCollision(W_MOUSE_POS))
+				{
+					haven->_rect->GetTransform()->SetPosition({ S_MOUSE_POS.x, S_MOUSE_POS.y });
+				}
+			}
+			
+		}
+	}
+
+
 
 }
 

@@ -34,6 +34,7 @@ Player::Player()
 	SetLEFT();
 
 	_inven->_haven[3][0]->SetQuad(L"Resource/DNF/Inventory/chaewon.png");
+	_inven->_haven[1][0]->SetQuad(L"Resource/DNF/Inventory/chaewon.png");
 
 }
 

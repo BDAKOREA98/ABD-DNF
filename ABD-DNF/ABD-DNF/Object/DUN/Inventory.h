@@ -12,7 +12,8 @@ public:
 	void Drag();
 	void Equipment();
 	void CreateInven();
-
+	bool itemdrag = false;
+	bool active = false;
 public:
 	shared_ptr<RectCollider> _rect;
 	shared_ptr<RectCollider> _dragbar;
@@ -30,7 +31,7 @@ public:
 
 	vector<shared_ptr<Item>> _equipment;
 
-	bool active = false;
+	
 
 };
 
