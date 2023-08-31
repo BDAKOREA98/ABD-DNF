@@ -12,6 +12,9 @@ public:
 	void Drag();
 	void Equipment();
 	void CreateInven();
+
+
+
 	bool itemdrag = false;
 	bool active = false;
 public:

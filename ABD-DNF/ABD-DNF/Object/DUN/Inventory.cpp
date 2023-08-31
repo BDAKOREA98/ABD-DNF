@@ -56,10 +56,14 @@ void Inventory::Update()
 	{
 		for (auto haven : havenarr)
 		{
+			
 			haven->Update();
 			
 		}
 	}
+	
+	
+
 
 }
 
@@ -110,23 +114,41 @@ void Inventory::Drag()
 	{
 		for (auto haven : havenarr)
 		{
+
+
 			if (KEY_UP(VK_LBUTTON))
 			{
 				itemdrag = false;
+				haven->dragactive = false;
+				
+				for (auto equipment : _equipment)
+				{
+					if(haven->_rect->IsCollision(equipment->_rect))
+					{
+						haven->_rect->GetTransform()->SetPosition(equipment->_rect->GetTransform()->GetPos());
+					}
+				}
+
+
+
 			}
 			if (KEY_PRESS(VK_LBUTTON)&&haven->_rect->IsCollision(W_MOUSE_POS))
 			{
-				
-				itemdrag = true;
-			}
-			if (itemdrag)
-			{
-				if (haven->_rect->IsCollision(W_MOUSE_POS))
+				if (itemdrag == false)
+				{
+					itemdrag = true; // 처음으로 active가 true인 객체를 찾았다면 플래그 설정
+					haven->dragactive = true;
+				}
+					
+				if (itemdrag&& haven->dragactive)
 				{
 					haven->_rect->GetTransform()->SetPosition({ S_MOUSE_POS.x, S_MOUSE_POS.y });
 				}
+
+				
 			}
 			
+		
 		}
 	}
 
