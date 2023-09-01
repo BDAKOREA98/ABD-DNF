@@ -13,6 +13,10 @@ public:
 	void Equipment();
 	void CreateInven();
 
+	void PostRender();
+
+	int GetItem();
+
 
 
 	bool itemdrag = false;
@@ -34,7 +38,7 @@ public:
 
 	vector<shared_ptr<Item>> _equipment;
 
-	
+	shared_ptr<Transform> oldpos;
 
 };
 

@@ -34,7 +34,10 @@ Player::Player()
 	SetLEFT();
 
 	_inven->_haven[3][0]->SetQuad(L"Resource/DNF/Inventory/chaewon.png");
+	_inven->_haven[3][0]->ChangeAbility(Item::BELT, 50);
+	_inven->_haven[3][0]->SetType(Item::WEAPON);
 	_inven->_haven[1][0]->SetQuad(L"Resource/DNF/Inventory/chaewon.png");
+	_inven->_haven[1][0]->ChangeAbility(Item::BELT, 50);
 
 }
 
@@ -131,13 +134,19 @@ void Player::PostRender()
 	//ImGui::Text("Pos.y : %f", _col->GetTransform()->GetPos().y);
 	//ImGui::Text("WorldPos.x : %f", _col->GetTransform()->GetWorldPos().x);
 	//ImGui::Text("WorldPos.y : %f", _col->GetTransform()->GetWorldPos().y);
-	ImGui::Text("HP : %f", _Hp);
-	ImGui::Text("Damage : %f", _Damage);
-	ImGui::Text("timer : %f", timer);
-	ImGui::Text("invincibility : %f", invincibility);
-
+	//ImGui::Text("HP : %f", _Hp);
+	//ImGui::Text("Damage : %f", _Damage);
+	//ImGui::Text("timer : %f", timer);
+	//ImGui::Text("invincibility : %f", invincibility);
+	
+	_inven->PostRender();
 
 	_inven->Render();
+}
+
+void Player::SetCharactor(int ability)
+{
+
 }
 
 

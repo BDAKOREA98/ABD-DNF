@@ -9,6 +9,7 @@ Item::Item()
 
 	_trans->SetParent(_rect->GetTransform());
 
+	
 }
 
 Item::Item(wstring path, TYPE type)
@@ -42,6 +43,13 @@ void Item::Render()
 void Item::SetQuad(wstring path)
 {
 	_quad = make_shared<Quad>(path, Vector2(26.0f, 26.0f));
+}
+
+void Item::ChangeAbility(TYPE type, int ability)
+{
+	type = type;
+	ability = ability;
+
 }
 
 bool Item::colision(Vector2 mouse, shared_ptr<RectCollider> rect)

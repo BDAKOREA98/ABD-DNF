@@ -21,14 +21,18 @@ public:
 	virtual void Update();
 	virtual void Render();
 
-	void SetType(TYPE type) { type = type; }
+	void SetType(TYPE Type) { type = Type; }
 	void SetQuad(wstring path);
+	void ChangeAbility(TYPE type, int ability);
+
+	TYPE GetType() { return type; }
 
 	bool colision(Vector2 mouse, shared_ptr<RectCollider> rect);
 	bool dragactive = false;
-	
+	bool used = false;
+
 public:
-	int ability = 0;
+	int ability = 10;
 
 	shared_ptr<RectCollider> _rect;
 	shared_ptr<Transform>	 _trans;

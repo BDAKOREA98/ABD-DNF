@@ -25,7 +25,7 @@ public:
 	virtual void Render() override;
 	virtual void PostRender() override;
 
-	
+	void SetCharactor(int ability);
 
 	void MOVE();
 	void Attack();
@@ -48,6 +48,7 @@ public:
 private:
 	bool _isAttack = false;
 
+	int defense = 0.0f;
 
 	
 
