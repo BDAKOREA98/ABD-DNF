@@ -3,8 +3,8 @@
 
 Player::Player()
 {
-	_Hp = 100.0f;
-	_Damage = 200.0f;
+	_Hp = 10000.0f;
+	_Damage = 20.0f;
 
 	_col = make_shared<CircleCollider>(50);
 	_playercol2 = make_shared<CircleCollider>(40);
@@ -34,10 +34,31 @@ Player::Player()
 	SetLEFT();
 
 	_inven->_haven[3][0]->SetQuad(L"Resource/DNF/Inventory/chaewon.png");
-	_inven->_haven[3][0]->ChangeAbility(Item::BELT, 50);
-	_inven->_haven[3][0]->SetType(Item::WEAPON);
-	_inven->_haven[1][0]->SetQuad(L"Resource/DNF/Inventory/chaewon.png");
-	_inven->_haven[1][0]->ChangeAbility(Item::BELT, 50);
+	_inven->_haven[3][0]->SetType(Item::BELT);
+	_inven->_haven[3][0]->SetAbility(10);
+	
+	_inven->_haven[3][1]->SetQuad(L"Resource/DNF/Inventory/chaewon.png");
+	_inven->_haven[3][1]->SetType(Item::SHOES);
+	_inven->_haven[3][1]->SetAbility(5);
+
+	_inven->_haven[3][2]->SetQuad(L"Resource/DNF/Inventory/chaewon.png");
+	_inven->_haven[3][2]->SetType(Item::PANTS);
+	_inven->_haven[3][2]->SetAbility(15);
+
+	_inven->_haven[3][3]->SetQuad(L"Resource/DNF/Inventory/chaewon.png");
+	_inven->_haven[3][3]->SetType(Item::HEAD);
+	_inven->_haven[3][3]->SetAbility(7);
+
+	_inven->_haven[3][4]->SetQuad(L"Resource/DNF/Inventory/chaewon.png");
+	_inven->_haven[3][4]->SetType(Item::ARMOR);
+	_inven->_haven[3][4]->SetAbility(30);
+
+	_inven->_haven[3][5]->SetQuad(L"Resource/DNF/Inventory/chaewon.png");
+	_inven->_haven[3][5]->SetType(Item::WEAPON);
+	_inven->_haven[3][5]->SetAbility(30);
+	
+	
+	
 
 }
 
@@ -49,6 +70,8 @@ void Player::Update()
 {
 	_item->Update();
 	_inven->Update();
+	SetCharactor();
+
 
 	if (_Hp > 0.0f)
 	{
@@ -93,16 +116,20 @@ void Player::Update()
 		_col->GetTransform()->SetPosition({ -1000.0f,-1000.0f });
 	}
 
-	if (KEY_DOWN('I') && _inven->active == false)
+	if (KEY_DOWN('I') && _inven->active == false && SetAbility==false)
 	{
 		_inven->_rect->GetTransform()->SetPosition(_col->GetWorldPos());
 		//_item->_rect->GetTransform()->SetPosition(_col->GetWorldPos());
 		_inven->active = true;
+		SetAbility = true;
 		
 	}
-	else if (KEY_DOWN('I') && _inven->active == true)
+	else if (KEY_DOWN('I') && _inven->active == true && SetAbility==true)
 	{
 		_inven->active = false;
+		SetAbility = false;
+		SetDamage();
+
 	}
 }
 
@@ -126,26 +153,61 @@ void Player::PostRender()
 {
 
 	ImGui::Text("Player");
-	//ImGui::Text("_key : %1f", _key);
-	//ImGui::Text("_attackkey : %1f", _attackkey);
-	//ImGui::Text("_value : %d", _value);
-	//ImGui::Text("_curState : %d", _curState);
-	//ImGui::Text("Pos.x : %f", _col->GetTransform()->GetPos().x);
-	//ImGui::Text("Pos.y : %f", _col->GetTransform()->GetPos().y);
-	//ImGui::Text("WorldPos.x : %f", _col->GetTransform()->GetWorldPos().x);
-	//ImGui::Text("WorldPos.y : %f", _col->GetTransform()->GetWorldPos().y);
-	//ImGui::Text("HP : %f", _Hp);
-	//ImGui::Text("Damage : %f", _Damage);
-	//ImGui::Text("timer : %f", timer);
-	//ImGui::Text("invincibility : %f", invincibility);
+	ImGui::Text("adddamage : %d", damage);
+	ImGui::Text("adddefense : %d", defense);
+	ImGui::Text("tatalDamage : %f", _Damage);
+	ImGui::Text("HP : %f", _Hp);
+	
 	
 	_inven->PostRender();
 
 	_inven->Render();
 }
 
-void Player::SetCharactor(int ability)
+void Player::SetCharactor()
 {
+	int defensearr[5] = { 0 };
+	int damagearr[5] = { 0 };
+
+	for (auto _havenarr : _inven->_haven)
+	{
+		for (auto haven : _havenarr)
+		{
+			if (haven->used && haven->type == Item::BELT)
+			{
+				defensearr[0] = haven->GetAbility();
+			}
+			if (haven->used && haven->type == Item::SHOES)
+			{
+				defensearr[1] = haven->GetAbility();
+			}
+			if (haven->used && haven->type == Item::HEAD)
+			{
+				defensearr[2] = haven->GetAbility();
+			}
+			if (haven->used && haven->type == Item::ARMOR)
+			{
+				defensearr[3] = haven->GetAbility();
+			}
+			if (haven->used && haven->type == Item::PANTS)
+			{
+				defensearr[4] = haven->GetAbility();
+			}
+			if (haven->used && haven->type == Item::WEAPON)
+			{
+				damagearr[0] = haven->GetAbility();
+			}
+
+		}
+	}
+
+	
+
+	defense = defensearr[0] + defensearr[1] + defensearr[2] + defensearr[3] + defensearr[4];
+	damage = damagearr[0] + damagearr[1] + damagearr[2] + damagearr[3] + damagearr[4];
+
+	
+
 
 }
 
@@ -406,5 +468,15 @@ void Player::deda()
 Player::State Player::GetCurState()
 {
 	return _curState;
+}
+
+void Player::SetDamage()
+{
+	_Damage =  _Damage + damage;
+
+}
+
+void Player::SetHP()
+{
 }
 

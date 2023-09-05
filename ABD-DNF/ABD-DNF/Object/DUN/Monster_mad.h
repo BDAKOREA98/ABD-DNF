@@ -22,7 +22,7 @@ public:
 	virtual void Render() override;
 
 	virtual void PostRender() override;
-	
+	virtual float Damage() { return _Damage; };
 	void SetAction(State state);
 	
 	void Input();

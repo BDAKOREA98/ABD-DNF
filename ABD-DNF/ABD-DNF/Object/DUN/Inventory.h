@@ -16,7 +16,7 @@ public:
 	void PostRender();
 
 	int GetItem();
-
+	void SetEquipment();
 
 
 	bool itemdrag = false;

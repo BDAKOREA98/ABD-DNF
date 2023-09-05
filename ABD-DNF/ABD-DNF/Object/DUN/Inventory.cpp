@@ -43,6 +43,7 @@ void Inventory::Update()
 	_dragbar->Update();
 	Drag();
 	Equipment();
+	SetEquipment();
 	for (int i = 0; i < _equipment.size(); i++)
 	{
 		_equipment[i]->Update();
@@ -65,20 +66,7 @@ void Inventory::Update()
 			
 		}
 	}
-	for (auto havenarr : _haven)
-	{
-		for (auto haven : havenarr)
-		{
-			for (auto equipment : _equipment)
-			{
-				if (haven->_rect->GetTransform()->GetPos() == equipment->_rect->GetTransform()->GetPos())
-				{
-					haven->used = true;
-				}
-			}
-
-		}
-	}
+	
 	
 
 
@@ -129,76 +117,8 @@ void Inventory::Drag()
 	{
 		_rect->GetTransform()->SetPosition({W_MOUSE_POS.x, W_MOUSE_POS.y - 200.0f});
 	}
-	for (auto havenarr : _haven)
-	{
-		for (auto haven : havenarr)
-		{
-			
-			
-			if (KEY_PRESS(VK_LBUTTON)&&haven->_rect->IsCollision(W_MOUSE_POS))
-			{
-			
-				if (itemdrag == false)
-				{
-					itemdrag = true; // 처음으로 active가 true인 객체를 찾았다면 플래그 설정
-					haven->dragactive = true;
-					
-					oldpos->SetPosition(haven->_rect->GetTransform()->GetPos());
-					
-
-				}
-				
-
-				if (itemdrag&& haven->dragactive)
-				{
-					haven->_rect->GetTransform()->SetPosition({ S_MOUSE_POS.x, S_MOUSE_POS.y });
-				}
-			}	
-			if (KEY_UP(VK_LBUTTON))
-			{
-				
-
-				for (auto equipment : _equipment)
-				{
-
-
-					if (haven->_rect->IsCollision(equipment->_rect))
-					{
-						if (haven->type == equipment->type)
-						{
-							haven->_rect->GetTransform()->SetPosition(equipment->_rect->GetTransform()->GetPos());
-						}
-						if (haven->type != equipment->type)
-						{
-							haven->_rect->GetTransform()->SetPosition(oldpos->GetPos());
-						}
-					}
-					
-					if (haven->used == false && haven->dragactive == true)
-					{
-						haven->_rect->GetTransform()->SetPosition(oldpos->GetPos());
-					}
-							
-						
-
-
-
-					}
-
-					itemdrag = false;
-					haven->dragactive = false;
-
-
-
-
-
-				}
-
-				
-
-			}
-		}
-	}
+	
+}
 
 
 
@@ -302,4 +222,113 @@ int Inventory::GetItem()
 
 	
 	return value;
+}
+
+void Inventory::SetEquipment()
+{
+	for (auto havenarr : _haven)
+	{
+		for (auto haven : havenarr)
+		{
+			
+			if (haven->_rect->IsCollision(W_MOUSE_POS) && KEY_PRESS(VK_RBUTTON))
+			{
+				
+				if (haven->GetType() == Item::BELT)
+				{
+					if (haven->used == false)
+					{
+						haven->SetOldPos(haven->_rect->GetTransform()->GetPos());
+						haven->used = true;
+						haven->_rect->GetTransform()->SetPosition(_equipment[3]->_rect->GetTransform()->GetPos());
+					}
+					else if (haven->used == true)
+					{
+						haven->used = false;
+						haven->_rect->GetTransform()->SetPosition(haven->GetOldPos());
+					}
+				}
+				if (haven->GetType() == Item::WEAPON)
+				{	
+					if (haven->used == false)
+					{
+						haven->SetOldPos(haven->_rect->GetTransform()->GetPos());
+						haven->used = true;
+						haven->_rect->GetTransform()->SetPosition(_equipment[8]->_rect->GetTransform()->GetPos());
+					}
+					else if (haven->used == true)
+					{
+					haven->used = false;
+					haven->_rect->GetTransform()->SetPosition(haven->GetOldPos());
+					}
+				}
+				if (haven->GetType() == Item::ARMOR)
+				{
+					if (haven->used == false)
+					{
+						haven->SetOldPos(haven->_rect->GetTransform()->GetPos());
+						haven->used = true;
+						haven->_rect->GetTransform()->SetPosition(_equipment[1]->_rect->GetTransform()->GetPos());
+					}
+					else if (haven->used == true)
+					{
+						haven->used = false;
+						haven->_rect->GetTransform()->SetPosition(haven->GetOldPos());
+					}
+
+				}
+				if (haven->GetType() == Item::HEAD)
+				{
+					if (haven->used == false)
+					{
+						haven->SetOldPos(haven->_rect->GetTransform()->GetPos());
+						haven->used = true;
+						haven->_rect->GetTransform()->SetPosition(_equipment[2]->_rect->GetTransform()->GetPos());
+					}
+					else if (haven->used == true)
+					{
+						haven->used = false;
+						haven->_rect->GetTransform()->SetPosition(haven->GetOldPos());
+					}
+				}
+				if (haven->GetType() == Item::SHOES)
+				{
+					if (haven->used == false)
+					{
+						haven->SetOldPos(haven->_rect->GetTransform()->GetPos());
+						haven->used = true;
+						haven->_rect->GetTransform()->SetPosition(_equipment[4]->_rect->GetTransform()->GetPos());
+					}
+					else if (haven->used == true)
+					{
+						haven->used = false;
+						haven->_rect->GetTransform()->SetPosition(haven->GetOldPos());
+					}
+
+				}
+				if (haven->GetType() == Item::PANTS)
+				{
+					if (haven->used == false)
+					{
+						haven->SetOldPos(haven->_rect->GetTransform()->GetPos());
+						haven->used = true;
+						haven->_rect->GetTransform()->SetPosition(_equipment[0]->_rect->GetTransform()->GetPos());
+					}
+					else if (haven->used == true)
+					{
+						haven->used = false;
+						haven->_rect->GetTransform()->SetPosition(haven->GetOldPos());
+					}
+				}
+
+
+
+
+			}
+
+			
+
+		}
+	}
+
 }

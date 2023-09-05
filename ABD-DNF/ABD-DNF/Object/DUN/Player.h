@@ -25,7 +25,7 @@ public:
 	virtual void Render() override;
 	virtual void PostRender() override;
 
-	void SetCharactor(int ability);
+	void SetCharactor();
 
 	void MOVE();
 	void Attack();
@@ -40,15 +40,18 @@ public:
 
 	State GetCurState();
 
+	virtual float Damage() { return _Damage; };
+	void SetDamage();
+	void SetHP();
 
-
+	bool SetAbility = false;
 	bool AttackT_F() { return _isAttack; }
 	float invincibility = 0.0f;
 
 private:
 	bool _isAttack = false;
 
-	int defense = 0.0f;
+	
 
 	
 
