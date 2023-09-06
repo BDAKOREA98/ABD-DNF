@@ -17,8 +17,9 @@ Player::Player()
 	CreateAction("ATTACK_L2", L"Resource/DNF/Player/");
 	CreateAction("ATTACK_L3", L"Resource/DNF/Player/");
 	CreateAction("ATTACK_L4", L"Resource/DNF/Player/");
-	CreateAction("Skill", L"Resource/DNF/Player/");
+	CreateAction("Taken", L"Resource/DNF/Player/");
 
+	CreateAction("Skill", L"Resource/DNF/Player/");
 
 	_col->GetTransform()->SetPosition({-100, 350});
 	_playercol2->GetTransform()->SetParent(_col->GetTransform());
@@ -31,6 +32,7 @@ Player::Player()
 	_item = make_shared<Item>();
 	_inven = make_shared<Inventory>();
 
+	_inven->_rect->GetTransform()->AddVector2({ 100.0f,0.0f });
 	SetLEFT();
 
 	_inven->_haven[3][0]->SetQuad(L"Resource/DNF/Inventory/chaewon.png");
@@ -72,6 +74,8 @@ void Player::Update()
 	_inven->Update();
 	SetCharactor();
 
+	
+
 
 	if (_Hp > 0.0f)
 	{
@@ -105,7 +109,7 @@ void Player::Update()
 			_key = 0;
 
 
-
+		
 		MOVE();
 
 		Backstep();
@@ -472,7 +476,7 @@ Player::State Player::GetCurState()
 
 void Player::SetDamage()
 {
-	_Damage =  _Damage + damage;
+	_Damage =  10000 + damage;
 
 }
 

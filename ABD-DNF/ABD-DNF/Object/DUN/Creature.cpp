@@ -66,6 +66,7 @@ void Creature::CreateAction(string name, wstring file, float speed, Action::Type
 
 void Creature::TakenDamage(int damage)
 {
+	
 	if (damage - defense >= 0)
 	{
 		_Hp -= damage - defense;

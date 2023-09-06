@@ -7,6 +7,7 @@ public:
 
 	void Update();
 	void Render();
+	void ChangeScene();
 
 private:
 	shared_ptr<Scene> _curScene;

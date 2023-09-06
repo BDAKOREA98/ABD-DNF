@@ -134,6 +134,7 @@ void DNF::MapCollision()
 
 		_player->GetCol()->GetTransform()->SetPosition({ _player->GetCol()->GetTransform()->GetPos().x, 2.0 });
 
+
 	}
 	if (_map1->GetLeft()->Block(_player->GetCol()))
 	{
@@ -142,7 +143,8 @@ void DNF::MapCollision()
 	}
 	if (_map1->GetRight()->Block(_player->GetCol()))
 	{
-
+		SCENE->NextScene();
+		PlayerScenePos = _player->GetCol()->GetTransform()->GetPos();
 
 	}
 	if (_map1->GetTop()->Block(_player->GetCol()))
@@ -194,6 +196,7 @@ void DNF::Attack()
 			if (_player->invincibility > 0.5)
 			{
 				_player->TakenDamage(_mob1->Damage());
+				
 				_mob1->GetMobcol()->GetTransform()->SetPosition(Vector2(0.0f, 0.0f));
 				_mob1->AttackChange(false);
 			}

@@ -118,6 +118,11 @@ void Inventory::Drag()
 		_rect->GetTransform()->SetPosition({W_MOUSE_POS.x, W_MOUSE_POS.y - 200.0f});
 	}
 	
+	
+
+
+
+
 }
 
 

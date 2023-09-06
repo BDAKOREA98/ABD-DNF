@@ -16,6 +16,7 @@ public:
 		ATTACK2,
 		ATTACK3,
 		ATTACK4,
+		Taken,
 		SKILL
 	};
 	Player();

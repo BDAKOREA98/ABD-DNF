@@ -98,6 +98,7 @@ using namespace Microsoft::WRL;
 
 //DUN
 #include "Object/DUN/Map.h"
+#include "Object/DUN/Map2.h"
 #include "Object/DUN/Creature.h"
 #include "Object/DUN/Item.h"
 #include "Object/DUN/Inventory.h"
@@ -113,3 +114,4 @@ using namespace Microsoft::WRL;
 #include "Types.h"
 
 extern HWND hWnd;
+extern Vector2 PlayerScenePos;

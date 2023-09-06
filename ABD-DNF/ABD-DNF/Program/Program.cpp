@@ -2,6 +2,7 @@
 #include "Program.h"
 
 #include "../Scene/DNF/DNF.h"
+#include "../Scene/DNF/DNF_2.h"
 
 Program::Program()
 {
@@ -26,6 +27,9 @@ void Program::Update()
 	EFFECT->Update();
 	SOUND->Update();
 	SCENE->Update();
+
+	
+
 }
 
 void Program::Render()
@@ -56,4 +60,9 @@ void Program::Render()
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 
 	Device::GetInstance()->Present();
+}
+
+void Program::ChangeScene()
+{
+	SCENE->NextScene();
 }
