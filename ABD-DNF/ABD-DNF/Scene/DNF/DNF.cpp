@@ -9,9 +9,7 @@ DNF::DNF()
 	_mob1 = make_shared<Monster_mad>();
 
 
-	CAMERA->SetTarget(_player->GetTrans());
-	CAMERA->SetLeftBottom(_map1->leftBottom());
-	CAMERA->SetRightTop(_map1->rightTop());
+
 	
 }
 
@@ -22,7 +20,9 @@ DNF::~DNF()
 
 void DNF::Update()
 {
-
+	CAMERA->SetTarget(_player->GetTrans());
+	CAMERA->SetLeftBottom(_map1->leftBottom());
+	CAMERA->SetRightTop(_map1->rightTop());
 	
 
 

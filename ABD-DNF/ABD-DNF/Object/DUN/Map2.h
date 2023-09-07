@@ -26,7 +26,7 @@ public:
 
 
 
-
+	float mapX;
 private:
 	friend class Player;
 	shared_ptr<Quad> _mapquad;

@@ -9,10 +9,11 @@ Map2::Map2()
 	_maptrans = make_shared<Transform>();
 
 	_maptrans->SetPosition(CENTER);
-	_maptrans->SetScale({ 1.0f, 1.2f });
+	
 	_mapcol = make_shared<RectCollider>(Vector2(_mapquad->GetImageSize().x, _mapquad->GetImageSize().y / 2));
 	_mapcol->GetTransform()->SetParent(_maptrans);
 	_mapcol->GetTransform()->AddVector2(Vector2(0.0f, -_mapquad->GetImageSize().y / 4));
+	_mapcol->SetColorWhite();
 
 
 	_blockcol1 = make_shared<RectCollider>(Vector2(_mapquad->GetImageSize().x, 100.0f));
@@ -26,15 +27,16 @@ Map2::Map2()
 	_blockcol4->GetTransform()->SetParent(_maptrans);
 
 
-	_blockcol1->GetTransform()->SetPosition(Vector2(0.0f, -_maptrans->GetWorldPos().y - 30.0f));
-	_blockcol2->GetTransform()->SetPosition(Vector2(0.0f, +100.0f));
-	_blockcol3->GetTransform()->SetPosition(Vector2(_maptrans->GetWorldPos().x * 3 - 134.0f, 0.0f));
-	_blockcol4->GetTransform()->SetPosition(Vector2(-_maptrans->GetWorldPos().x * 3 + 134.0f, 0.0f));
+	_blockcol1->GetTransform()->SetPosition(Vector2(0.0f, -_maptrans->GetWorldPos().y - 230.0f));
+	_blockcol2->GetTransform()->SetPosition(Vector2(0.0f, +50.0f));
+	_blockcol3->GetTransform()->SetPosition(Vector2(_mapquad->GetImageSize().x /2 + 50 , 0.0f));
+	_blockcol4->GetTransform()->SetPosition(Vector2(-_mapquad->GetImageSize().x / 2 - 50, 0.0f));
 
 
 
 
 
+	mapX = _blockcol4->GetTransform()->GetWorldPos().x;
 
 
 	_blockcol1->SetColorRed();
@@ -90,7 +92,7 @@ void Map2::Render()
 	_blockcol3->Render();
 	_blockcol4->Render();
 
-	//_mapcol->Render();
+	_mapcol->Render();
 }
 
 void Map2::PostRender()

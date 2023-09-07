@@ -41,6 +41,7 @@ public:
 	void SetProjectionBuffer();
 
 	void SetTarget(shared_ptr<Transform> target) { _target = target; }
+	void OffTarget() {  _target.reset(); }
 	void SetLeftBottom(Vector2 value) { _leftBottom = value; }
 	void SetRightTop(Vector2 value) { _rightTop = value; }
 	void SetOffset(Vector2 value) { _offset = value; }
@@ -69,7 +70,7 @@ private:
 	shared_ptr<MatrixBuffer> _projection;
 
 	// Free Mode
-	float _speed = 100.0f;
+	float _speed = 500.0f;
 
 	// Follow Mode
 	weak_ptr<Transform> _target;
