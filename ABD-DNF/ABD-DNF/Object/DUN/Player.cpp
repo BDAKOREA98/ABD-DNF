@@ -21,7 +21,7 @@ Player::Player()
 
 	CreateAction("Skill", L"Resource/DNF/Player/");
 
-	_col->GetTransform()->SetPosition({-100, 350});
+	
 	_playercol2->GetTransform()->SetParent(_col->GetTransform());
 
 	_trans->SetParent(_col->GetTransform());
@@ -161,6 +161,10 @@ void Player::PostRender()
 	ImGui::Text("adddefense : %d", defense);
 	ImGui::Text("tatalDamage : %f", _Damage);
 	ImGui::Text("HP : %f", _Hp);
+	ImGui::Text("pos.x : %f", _col->GetTransform()->GetPos().x);
+	ImGui::Text("pos.y : %f", _col->GetTransform()->GetPos().y);
+	ImGui::Text("WorldPos.x : %f", _col->GetTransform()->GetWorldPos().x);
+	ImGui::Text("WorldPos.y : %f", _col->GetTransform()->GetWorldPos().y);
 	
 	
 	_inven->PostRender();

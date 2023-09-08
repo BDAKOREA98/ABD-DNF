@@ -3,13 +3,16 @@
 
 DNF::DNF()
 {
-	
+
 	_map1 = make_shared<Map>();
-	_player = make_shared<Player>();
+
 	_mob1 = make_shared<Monster_mad>();
 
 
 
+	
+	
+		PLAYER->GetCol()->GetTransform()->SetPosition(CENTER);
 	
 }
 
@@ -20,7 +23,10 @@ DNF::~DNF()
 
 void DNF::Update()
 {
-	CAMERA->SetTarget(_player->GetTrans());
+
+	
+
+	CAMERA->SetTarget(PLAYER->GetCol()->GetTransform());
 	CAMERA->SetLeftBottom(_map1->leftBottom());
 	CAMERA->SetRightTop(_map1->rightTop());
 	
@@ -31,12 +37,12 @@ void DNF::Update()
 	MapCollision();
 	Attack();
 	
-	_player->Attack();
+	PLAYER->Attack();
 
 
-	if (_player->invincibility >= 0.5f)
+	if (PLAYER->invincibility >= 0.5f)
 	{
-		_player->invincibility = 0.0f;
+		PLAYER->invincibility = 0.0f;
 	}
 	if (_mob1->Hp() > 0.0f)
 	{
@@ -47,9 +53,9 @@ void DNF::Update()
 
 		_mob1->GetCol()->GetTransform()->SetPosition({-1000.0f, -1000.0f});
 	}
-	if (_player->Hp() > 0.0f)
+	if (PLAYER->Hp() > 0.0f)
 	{
-		_player->Update();
+		PLAYER->Update();
 	}
 	
 		
@@ -63,7 +69,7 @@ void DNF::Render()
 {
 	_map1->Render();
 	
-		_player->Render();
+		PLAYER->Render();
 		_mob1->Render();
 	
 }
@@ -71,17 +77,17 @@ void DNF::Render()
 void DNF::PostRender()
 {
 	_mob1->PostRender();
-	_player->PostRender();
+	PLAYER->PostRender();
 	_map1->PostRender();
 }
 
 void DNF::Monstermove()
 {
-	if (_player->Hp() > 0.0f)
+	if (PLAYER->Hp() > 0.0f)
 	{
 		if (_mobMove == true)
 		{
-			if (_mob1->GetMovecol()->IsCollision(_player->GetCol()) == false)
+			if (_mob1->GetMovecol()->IsCollision(PLAYER->GetCol()) == false)
 			{
 				_mob1->SetAction(_mob1->Mob_RUN);
 
@@ -89,7 +95,7 @@ void DNF::Monstermove()
 				Vector2 MobPos;
 				Vector2 PlayerPos;
 				MobPos = _mob1->GetCol()->GetTransform()->GetPos();
-				PlayerPos = _player->GetCol()->GetTransform()->GetPos();
+				PlayerPos = PLAYER->GetCol()->GetTransform()->GetPos();
 
 				Direction = PlayerPos - MobPos;
 				Direction.Normalize();
@@ -109,17 +115,17 @@ void DNF::Monstermove()
 				_mob1->GetCol()->GetTransform()->AddVector2(Direction * DELTA_TIME * 250.0f);
 
 			}
-			else if (_mob1->GetMovecol()->IsCollision(_player->GetCol()))
+			else if (_mob1->GetMovecol()->IsCollision(PLAYER->GetCol()))
 			{
 
-				_mob1->Attack(_player->GetCol());
+				_mob1->Attack(PLAYER->GetCol());
 			}
 
 
 		}
 
 	}
-	else if (_player->Hp() <= 0.0f)
+	else if (PLAYER->Hp() <= 0.0f)
 	{
 		_mob1->SetAction(_mob1->Mob_IDLE);
 	}
@@ -128,33 +134,33 @@ void DNF::Monstermove()
 
 void DNF::MapCollision()
 {
-	if (_map1->GetBottom()->Block(_player->GetCol()))
+	if (_map1->GetBottom()->Block(PLAYER->GetCol()))
 	{
 
 
-		_player->GetCol()->GetTransform()->SetPosition({ _player->GetCol()->GetTransform()->GetPos().x, 2.0 });
+		PLAYER->GetCol()->GetTransform()->SetPosition({ PLAYER->GetCol()->GetTransform()->GetPos().x, 2.0 });
 
 
 	}
-	if (_map1->GetLeft()->Block(_player->GetCol()))
+	if (_map1->GetLeft()->Block(PLAYER->GetCol()))
 	{
 
 
 	}
-	if (_map1->GetRight()->Block(_player->GetCol()))
+	if (_map1->GetRight()->Block(PLAYER->GetCol()))
 	{
 		SCENE->NextScene();
-		PlayerScenePos = _player->GetCol()->GetTransform()->GetPos();
+		PlayerScenePos = PLAYER->GetCol()->GetTransform()->GetPos();
 
 	}
-	if (_map1->GetTop()->Block(_player->GetCol()))
+	if (_map1->GetTop()->Block(PLAYER->GetCol()))
 	{
 
 
 	}
 
 	{
-		_player->GetAttack()->SetColorGreen();
+		PLAYER->GetAttack()->SetColorGreen();
 
 	}
 
@@ -166,36 +172,36 @@ void DNF::Attack()
 	Vector2 MobPos;
 	Vector2 PlayerPos;
 	MobPos = _mob1->GetCol()->GetTransform()->GetPos();
-	PlayerPos = _player->GetCol()->GetTransform()->GetPos();
+	PlayerPos = PLAYER->GetCol()->GetTransform()->GetPos();
 
 	Direction =  MobPos - PlayerPos;
 	Direction.Normalize();
 
 	if (_mob1->Hp() > 0.0f)
 	{
-		if (_player->AttackT_F() && _player->GetAttack()->IsCollision(_mob1->GetCol()))
+		if (PLAYER->AttackT_F() && PLAYER->GetAttack()->IsCollision(_mob1->GetCol()))
 		{
 			//Direction = MobPos - PlayerPos;
 			//Direction.Normalize();
 			_mob1->SetAction(_mob1->Mob_TAKENDAMAGE);
 
-			_mob1->TakenDamage(_player->Damage());
-			_player->GetAttack()->GetTransform()->SetPosition(Vector2(0.0f, 0.0f));
+			_mob1->TakenDamage(PLAYER->Damage());
+			PLAYER->GetAttack()->GetTransform()->SetPosition(Vector2(0.0f, 0.0f));
 		}
 	}
-	if (_player->Hp() > 0.0f)
+	if (PLAYER->Hp() > 0.0f)
 	{
-		if (_mob1->AttackT_F() && _mob1->GetMobcol()->IsCollision(_player->GetCol()))
+		if (_mob1->AttackT_F() && _mob1->GetMobcol()->IsCollision(PLAYER->GetCol()))
 		{
 
 			//Direction = PlayerPos - MobPos;
 			//Direction.Normalize();
 
-			_player->invincibility += DELTA_TIME;
+			PLAYER->invincibility += DELTA_TIME;
 
-			if (_player->invincibility > 0.5)
+			if (PLAYER->invincibility > 0.5)
 			{
-				_player->TakenDamage(_mob1->Damage());
+				PLAYER->TakenDamage(_mob1->Damage());
 				
 				_mob1->GetMobcol()->GetTransform()->SetPosition(Vector2(0.0f, 0.0f));
 				_mob1->AttackChange(false);

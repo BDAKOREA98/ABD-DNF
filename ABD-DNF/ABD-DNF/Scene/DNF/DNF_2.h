@@ -19,8 +19,8 @@ public:
 private:
 
 	shared_ptr<Map2> _map;
-	shared_ptr<Player> _player;
-	shared_ptr<Monster_mad> _mob1;
+	
+	
 	bool _mobMove = true;
 };
 

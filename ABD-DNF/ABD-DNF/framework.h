@@ -70,8 +70,9 @@ using namespace Microsoft::WRL;
 #include "Framework/Render/PixelShader.h"
 #include "Framework/Render/ShaderManager.h"
 
-// Camera
-#include "Framework/Camera/Camera.h"
+
+
+
 
 // TextureMapping
 #include "Framework/TextureMapping/SRV.h"
@@ -88,6 +89,7 @@ using namespace Microsoft::WRL;
 // Action
 #include "Framework/Animation/Action.h"
 
+
 // Obj
 #include "Object/BasicObject/Quad.h"
 #include "Object/BasicObject/Sprite.h"
@@ -102,8 +104,15 @@ using namespace Microsoft::WRL;
 #include "Object/DUN/Creature.h"
 #include "Object/DUN/Item.h"
 #include "Object/DUN/Inventory.h"
+
 #include "Object/DUN/Player.h"
 #include "Object/DUN/Monster_mad.h"
+
+// Camera
+#include "Object/DUN/PlayerManager.h"
+#include "Framework/Camera/Camera.h"
+#define PLAYER		PlayerManager::GetPlayer()
+
 // Scene
 #include "Scene/Scene.h"
 #include "Scene/SceneManager.h"

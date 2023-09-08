@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="ABD-DNF.h" />
     <ClInclude Include="Object\DUN\Map2.h" />
+    <ClInclude Include="Object\DUN\PlayerManager.h" />
     <ClInclude Include="Scene\DNF\DNF_2.h" />
     <ClInclude Include="Object\DUN\Inventory.h" />
     <ClInclude Include="Object\DUN\Item.h" />
@@ -213,6 +214,7 @@
   <ItemGroup>
     <ClCompile Include="ABD-DNF.cpp" />
     <ClCompile Include="Object\DUN\Map2.cpp" />
+    <ClCompile Include="Object\DUN\PlayerManager.cpp" />
     <ClCompile Include="Scene\DNF\DNF_2.cpp" />
     <ClCompile Include="Object\DUN\Inventory.cpp" />
     <ClCompile Include="Object\DUN\Item.cpp" />

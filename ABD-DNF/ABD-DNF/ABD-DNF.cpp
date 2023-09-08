@@ -58,6 +58,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     ShaderManager::Create();
     EffectManager::Create();
     SoundManager::Create();
+    PlayerManager::Create();
     Camera::Create();
     SceneManager::Create();
 
@@ -87,6 +88,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     // 삭제
     SceneManager::Delete();
     Camera::Delete();
+    PlayerManager::Delete();
     SoundManager::Delete();
     EffectManager::Delete();
     ShaderManager::Delete();
