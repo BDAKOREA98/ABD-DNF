@@ -7,6 +7,12 @@ class Player : public Creature
 {
 public:
 
+
+
+
+
+public:
+
 	enum State
 	{
 		IDLE,
@@ -50,11 +56,13 @@ public:
 	float invincibility = 0.0f;
 	shared_ptr<UI> ui;
 
+
+
 private:
 	bool _isAttack = false;
 
 	
-
+	float MP = 1000.0f;
 	
 
 	float timer = 0.0f;

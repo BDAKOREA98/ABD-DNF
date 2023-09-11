@@ -8,7 +8,7 @@ struct PixelInput
     float2 uv : UV;
 };
 
-cbuffer BarBuffer : register(b4)
+cbuffer BarBuffer : register(b0)
 {
     float ratio;
     int padding[3];

@@ -15,9 +15,9 @@ public:
 	
 	void Debug();
 
+	shared_ptr<HP> hp;
 private:
 	
-	shared_ptr<HP> hp;
 	
 
 	

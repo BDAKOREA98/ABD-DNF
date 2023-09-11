@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ABD-DNF.h" />
+    <ClInclude Include="Object\DUN\MP.h" />
     <ClInclude Include="Object\DUN\HP.h" />
     <ClInclude Include="Object\DUN\Map2.h" />
     <ClInclude Include="Object\DUN\PlayerManager.h" />
@@ -215,6 +216,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ABD-DNF.cpp" />
+    <ClCompile Include="Object\DUN\MP.cpp" />
     <ClCompile Include="Object\DUN\HP.cpp" />
     <ClCompile Include="Object\DUN\Map2.cpp" />
     <ClCompile Include="Object\DUN\PlayerManager.cpp" />

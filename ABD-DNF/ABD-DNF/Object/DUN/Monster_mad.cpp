@@ -6,7 +6,7 @@ Monster_mad::Monster_mad()
 
 	_Hp = 1000.0f;
 	_Damage = 1.0f;
-
+	
 	_col = make_shared<CircleCollider>(50);
 	
 	
@@ -75,8 +75,7 @@ void Monster_mad::Render()
 		_mobcol->Render();
 		_movecol->Render();
 	}
-	else
-		return;
+	
 }
 
 void Monster_mad::PostRender()

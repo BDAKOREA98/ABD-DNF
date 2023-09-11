@@ -5,26 +5,28 @@
 class PlayerManager
 {
 private:
-	PlayerManager() {
-		player = new Player();
+	PlayerManager() {};
 		
-		
-		
-	};
-
-	~PlayerManager() { delete player; };
+	~PlayerManager() {};
 
 public:
 	static void Create()
 	{
 		if (_instance == nullptr)
+		{
 			_instance = new PlayerManager();
+			player = new Player();
+		}
+
 	}
 
 	static void Delete()
 	{
 		if (_instance != nullptr)
+		{
 			delete _instance;
+			delete player;
+		}
 			
 	}
 

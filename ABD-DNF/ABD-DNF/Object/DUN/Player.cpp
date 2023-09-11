@@ -6,7 +6,7 @@ Player::Player()
 {
 	ui = make_shared<UI>();
 
-	_Hp = 10000.0f;
+	_Hp = 1000.0f;
 	_Damage = 20.0f;
 
 	_col = make_shared<CircleCollider>(50);
@@ -77,6 +77,10 @@ void Player::Update()
 	_inven->Update();
 	SetCharactor();
 
+	
+
+	
+	ui->hp->ChangeRatio(1 - (_Hp / 1000.0f));
 	ui->Update();
 
 

@@ -5,7 +5,7 @@ DNF_2::DNF_2()
 {
 	_map = make_shared<Map2>();
 	
-	//PLAYER->GetCol()->GetTransform()->SetPosition(Vector2(_map->mapX, PlayerScenePos.y));
+	
 	
 	
 }
@@ -16,9 +16,11 @@ DNF_2::~DNF_2()
 
 void DNF_2::Update()
 {
-	//CAMERA->SetTarget(PLAYER->GetCol()->GetTransform());
+	
+	
+	
 	_map->Update();
-	//PLAYER->Update();
+	PLAYER->Update();
 	CAMERA->Update();
 
 }
@@ -26,13 +28,13 @@ void DNF_2::Update()
 void DNF_2::Render()
 {
 	_map->Render();
-	//PLAYER->Render();
+	PLAYER->Render();
 }
 
 void DNF_2::PostRender()
 {
 	
-	//PLAYER->PostRender();
+	PLAYER->PostRender();
 	//_map1->PostRender();
 }
 

@@ -41,8 +41,8 @@ public:
 
 
 protected:
-	float _Hp;
-	float _Damage;
+	float _Hp = 0;
+	float _Damage = 0;
 	int defense = 0;
 	int damage = 0;
 	vector<shared_ptr<Action>> _actions;

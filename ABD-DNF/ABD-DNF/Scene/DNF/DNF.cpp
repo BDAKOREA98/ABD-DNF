@@ -5,14 +5,13 @@ DNF::DNF()
 {
 
 	_map1 = make_shared<Map>();
+	PlayerManager::Create();
+	
 
 	_mob1 = make_shared<Monster_mad>();
 
 
-
 	
-	
-		PLAYER->GetCol()->GetTransform()->SetPosition(CENTER);
 	
 }
 
@@ -67,7 +66,7 @@ void DNF::Update()
 
 void DNF::Render()
 {
-	//_map1->Render();
+	_map1->Render();
 	
 		PLAYER->Render();
 		_mob1->Render();
@@ -138,7 +137,7 @@ void DNF::MapCollision()
 	{
 
 
-		PLAYER->GetCol()->GetTransform()->SetPosition({ PLAYER->GetCol()->GetTransform()->GetPos().x, 2.0 });
+ 		PLAYER->GetCol()->GetTransform()->SetPosition({ PLAYER->GetCol()->GetTransform()->GetPos().x, 2.0 });
 
 
 	}

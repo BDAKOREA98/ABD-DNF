@@ -10,7 +10,7 @@ SceneManager::SceneManager()
 {
 
 	_scenes.push_back(make_shared<DNF>());
-	//_scenes.push_back(make_shared<DNF_2>());
+	_scenes.push_back(make_shared<DNF_2>());
 
 
 }
