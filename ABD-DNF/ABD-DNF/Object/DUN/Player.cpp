@@ -1,8 +1,11 @@
+
 #include "framework.h"
 #include "Player.h"
 
 Player::Player()
 {
+	ui = make_shared<UI>();
+
 	_Hp = 10000.0f;
 	_Damage = 20.0f;
 
@@ -74,7 +77,7 @@ void Player::Update()
 	_inven->Update();
 	SetCharactor();
 
-	
+	ui->Update();
 
 
 	if (_Hp > 0.0f)
@@ -139,6 +142,8 @@ void Player::Update()
 
 void Player::Render()
 {
+
+
 	
 	if (_Hp > 0.0f)
 	{
@@ -150,12 +155,13 @@ void Player::Render()
 	else
 		return;
 
+	
+
 	_item->Render();
 }
 
 void Player::PostRender()
 {
-
 	ImGui::Text("Player");
 	ImGui::Text("adddamage : %d", damage);
 	ImGui::Text("adddefense : %d", defense);
@@ -170,6 +176,7 @@ void Player::PostRender()
 	_inven->PostRender();
 
 	_inven->Render();
+	ui->PostRender();
 }
 
 void Player::SetCharactor()

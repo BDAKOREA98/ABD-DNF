@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ABD-DNF.h" />
+    <ClInclude Include="Object\DUN\HP.h" />
     <ClInclude Include="Object\DUN\Map2.h" />
     <ClInclude Include="Object\DUN\PlayerManager.h" />
     <ClInclude Include="Scene\DNF\DNF_2.h" />
@@ -210,9 +211,11 @@
     <ClInclude Include="Framework\Render\VertexShader.h" />
     <ClInclude Include="Framework\Render\VertexLayout.h" />
     <ClInclude Include="Framework\Render\VertexBuffer.h" />
+    <ClInclude Include="Object\DUN\UI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ABD-DNF.cpp" />
+    <ClCompile Include="Object\DUN\HP.cpp" />
     <ClCompile Include="Object\DUN\Map2.cpp" />
     <ClCompile Include="Object\DUN\PlayerManager.cpp" />
     <ClCompile Include="Scene\DNF\DNF_2.cpp" />
@@ -261,6 +264,7 @@
     <ClCompile Include="framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Object\DUN\UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ABD-DNF.rc" />
@@ -357,6 +361,14 @@
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PS</EntryPointName>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
     </FxCompile>
+    <FxCompile Include="Shader\HpBarPS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+    </FxCompile>
     <FxCompile Include="Shader\TexturePS.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
@@ -398,6 +410,12 @@
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">VS</EntryPointName>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Shader\VertexShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
     </FxCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

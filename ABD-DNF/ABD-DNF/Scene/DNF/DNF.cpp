@@ -67,7 +67,7 @@ void DNF::Update()
 
 void DNF::Render()
 {
-	_map1->Render();
+	//_map1->Render();
 	
 		PLAYER->Render();
 		_mob1->Render();
@@ -77,8 +77,8 @@ void DNF::Render()
 void DNF::PostRender()
 {
 	_mob1->PostRender();
+//	_map1->PostRender();
 	PLAYER->PostRender();
-	_map1->PostRender();
 }
 
 void DNF::Monstermove()

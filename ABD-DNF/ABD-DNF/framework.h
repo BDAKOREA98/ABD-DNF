@@ -104,6 +104,8 @@ using namespace Microsoft::WRL;
 #include "Object/DUN/Creature.h"
 #include "Object/DUN/Item.h"
 #include "Object/DUN/Inventory.h"
+#include "Object/DUN/HP.h"
+#include "Object/DUN/UI.h"
 
 #include "Object/DUN/Player.h"
 #include "Object/DUN/Monster_mad.h"
@@ -111,6 +113,7 @@ using namespace Microsoft::WRL;
 // Camera
 #include "Object/DUN/PlayerManager.h"
 #include "Framework/Camera/Camera.h"
+
 #define PLAYER		PlayerManager::GetPlayer()
 
 // Scene

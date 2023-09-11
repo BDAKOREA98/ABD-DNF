@@ -192,6 +192,12 @@
     <ClInclude Include="Object\DUN\PlayerManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Object\DUN\UI.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\DUN\HP.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ABD-DNF.cpp">
@@ -335,6 +341,12 @@
     <ClCompile Include="Object\DUN\PlayerManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Object\DUN\UI.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\DUN\HP.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ABD-DNF.rc">
@@ -408,5 +420,7 @@
     <FxCompile Include="Shader\ColliderPS.hlsl" />
     <FxCompile Include="Shader\ColliderVS.hlsl" />
     <FxCompile Include="Shader\DNF_Player_PS.hlsl" />
+    <FxCompile Include="Shader\VertexShader.hlsl" />
+    <FxCompile Include="Shader\HpBarPS.hlsl" />
   </ItemGroup>
 </Project>

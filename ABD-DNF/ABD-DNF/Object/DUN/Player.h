@@ -48,6 +48,7 @@ public:
 	bool SetAbility = false;
 	bool AttackT_F() { return _isAttack; }
 	float invincibility = 0.0f;
+	shared_ptr<UI> ui;
 
 private:
 	bool _isAttack = false;
