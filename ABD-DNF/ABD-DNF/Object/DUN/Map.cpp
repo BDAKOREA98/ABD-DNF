@@ -107,20 +107,20 @@ void Map::PostRender()
 Vector2 Map::leftBottom()
 {
 
-	Vector2 quadHalfSize = _mapquad->GetSize() * 0.5f;
+	Vector2 quadHalfSize = _mapquad->GetImageSize() * 0.5f;
 
-	float x = _maptrans->GetWorldPos().x - quadHalfSize.x - 500;
-	float y = -1000;
+	float x = _maptrans->GetWorldPos().x - quadHalfSize.x;
+	float y =  - 80.0f;
 
 	return Vector2(x, y);
 }
 
 Vector2 Map::rightTop()
 {
-	Vector2 quadHalfSize = _mapquad->GetSize() * 0.5f;
+	Vector2 quadHalfSize = _mapquad->GetImageSize() * 0.5f;
 
-	float x = _maptrans->GetWorldPos().x + quadHalfSize.x + 500;
-	float y = 1000;
+	float x = _maptrans->GetWorldPos().x + quadHalfSize.x;
+	float y = _maptrans->GetWorldPos().y + quadHalfSize.y;
 
 	return Vector2(x, y);
 }

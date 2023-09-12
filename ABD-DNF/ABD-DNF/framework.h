@@ -105,6 +105,7 @@ using namespace Microsoft::WRL;
 #include "Object/DUN/Item.h"
 #include "Object/DUN/Inventory.h"
 #include "Object/DUN/HP.h"
+#include "Object/DUN/MP.h"
 #include "Object/DUN/UI.h"
 
 #include "Object/DUN/Player.h"

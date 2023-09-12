@@ -58,7 +58,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     ShaderManager::Create();
     EffectManager::Create();
     SoundManager::Create();
-
+    PlayerManager::Create();
     Camera::Create();
     SceneManager::Create();
 

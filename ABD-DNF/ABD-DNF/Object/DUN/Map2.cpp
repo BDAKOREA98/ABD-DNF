@@ -9,7 +9,7 @@ Map2::Map2()
 	_maptrans = make_shared<Transform>();
 
 	_maptrans->SetPosition(CENTER);
-	
+	_maptrans->AddVector2({ 3500.0f,100.0f });
 	_mapcol = make_shared<RectCollider>(Vector2(_mapquad->GetImageSize().x, _mapquad->GetImageSize().y / 2));
 	_mapcol->GetTransform()->SetParent(_maptrans);
 	_mapcol->GetTransform()->AddVector2(Vector2(0.0f, -_mapquad->GetImageSize().y / 4));
@@ -56,22 +56,6 @@ void Map2::Update()
 	_maptrans->Update();
 	_mapcol->Update();
 
-	/*if (_mapcol->IsCollision(_blockcol1))
-	{
-		_blockcol1->SetColorRed();
-	}
-	if (_mapcol->IsCollision(_blockcol2))
-	{
-		_blockcol2->SetColorRed();
-	}
-	if (_mapcol->IsCollision(_blockcol3))
-	{
-		_blockcol3->SetColorRed();
-	}
-	if (_mapcol->IsCollision(_blockcol4))
-	{
-		_blockcol4->SetColorRed();
-	}*/
 
 
 
@@ -110,20 +94,21 @@ void Map2::PostRender()
 Vector2 Map2::leftBottom()
 {
 
-	Vector2 quadHalfSize = _mapquad->GetSize() * 0.5f;
 
-	float x = _maptrans->GetWorldPos().x - quadHalfSize.x - 500;
-	float y = -1000;
+	Vector2 quadHalfSize = _mapquad->GetImageSize() * 0.5f;
+
+	float x = _maptrans->GetWorldPos().x - quadHalfSize.x;
+	float y = -100.0f;
 
 	return Vector2(x, y);
 }
 
 Vector2 Map2::rightTop()
 {
-	Vector2 quadHalfSize = _mapquad->GetSize() * 0.5f;
+	Vector2 quadHalfSize = _mapquad->GetImageSize() * 0.5f;
 
-	float x = _maptrans->GetWorldPos().x + quadHalfSize.x + 500;
-	float y = 1000;
+	float x = _maptrans->GetWorldPos().x + quadHalfSize.x;
+	float y = _maptrans->GetWorldPos().y + quadHalfSize.y;
 
 	return Vector2(x, y);
 }

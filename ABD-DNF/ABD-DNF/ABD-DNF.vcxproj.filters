@@ -201,6 +201,9 @@
     <ClInclude Include="Object\DUN\MP.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\DNF\Loading.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ABD-DNF.cpp">
@@ -353,6 +356,9 @@
     <ClCompile Include="Object\DUN\MP.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Scene\DNF\Loading.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ABD-DNF.rc">
@@ -428,5 +434,6 @@
     <FxCompile Include="Shader\DNF_Player_PS.hlsl" />
     <FxCompile Include="Shader\VertexShader.hlsl" />
     <FxCompile Include="Shader\HpBarPS.hlsl" />
+    <FxCompile Include="Shader\MpBarPS.hlsl" />
   </ItemGroup>
 </Project>

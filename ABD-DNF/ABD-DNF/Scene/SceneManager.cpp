@@ -2,6 +2,7 @@
 #include "SceneManager.h"
 #include "DNF/DNF.h"
 #include "DNF/DNF_2.h"
+#include "DNF/Loading.h"
 
 
 SceneManager* SceneManager::_instance = nullptr;
@@ -10,6 +11,7 @@ SceneManager::SceneManager()
 {
 
 	_scenes.push_back(make_shared<DNF>());
+	_scenes.push_back(make_shared<Loading>());
 	_scenes.push_back(make_shared<DNF_2>());
 
 

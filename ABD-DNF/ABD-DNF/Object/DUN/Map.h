@@ -30,8 +30,8 @@ public:
 
 private:
 	friend class Player;
-	shared_ptr<Quad> _mapquad;
 	shared_ptr<RectCollider> _mapcol;
+	shared_ptr<Quad> _mapquad;
 	shared_ptr<Transform> _maptrans;
 
 

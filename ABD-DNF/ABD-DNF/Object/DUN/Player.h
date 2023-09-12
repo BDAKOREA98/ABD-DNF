@@ -5,13 +5,15 @@
 
 class Player : public Creature
 {
-public:
+private:
 
 
 
 
 
 public:
+	Player();
+	~Player();
 
 	enum State
 	{
@@ -25,8 +27,6 @@ public:
 		Taken,
 		SKILL
 	};
-	Player();
-	~Player();
 	// Creature을(를) 통해 상속됨
 	virtual void Update() override;
 	virtual void Render() override;
@@ -62,7 +62,7 @@ private:
 	bool _isAttack = false;
 
 	
-	float MP = 1000.0f;
+	float _Mp = 1000.0f;
 	
 
 	float timer = 0.0f;

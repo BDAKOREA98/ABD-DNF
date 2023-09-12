@@ -5,7 +5,7 @@
 UI::UI()
 {
 	hp = make_shared<HP>();
-	
+	mp = make_shared<MP>();
 
 }
 
@@ -18,6 +18,7 @@ void UI::Update()
 	
 
 	hp->Update();
+	mp->Update();
 	
 }
 
@@ -25,6 +26,7 @@ void UI::PostRender()
 {
 
 	hp->PostRender();
+	mp->PostRender();
 
 }
 

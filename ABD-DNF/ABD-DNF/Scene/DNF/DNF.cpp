@@ -3,12 +3,12 @@
 
 DNF::DNF()
 {
+	_mob1 = make_shared<Monster_mad>();
 
 	_map1 = make_shared<Map>();
 	PlayerManager::Create();
-	
 
-	_mob1 = make_shared<Monster_mad>();
+	_mob1->GetCol()->GetTransform()->SetPosition({150.0f, 150.0f });
 
 
 	
@@ -200,6 +200,7 @@ void DNF::Attack()
 
 			if (PLAYER->invincibility > 0.5)
 			{
+				PLAYER->SetAction(PLAYER->Taken);
 				PLAYER->TakenDamage(_mob1->Damage());
 				
 				_mob1->GetMobcol()->GetTransform()->SetPosition(Vector2(0.0f, 0.0f));

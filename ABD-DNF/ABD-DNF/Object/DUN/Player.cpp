@@ -24,10 +24,11 @@ Player::Player()
 
 	CreateAction("Skill", L"Resource/DNF/Player/");
 
-	
+
 	_playercol2->GetTransform()->SetParent(_col->GetTransform());
 
 	_trans->SetParent(_col->GetTransform());
+	_col->GetTransform()->SetPosition(CENTER);
 	
 	
 	ChangePS(L"Shader/DNF_Player_PS.hlsl");
@@ -80,7 +81,9 @@ void Player::Update()
 	
 
 	
+
 	ui->hp->ChangeRatio(1 - (_Hp / 1000.0f));
+	ui->mp->ChangeRatio(1 - (_Mp / 1000.0f));
 	ui->Update();
 
 
@@ -376,7 +379,7 @@ void Player::Attack()
 			_isAttack = false;
 		}
 
-
+		_isAttack = false;
 
 		if (_curState != RUN)
 		{

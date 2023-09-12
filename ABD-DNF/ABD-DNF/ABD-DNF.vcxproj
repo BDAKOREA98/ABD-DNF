@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ABD-DNF.h" />
+    <ClInclude Include="Scene\DNF\Loading.h" />
     <ClInclude Include="Object\DUN\MP.h" />
     <ClInclude Include="Object\DUN\HP.h" />
     <ClInclude Include="Object\DUN\Map2.h" />
@@ -216,6 +217,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ABD-DNF.cpp" />
+    <ClCompile Include="Scene\DNF\Loading.cpp" />
     <ClCompile Include="Object\DUN\MP.cpp" />
     <ClCompile Include="Object\DUN\HP.cpp" />
     <ClCompile Include="Object\DUN\Map2.cpp" />
@@ -364,6 +366,14 @@
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
     </FxCompile>
     <FxCompile Include="Shader\HpBarPS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Shader\MpBarPS.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
