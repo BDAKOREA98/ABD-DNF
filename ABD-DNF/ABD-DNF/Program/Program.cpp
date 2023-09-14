@@ -46,8 +46,8 @@ void Program::Render()
 	ALPHA->SetState();
 	//ADDITIVE->SetState();
 	//_curScene->Render();
-	EFFECT->Render();
 	SCENE->Render();
+	EFFECT->Render();
 
 	ImGui::Text("FPS : %d", FPS);
 	ImGui::Text("DeltaTime : %1f", DELTA_TIME);

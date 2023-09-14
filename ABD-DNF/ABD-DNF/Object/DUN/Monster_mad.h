@@ -50,7 +50,7 @@ private:
 
 	State _curState = State::Mob_IDLE;
 	State _oldState = State::Mob_IDLE;
-	//shared_ptr<FilterBuffer> _filter;
+	
 
 
 };

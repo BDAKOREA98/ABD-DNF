@@ -5,12 +5,6 @@
 
 class Player : public Creature
 {
-private:
-
-
-
-
-
 public:
 	Player();
 	~Player();

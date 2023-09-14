@@ -30,14 +30,14 @@ Player::Player()
 	_trans->SetParent(_col->GetTransform());
 	_col->GetTransform()->SetPosition(CENTER);
 	
-	
+	EFFECT->AddEffect("Hit", L"Resource/DNF/Effect/Slash3.bmp", Vector2(2, 7), Vector2(300, 300));
 	ChangePS(L"Shader/DNF_Player_PS.hlsl");
-
 	_item = make_shared<Item>();
 	_inven = make_shared<Inventory>();
 
 	_inven->_rect->GetTransform()->AddVector2({ 100.0f,0.0f });
 	SetLEFT();
+	EFFECT->SetLEFT();
 
 	_inven->_haven[3][0]->SetQuad(L"Resource/DNF/Inventory/chaewon.png");
 	_inven->_haven[3][0]->SetType(Item::BELT);
@@ -65,7 +65,7 @@ Player::Player()
 	
 	
 	
-
+	
 }
 
 Player::~Player()
@@ -79,7 +79,7 @@ void Player::Update()
 	SetCharactor();
 
 	
-
+	_Mp -= 0.1f;
 	
 
 	ui->hp->ChangeRatio(1 - (_Hp / 1000.0f));
@@ -244,6 +244,7 @@ void Player::MOVE()
 		{
 			SetAction(WALK);
 			_col->GetTransform()->SetScale({ -1, +1 });
+			EFFECT->SetLEFT();
 		}
 		else if (KEY_UP(VK_LEFT) && _curState == WALK)
 		{
@@ -254,6 +255,7 @@ void Player::MOVE()
 
 			SetAction(WALK);
 			_col->GetTransform()->SetScale({ +1, +1 });
+			EFFECT->SetLEFT();
 
 
 		}
@@ -379,7 +381,7 @@ void Player::Attack()
 			_isAttack = false;
 		}
 
-		_isAttack = false;
+		//_isAttack = false;
 
 		if (_curState != RUN)
 		{
@@ -432,6 +434,14 @@ void Player::Attack()
 
 	}
 	
+	if (KEY_DOWN('A'))
+	{
+		SetAction(ATTACK2);
+		_playercol2->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
+		EFFECT->Play("Hit", _playercol2->GetTransform()->GetWorldPos());
+
+	}
+
 }
 
 void Player::Backstep()

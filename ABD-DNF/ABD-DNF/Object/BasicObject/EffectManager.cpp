@@ -40,6 +40,16 @@ void EffectManager::AddEffect(string name, wstring file, Vector2 maxFrame, Vecto
 	}
 }
 
+void EffectManager::SetLEFT()
+{
+	for (auto pair : _effectTable)
+	{
+		for (auto effect : pair.second)
+			effect->GetSprite()->SetLeft();
+	}
+
+}
+
 void EffectManager::Play(string name, Vector2 pos)
 {
 	if (_effectTable.count(name) == 0)

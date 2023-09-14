@@ -2,8 +2,8 @@
 class Effect
 {
 public:
-	Effect(string name, wstring file, Vector2 maxFrame, Vector2 size, float speed = 0.1f, Action::Type type = Action::Type::END);
-	Effect(string name, wstring file, wstring xmlPath, Vector2 size, float speed = 0.1f, Action::Type type = Action::Type::END);
+	Effect(string name, wstring file, Vector2 maxFrame, Vector2 size, float speed	= 0.1f, Action::Type type = Action::Type::END);
+	Effect(string name, wstring file, wstring xmlPath, Vector2 size, float speed	= 0.1f, Action::Type type = Action::Type::END);
 	~Effect();
 
 	void Update();
@@ -13,9 +13,13 @@ public:
 	void End();
 
 	bool _isActive = false;
+	shared_ptr<Sprite> GetSprite() { return _sprite; }
+
+
+
 private:
-	void CreateAction_ByFrame(string name, wstring file, Vector2 maxFrame, Vector2 size, float speed = 0.1f, Action::Type type = Action::Type::END);
-	void CreateAction_ByXML(string name, wstring file, wstring xmlPath, Vector2 size, float speed = 0.1f, Action::Type type = Action::Type::END);
+	void CreateAction_ByFrame(string name, wstring file, Vector2 maxFrame, Vector2 size, float speed	= 0.1f, Action::Type type = Action::Type::END);
+	void CreateAction_ByXML(string name, wstring file, wstring xmlPath, Vector2 size, float speed		= 0.1f, Action::Type type = Action::Type::END);
 
 	string _name;
 

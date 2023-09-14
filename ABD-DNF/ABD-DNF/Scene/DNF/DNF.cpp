@@ -23,7 +23,10 @@ DNF::~DNF()
 void DNF::Update()
 {
 
-	
+	if (KEY_DOWN(VK_LBUTTON))
+	{
+		_mob1->TakenDamage(10000);
+	}
 
 	CAMERA->SetTarget(PLAYER->GetCol()->GetTransform());
 	CAMERA->SetLeftBottom(_map1->leftBottom());
@@ -71,6 +74,10 @@ void DNF::Render()
 		PLAYER->Render();
 		_mob1->Render();
 	
+	// "HELLO" 텍스트 출력
+	
+		
+
 }
 
 void DNF::PostRender()
@@ -180,8 +187,7 @@ void DNF::Attack()
 	{
 		if (PLAYER->AttackT_F() && PLAYER->GetAttack()->IsCollision(_mob1->GetCol()))
 		{
-			//Direction = MobPos - PlayerPos;
-			//Direction.Normalize();
+		
 			_mob1->SetAction(_mob1->Mob_TAKENDAMAGE);
 
 			_mob1->TakenDamage(PLAYER->Damage());
@@ -193,9 +199,7 @@ void DNF::Attack()
 		if (_mob1->AttackT_F() && _mob1->GetMobcol()->IsCollision(PLAYER->GetCol()))
 		{
 
-			//Direction = PlayerPos - MobPos;
-			//Direction.Normalize();
-
+	
 			PLAYER->invincibility += DELTA_TIME;
 
 			if (PLAYER->invincibility > 0.5)

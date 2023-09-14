@@ -76,6 +76,7 @@ void Effect::CreateAction_ByFrame(string name, wstring file, Vector2 maxFrame, V
 
 	_action = make_shared<Action>(clips, name, type, speed);
 	_action->SetEndEvent(std::bind(&Effect::End, this));
+	
 }
 
 void Effect::CreateAction_ByXML(string name, wstring file, wstring xmlPath, Vector2 size, float speed, Action::Type type)
