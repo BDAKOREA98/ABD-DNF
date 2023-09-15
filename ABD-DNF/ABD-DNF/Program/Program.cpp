@@ -8,13 +8,16 @@ Program::Program()
 {
 	srand(static_cast<unsigned int>(time(nullptr)));
 
-	
+	FONT->GetInstance();
 
+
+	FONT->Add("D2Coding", L"D2Coding");
 	Timer::GetInstance()->LockFPS(60);
 }
 
 Program::~Program()
 {
+	FONT->Delete();
 }
 
 void Program::Update()
@@ -46,6 +49,7 @@ void Program::Render()
 	ALPHA->SetState();
 	//ADDITIVE->SetState();
 	//_curScene->Render();
+	FONT->GetDC()->BeginDraw();
 	SCENE->Render();
 	EFFECT->Render();
 
@@ -55,6 +59,11 @@ void Program::Render()
 	CAMERA->PostRender();
 	SCENE->PostRender();
 	CAMERA->SetUIViewBuffer();
+
+	
+	
+	FONT->GetDC()->EndDraw();
+
 	//_curScene->PostRender();
 	ImGui::Render();
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());

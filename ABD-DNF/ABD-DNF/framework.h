@@ -25,7 +25,11 @@
 #include <d3dcompiler.h>
 #include <DirectXMath.h>
 #include <dwrite.h>
+#include <d2d1_2.h>
+#include <map>
 
+#pragma comment(lib, "d2d1.lib")
+#pragma comment(lib, "dwrite.lib")
 #pragma comment(lib,"d3d11.lib")
 #pragma comment(lib,"d3dcompiler.lib")
 
@@ -47,11 +51,13 @@ using namespace Microsoft::WRL;
 
 // Framework
 #include "Framework/Device/Device.h"
-
+#include "Framework/Utility/Singleton.h"
 // Math
 #include "Framework/Math/Vector2.h"
+#include "Framework/Math/Vector3.h"
 #include "Framework/Math/MathUtility.h"
 #include "Framework/Math/Transform.h"
+#include "Framework/Utility/Font.h"
 
 // Utility
 #include "Framework/Utility/Timer.h"

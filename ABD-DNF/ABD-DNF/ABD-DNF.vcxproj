@@ -152,6 +152,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ABD-DNF.h" />
+    <ClInclude Include="Framework\Utility\Font.h" />
+    <ClInclude Include="Framework\Utility\Singleton.h" />
     <ClInclude Include="Scene\DNF\Loading.h" />
     <ClInclude Include="Object\DUN\MP.h" />
     <ClInclude Include="Object\DUN\HP.h" />
@@ -217,6 +219,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ABD-DNF.cpp" />
+    <ClCompile Include="Framework\Utility\Font.cpp" />
     <ClCompile Include="Scene\DNF\Loading.cpp" />
     <ClCompile Include="Object\DUN\MP.cpp" />
     <ClCompile Include="Object\DUN\HP.cpp" />

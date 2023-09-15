@@ -10,14 +10,13 @@ DNF::DNF()
 
 	_mob1->GetCol()->GetTransform()->SetPosition({150.0f, 150.0f });
 
-
-	
+	FONT->Add("D2Coding", L"D2Coding");
 	
 }
 
 DNF::~DNF()
 {
-	
+
 }
 
 void DNF::Update()
@@ -28,9 +27,9 @@ void DNF::Update()
 		_mob1->TakenDamage(10000);
 	}
 
-	CAMERA->SetTarget(PLAYER->GetCol()->GetTransform());
-	CAMERA->SetLeftBottom(_map1->leftBottom());
-	CAMERA->SetRightTop(_map1->rightTop());
+	//CAMERA->SetTarget(PLAYER->GetCol()->GetTransform());
+	//CAMERA->SetLeftBottom(_map1->leftBottom());
+	//CAMERA->SetRightTop(_map1->rightTop());
 	
 
 
@@ -69,22 +68,24 @@ void DNF::Update()
 
 void DNF::Render()
 {
-	_map1->Render();
+	//_map1->Render();
 	
-		PLAYER->Render();
-		_mob1->Render();
+	PLAYER->Render();
+	_mob1->Render();
 	
-	// "HELLO" 텍스트 출력
+	FONT->RenderText(L"안녕하십니까", "D2Coding", Vector2(CENTER));
+	
 	
 		
-
 }
 
 void DNF::PostRender()
 {
+	
 	_mob1->PostRender();
 //	_map1->PostRender();
 	PLAYER->PostRender();
+		
 }
 
 void DNF::Monstermove()

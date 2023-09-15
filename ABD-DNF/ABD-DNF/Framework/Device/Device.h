@@ -32,6 +32,7 @@ public:
 	void Clear();
 	void Present();
 
+	ComPtr<IDXGISwapChain> GetSwapChain() { return swapChain; }
 private:
 	void CreateDeviceAndSwapChain();
 	void CreateDoubleBuffer();

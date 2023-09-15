@@ -19,6 +19,7 @@
 #define SCENE   SceneManager::GetInstance()
 
 #define DEVICE	Device::GetInstance()->GetDevice()
+#define SWAPCHAIN	Device::GetInstance()->GetSwapChain()
 #define DC		Device::GetInstance()->GetDC()
 
 #define ALPHA		StateManager::GetInstance()->GetAlpha()
@@ -46,8 +47,9 @@
 #define SOUND		SoundManager::GetInstance()
 #define CAMERA		Camera::GetInstance()
 
-
+#define FONT		Font::GetInstance()
 
 using CallBack = function<void()>;
 
 #define LERP(s,e,t)			 s + (e - s) * t
+
