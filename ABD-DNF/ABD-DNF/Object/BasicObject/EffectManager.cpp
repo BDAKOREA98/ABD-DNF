@@ -50,6 +50,15 @@ void EffectManager::SetLEFT()
 
 }
 
+void EffectManager::SetRight()
+{
+	for (auto pair : _effectTable)
+	{
+		for (auto effect : pair.second)
+			effect->GetSprite()->SetRight();
+	}
+}
+
 void EffectManager::Play(string name, Vector2 pos)
 {
 	if (_effectTable.count(name) == 0)

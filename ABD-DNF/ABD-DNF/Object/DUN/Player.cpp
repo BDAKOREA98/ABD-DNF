@@ -11,7 +11,9 @@ Player::Player()
 
 	_col = make_shared<CircleCollider>(50);
 	_playercol2 = make_shared<CircleCollider>(40);
+	_playercol3 = make_shared<CircleCollider>(41);
 	_trans = make_shared<Transform>();
+	skillcol = make_shared<CircleCollider>(30);
 
 	CreateAction("Idle_L", L"Resource/DNF/Player/");
 	CreateAction("Walk_L", L"Resource/DNF/Player/");
@@ -23,21 +25,24 @@ Player::Player()
 	CreateAction("Taken", L"Resource/DNF/Player/");
 
 	CreateAction("Skill", L"Resource/DNF/Player/");
+	CreateAction("Skill1", L"Resource/DNF/Player/");
 
 
 	_playercol2->GetTransform()->SetParent(_col->GetTransform());
-
+	_playercol3->GetTransform()->SetParent(_col->GetTransform());
+	skillcol->GetTransform()->SetParent(_col->GetTransform());
+	skillcol->SetColorBlack();
 	_trans->SetParent(_col->GetTransform());
-	_col->GetTransform()->SetPosition(CENTER);
+	_col->GetTransform()->SetPosition(Vector2(CENTER.x, CENTER.y+300.0f));
 	
 	EFFECT->AddEffect("Hit", L"Resource/DNF/Effect/Slash3.bmp", Vector2(2, 7), Vector2(300, 300));
 	ChangePS(L"Shader/DNF_Player_PS.hlsl");
-	_item = make_shared<Item>();
+
 	_inven = make_shared<Inventory>();
 
 	_inven->_rect->GetTransform()->AddVector2({ 100.0f,0.0f });
 	SetLEFT();
-	EFFECT->SetLEFT();
+	
 
 	_inven->_haven[3][0]->SetQuad(L"Resource/DNF/Inventory/chaewon.png");
 	_inven->_haven[3][0]->SetType(Item::BELT);
@@ -59,7 +64,7 @@ Player::Player()
 	_inven->_haven[3][4]->SetType(Item::ARMOR);
 	_inven->_haven[3][4]->SetAbility(30);
 
-	_inven->_haven[3][5]->SetQuad(L"Resource/DNF/Inventory/chaewon.png");
+	_inven->_haven[3][5]->SetQuad(L"Resource/DNF/Inventory/inventory.png");
 	_inven->_haven[3][5]->SetType(Item::WEAPON);
 	_inven->_haven[3][5]->SetAbility(30);
 	
@@ -74,7 +79,8 @@ Player::~Player()
 
 void Player::Update()
 {
-	_item->Update();
+	
+	Skill();
 	_inven->Update();
 	SetCharactor();
 
@@ -98,7 +104,8 @@ void Player::Update()
 		_col->Update();
 		_trans->Update();
 		_playercol2->Update();
-
+		_playercol3->Update();
+		skillcol->Update();
 
 		if (_curState != IDLE)
 		{
@@ -119,10 +126,12 @@ void Player::Update()
 			_key = 0;
 
 
-		
-		MOVE();
-
-		Backstep();
+		if (Text)
+		{
+			MOVE();
+			Attack();
+			Backstep();
+		}
 
 	}
 	else if (_Hp <= 0.0f)
@@ -142,7 +151,8 @@ void Player::Update()
 	{
 		_inven->active = false;
 		SetAbility = false;
-		SetDamage();
+		//SetDamage();
+
 
 	}
 }
@@ -158,13 +168,14 @@ void Player::Render()
 		_sprites[_curState]->Render();
 		_col->Render();
 		_playercol2->Render();
+		skillcol->Render();
 	}
 	else
 		return;
 
 	
 
-	_item->Render();
+	
 }
 
 void Player::PostRender()
@@ -172,6 +183,7 @@ void Player::PostRender()
 	ImGui::Text("Player");
 	ImGui::Text("adddamage : %d", damage);
 	ImGui::Text("adddefense : %d", defense);
+	ImGui::Text("cooltime : %f", cooltime);
 	ImGui::Text("tatalDamage : %f", _Damage);
 	ImGui::Text("HP : %f", _Hp);
 	ImGui::Text("pos.x : %f", _col->GetTransform()->GetPos().x);
@@ -228,7 +240,7 @@ void Player::SetCharactor()
 	defense = defensearr[0] + defensearr[1] + defensearr[2] + defensearr[3] + defensearr[4];
 	damage = damagearr[0] + damagearr[1] + damagearr[2] + damagearr[3] + damagearr[4];
 
-	
+	_Damage = 20 + damage;
 
 
 }
@@ -244,7 +256,7 @@ void Player::MOVE()
 		{
 			SetAction(WALK);
 			_col->GetTransform()->SetScale({ -1, +1 });
-			EFFECT->SetLEFT();
+			EFFECT->SetRight();
 		}
 		else if (KEY_UP(VK_LEFT) && _curState == WALK)
 		{
@@ -255,7 +267,9 @@ void Player::MOVE()
 
 			SetAction(WALK);
 			_col->GetTransform()->SetScale({ +1, +1 });
+
 			EFFECT->SetLEFT();
+
 
 
 		}
@@ -374,7 +388,7 @@ void Player::Attack()
 {
 	if (_Hp > 0.0f)
 	{
-		if (_curState == IDLE || _curState == WALK || _curState == RUN)
+		if (_curState == IDLE || _curState == WALK || _curState == RUN || _curState == SKILL||_curState==Skill1)
 		{
 			_playercol2->GetTransform()->SetPosition({ 0.0f,0.0f });
 			_value = 0;
@@ -434,13 +448,8 @@ void Player::Attack()
 
 	}
 	
-	if (KEY_DOWN('A'))
-	{
-		SetAction(ATTACK2);
-		_playercol2->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
-		EFFECT->Play("Hit", _playercol2->GetTransform()->GetWorldPos());
+	
 
-	}
 
 }
 
@@ -510,5 +519,39 @@ void Player::SetDamage()
 
 void Player::SetHP()
 {
+}
+
+void Player::Skill()
+{
+
+	if (_curState == IDLE || _curState == WALK || _curState == RUN || _curState == ATTACK1 || _curState == ATTACK3|| _curState == ATTACK4|| _curState == Taken || _curState == ATTACK2)
+	{
+		skillcol->GetTransform()->SetPosition({ 0.0f,0.0f });
+		
+		sillTF = false;
+	}
+	if (cooltime != 0.0f)
+	{
+		cooltime += DELTA_TIME;
+	}
+	if (cooltime >= 9.0f)
+	{
+		cooltime = 0.0f;
+	}
+	if (KEY_DOWN('A') && cooltime == 0.0f)
+	{
+
+		_Mp -= 50;
+		SetAction(Skill1);
+		skillcol->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
+		EFFECT->Play("Hit", _playercol2->GetTransform()->GetWorldPos());
+		cooltime += DELTA_TIME;
+		sillTF = true;
+
+	}
+
+	
+	
+
 }
 

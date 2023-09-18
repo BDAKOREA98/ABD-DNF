@@ -10,7 +10,6 @@ DNF::DNF()
 
 	_mob1->GetCol()->GetTransform()->SetPosition({150.0f, 150.0f });
 
-	FONT->Add("D2Coding", L"D2Coding");
 	
 }
 
@@ -27,12 +26,12 @@ void DNF::Update()
 		_mob1->TakenDamage(10000);
 	}
 
-	//CAMERA->SetTarget(PLAYER->GetCol()->GetTransform());
-	//CAMERA->SetLeftBottom(_map1->leftBottom());
-	//CAMERA->SetRightTop(_map1->rightTop());
+	CAMERA->SetTarget(PLAYER->GetCol()->GetTransform());
+	CAMERA->SetLeftBottom(_map1->leftBottom());
+	CAMERA->SetRightTop(_map1->rightTop());
 	
 
-
+	PLAYER->_playercol3->Block(_mob1->GetCol());
 	_mob1->GetMobcol()->GetTransform()->SetPosition(Vector2(0.0f, 0.0f));
 	Monstermove();
 	MapCollision();
@@ -68,12 +67,11 @@ void DNF::Update()
 
 void DNF::Render()
 {
-	//_map1->Render();
+	_map1->Render();
 	
 	PLAYER->Render();
 	_mob1->Render();
 	
-	FONT->RenderText(L"안녕하십니까", "D2Coding", Vector2(CENTER));
 	
 	
 		
@@ -81,9 +79,9 @@ void DNF::Render()
 
 void DNF::PostRender()
 {
-	
+	ImGui::Text("taken : %f",Taken);
 	_mob1->PostRender();
-//	_map1->PostRender();
+	//_map1->PostRender();
 	PLAYER->PostRender();
 		
 }
@@ -166,11 +164,10 @@ void DNF::MapCollision()
 
 	}
 
+	if (_map1->GetRoom()->IsCollision(PLAYER->GetCol()))
 	{
-		PLAYER->GetAttack()->SetColorGreen();
-
+		SCENE->PrevScene();
 	}
-
 }
 
 void DNF::Attack()
@@ -188,24 +185,45 @@ void DNF::Attack()
 	{
 		if (PLAYER->AttackT_F() && PLAYER->GetAttack()->IsCollision(_mob1->GetCol()))
 		{
+			
 		
-			_mob1->SetAction(_mob1->Mob_TAKENDAMAGE);
-
+				_mob1->SetAction(_mob1->Mob_TAKENDAMAGE);
+				
+			
 			_mob1->TakenDamage(PLAYER->Damage());
 			PLAYER->GetAttack()->GetTransform()->SetPosition(Vector2(0.0f, 0.0f));
+
+		}
+		if (PLAYER->sillTF && PLAYER->skillcol->IsCollision(_mob1->GetCol()))
+		{
+			_mob1->SetAction(_mob1->Mob_TAKENDAMAGE);
+		
+
+			_mob1->TakenDamage(50);
+			PLAYER->skillcol->GetTransform()->SetPosition(Vector2(0.0f, 0.0f));
 		}
 	}
 	if (PLAYER->Hp() > 0.0f)
 	{
 		if (_mob1->AttackT_F() && _mob1->GetMobcol()->IsCollision(PLAYER->GetCol()))
 		{
-
+			Taken += DELTA_TIME;
 	
 			PLAYER->invincibility += DELTA_TIME;
 
 			if (PLAYER->invincibility > 0.5)
 			{
-				PLAYER->SetAction(PLAYER->Taken);
+				if (Taken >= 2.0f)
+				{
+					Taken = 0.0f;
+				}
+				if (Taken <= 0.5f)
+				{
+					PLAYER->SetAction(PLAYER->Taken);
+					
+					
+				}
+
 				PLAYER->TakenDamage(_mob1->Damage());
 				
 				_mob1->GetMobcol()->GetTransform()->SetPosition(Vector2(0.0f, 0.0f));

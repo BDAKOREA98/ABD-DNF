@@ -20,7 +20,7 @@ public:
 
 	void SetPS(shared_ptr<PixelShader> ps) { _ps = ps; }
 	void SetVS(shared_ptr<VertexShader> vs) { _vs = vs; }
-
+	weak_ptr<PixelShader> GetPs() { return _ps; }
 protected:
 	vector<Vertex_Texture> _vertices;
 	vector<UINT> _indices;

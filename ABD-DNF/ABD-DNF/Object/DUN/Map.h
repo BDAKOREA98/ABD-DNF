@@ -23,14 +23,16 @@ public:
 	
 	 shared_ptr<Transform> GetTrans() { return _maptrans; }
 	 shared_ptr<RectCollider> GetCol() { return _mapcol; }
+	 shared_ptr<RectCollider> GetRoom() { return _room; }
 
-
+	 shared_ptr<Quad> GetQuad() { return _mapquad; }
 	
 
 
 private:
 	friend class Player;
 	shared_ptr<RectCollider> _mapcol;
+	shared_ptr<RectCollider> _room;
 	shared_ptr<Quad> _mapquad;
 	shared_ptr<Transform> _maptrans;
 

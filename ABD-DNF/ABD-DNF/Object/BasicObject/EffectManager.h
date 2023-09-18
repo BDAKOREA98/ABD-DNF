@@ -32,6 +32,7 @@ public:
 	void AddEffect(string name, wstring file, Vector2 maxFrame, Vector2 size, float speed = 0.03f,
 		Action::Type type = Action::Type::END);
 	void SetLEFT();
+	void SetRight();
 
 	void Play(string name, Vector2 pos);
 

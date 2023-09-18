@@ -19,7 +19,8 @@ public:
 		ATTACK3,
 		ATTACK4,
 		Taken,
-		SKILL
+		SKILL,
+		Skill1
 	};
 	// Creature을(를) 통해 상속됨
 	virtual void Update() override;
@@ -44,20 +45,26 @@ public:
 	virtual float Damage() { return _Damage; };
 	void SetDamage();
 	void SetHP();
+	void Skill();
 
 	bool SetAbility = false;
 	bool AttackT_F() { return _isAttack; }
 	float invincibility = 0.0f;
 	shared_ptr<UI> ui;
 
+	bool sillTF = false;
 
+	shared_ptr<CircleCollider> skillcol;
 
+	shared_ptr<CircleCollider> _playercol3;
+
+	bool Text = false;
 private:
 	bool _isAttack = false;
 
 	
 	float _Mp = 1000.0f;
-	
+	float cooltime = 0.0f;
 
 	float timer = 0.0f;
 
@@ -67,7 +74,6 @@ private:
 	float _attackkey = 0.0f;
 	float _speed = 300.0f;
 
-	
 	shared_ptr<CircleCollider> _playercol2;
 	
 	State _state = State::IDLE;
@@ -79,7 +85,7 @@ private:
 	State _curState = State::IDLE;
 	State _oldState = State::IDLE;
 	
-	shared_ptr<Item> _item;
+	
 	shared_ptr<Inventory> _inven;
 
 };

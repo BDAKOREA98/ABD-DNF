@@ -210,6 +210,15 @@
     <ClInclude Include="Framework\Utility\Singleton.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\DNF\Start.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\DNF\SerriaRoom.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\DUN\Map_Serria.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ABD-DNF.cpp">
@@ -368,6 +377,15 @@
     <ClCompile Include="Framework\Utility\Font.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Scene\DNF\Start.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\DNF\SerriaRoom.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\DUN\Map_Serria.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ABD-DNF.rc">
@@ -444,5 +462,8 @@
     <FxCompile Include="Shader\VertexShader.hlsl" />
     <FxCompile Include="Shader\HpBarPS.hlsl" />
     <FxCompile Include="Shader\MpBarPS.hlsl" />
+    <FxCompile Include="Shader\Serria.hlsl" />
+    <FxCompile Include="Shader\TEXT.hlsl" />
+    <FxCompile Include="Shader\playerText.hlsl" />
   </ItemGroup>
 </Project>

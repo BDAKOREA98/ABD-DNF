@@ -12,6 +12,11 @@ Map::Map()
 	_mapcol->GetTransform()->SetParent(_maptrans);
 	_mapcol->GetTransform()->AddVector2(Vector2 (0.0f, -_mapquad->GetImageSize().y / 4));
 	
+	_room = make_shared<RectCollider>(Vector2(80.0f , 150.0f));
+	_room->GetTransform()->SetParent(_maptrans);
+	_room->SetColorBlue();
+
+	_room->GetTransform()->AddVector2(Vector2(42.0f, 80.0f));
 
 	_blockcol1 = make_shared<RectCollider>(Vector2(_mapquad->GetImageSize().x, 100.0f));
 	_blockcol2 = make_shared<RectCollider>(Vector2(_mapquad->GetImageSize().x, 100.0f));
@@ -71,7 +76,7 @@ void Map::Update()
 	}*/
 
 
-
+	_room->Update();
 	_blockcol1->Update();
 	_blockcol2->Update();
 	_blockcol3->Update();
@@ -83,6 +88,7 @@ void Map::Render()
 	_maptrans->SetWorldBuffer(0);
 	_mapquad->Render();
 
+	_room->Render();
 
 	_blockcol1->Render();
 	_blockcol2->Render();
