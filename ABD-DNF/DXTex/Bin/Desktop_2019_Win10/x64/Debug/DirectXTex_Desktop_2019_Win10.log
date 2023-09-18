@@ -1,9 +1,4 @@
-﻿  DirectXTexUtil.cpp
-  BC.cpp
-  BC4BC5.cpp
-  BC6HBC7.cpp
-  BCDirectCompute.cpp
-  DirectXTexCompress.cpp
+﻿  DirectXTexCompress.cpp
   DirectXTexCompressGPU.cpp
   DirectXTexConvert.cpp
   DirectXTexD3D11.cpp

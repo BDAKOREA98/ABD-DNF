@@ -75,13 +75,14 @@ void SerriaRoom::Render()
 
 void SerriaRoom::PostRender()
 {
-	ImGui::Text("Count : %d", count);
+	PLAYER->PostRender();
+	//ImGui::Text("Count : %d", count);
 }
 
 void SerriaRoom::Text()
 {
 
-	if (count >= 7)
+	if (count == 8 ||count == 10 || count == 12||count == 14||count == 16 ||count == 18 ||count >= 23)
 	{
 		PLAYER->Text = true;
 	}
@@ -91,6 +92,8 @@ void SerriaRoom::Text()
 		
 			PLAYER->Text = false;
 			count++;
+			PLAYER->GetCol()->GetTransform()->SetPosition(Vector2(CENTER.x, CENTER.y + 300.0f));
+			PLAYER->SetAction(PLAYER->IDLE);
 	}
 	
 	if (count == 1)
@@ -172,21 +175,151 @@ void SerriaRoom::Text()
 
 		
 	}
-	else if (count == 8 && KEY_DOWN(VK_LBUTTON))
+	else if (count == 9)
 	{
 		texttrans->SetWorldBuffer(1);
 		Textbar->Render();
 		trans2->SetWorldBuffer(1);
 		serria->Render();
 		FONT->RenderText(L"세리아", "WHITE", Vector2(550.0f, 470.0f));
-		FONT->RenderText(L"   \'X\' 를 이용하여하실 수 있습니다.", "BLACK", Vector2(550.0f, 550.0f));
+		FONT->RenderText(L"   \'방향키\' 를 두번 누르면 달리기가 가능합니다.", "BLACK", Vector2(550.0f, 550.0f));
 		FONT->RenderText(L"   한번 움직여 보시겠습니까??.", "BLACK", Vector2(550.0f, 570.0f));
 
 		FONT->RenderText(L"마우스를 누르세요", "RED", Vector2(950.0f, 600.0f));
 
 
 	}
+	else if (count == 11)
+	{
+		texttrans->SetWorldBuffer(1);
+		Textbar->Render();
+		trans2->SetWorldBuffer(1);
+		serria->Render();
+		FONT->RenderText(L"세리아", "WHITE", Vector2(550.0f, 470.0f));
+		FONT->RenderText(L"   \'X\' 를 누르시면 공격이 가능합니다.", "BLACK", Vector2(550.0f, 550.0f));
+		FONT->RenderText(L"   한번 움직여 보시겠습니까??.", "BLACK", Vector2(550.0f, 570.0f));
 
+		FONT->RenderText(L"마우스를 누르세요", "RED", Vector2(950.0f, 600.0f));
+
+
+	}
+	else if (count == 13)
+	{
+		texttrans->SetWorldBuffer(1);
+		Textbar->Render();
+		trans2->SetWorldBuffer(1);
+		serria->Render();
+		FONT->RenderText(L"세리아", "WHITE", Vector2(550.0f, 470.0f));
+		FONT->RenderText(L"   \'C\' 를 누르시면 백스텝이 가능합니다.", "BLACK", Vector2(550.0f, 550.0f));
+		FONT->RenderText(L"   한번 움직여 보시겠습니까??.", "BLACK", Vector2(550.0f, 570.0f));
+
+		FONT->RenderText(L"마우스를 누르세요", "RED", Vector2(950.0f, 600.0f));
+
+
+		}
+	else if (count == 15)
+	{
+		texttrans->SetWorldBuffer(1);
+		Textbar->Render();
+		trans2->SetWorldBuffer(1);
+		serria->Render();
+		FONT->RenderText(L"세리아", "WHITE", Vector2(550.0f, 470.0f));
+		FONT->RenderText(L"   \'Z\' 를 누르시면 스킬사용이 가능합니다.", "BLACK", Vector2(550.0f, 550.0f));
+		FONT->RenderText(L"   한번 사용 해 보시겠습니까??.", "BLACK", Vector2(550.0f, 570.0f));
+
+		FONT->RenderText(L"마우스를 누르세요", "RED", Vector2(950.0f, 600.0f));
+
+
+		}
+
+	else if (count == 17)
+	{
+		texttrans->SetWorldBuffer(1);
+		Textbar->Render();
+		trans2->SetWorldBuffer(1);
+		serria->Render();
+		FONT->RenderText(L"세리아", "WHITE", Vector2(550.0f, 470.0f));
+		FONT->RenderText(L"   \'I\' 를 누르시면 인벤토리 오픈이 가능합니다.", "BLACK", Vector2(550.0f, 550.0f));
+		FONT->RenderText(L"   한번 사용 해 보시겠습니까??.", "BLACK", Vector2(550.0f, 570.0f));
+
+		FONT->RenderText(L"마우스를 누르세요", "RED", Vector2(950.0f, 600.0f));
+
+
+		}
+
+	else if (count == 19)
+	{
+		texttrans->SetWorldBuffer(1);
+		Textbar->Render();
+		trans2->SetWorldBuffer(1);
+		serria->Render();
+		FONT->RenderText(L"세리아", "WHITE", Vector2(550.0f, 470.0f));
+		FONT->RenderText(L"   튜토리얼 끝났습니다.", "BLACK", Vector2(550.0f, 550.0f));
+		
+		FONT->RenderText(L"마우스를 누르세요", "RED", Vector2(950.0f, 600.0f));
+
+
+		}
+	else if (count == 20)
+	{
+		texttrans->SetWorldBuffer(1);
+		Textbar->Render();
+		FONT->RenderText(L"???????", "WHITE", Vector2(550.0f, 470.0f));
+		FONT->RenderText(L"   꺄아아악.", "BLACK", Vector2(550.0f, 550.0f));
+
+		FONT->RenderText(L"마우스를 누르세요", "RED", Vector2(950.0f, 600.0f));
+
+
+		}
+	else if (count == 21)
+	{
+		texttrans->SetWorldBuffer(1);
+		Textbar->Render();
+		playertrans->SetWorldBuffer(1);
+		playerQuad->Render();
+		FONT->RenderText(L"Player", "WHITE", Vector2(550.0f, 470.0f));
+		FONT->RenderText(L"무슨소리지??" ,"BLACK", Vector2(550.0f, 550.0f));
+
+		}
+	else if (count == 22)
+	{
+		texttrans->SetWorldBuffer(1);
+		Textbar->Render();
+		trans2->SetWorldBuffer(1);
+		serria->Render();
+		FONT->RenderText(L"세리아", "WHITE", Vector2(550.0f, 470.0f));
+		FONT->RenderText(L"   마을에 몬스터가 나타났나봐요.", "BLACK", Vector2(550.0f, 550.0f));
+
+		FONT->RenderText(L"마우스를 누르세요", "RED", Vector2(950.0f, 600.0f));
+
+
+		}
+	else if (count == 23)
+	{
+		texttrans->SetWorldBuffer(1);
+		Textbar->Render();
+		trans2->SetWorldBuffer(1);
+		serria->Render();
+		FONT->RenderText(L"세리아", "WHITE", Vector2(550.0f, 470.0f));
+		FONT->RenderText(L"   사람들을 도와주세요. 모험가님", "BLACK", Vector2(550.0f, 550.0f));
+
+		FONT->RenderText(L"마우스를 누르세요", "RED", Vector2(950.0f, 600.0f));
+
+
+		}
+	else if (count == 24)
+	{
+		texttrans->SetWorldBuffer(1);
+		Textbar->Render();
+		trans2->SetWorldBuffer(1);
+		serria->Render();
+		FONT->RenderText(L"세리아", "WHITE", Vector2(550.0f, 470.0f));
+		FONT->RenderText(L"   아래로 내려가면 마을로 갈 수 있습니다.", "BLACK", Vector2(550.0f, 550.0f));
+
+		FONT->RenderText(L"마우스를 누르세요", "RED", Vector2(950.0f, 600.0f));
+
+
+		}
 
 }
 

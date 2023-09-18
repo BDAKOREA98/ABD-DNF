@@ -9,7 +9,7 @@ public:
 		Mob_RUN,
 		Mob_ATTACK1,
 		Mob_ATTACK2,
-		Mob_TAKENDAMAGE
+		Mob_TAKEN
 		
 	};
 	Monster_mad();
@@ -50,6 +50,9 @@ private:
 
 	State _curState = State::Mob_IDLE;
 	State _oldState = State::Mob_IDLE;
+
+
+	shared_ptr<MobHP> hpbar;
 	
 
 

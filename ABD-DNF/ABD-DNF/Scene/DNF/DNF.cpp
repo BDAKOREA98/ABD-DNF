@@ -33,11 +33,33 @@ void DNF::Update()
 
 	PLAYER->_playercol3->Block(_mob1->GetCol());
 	_mob1->GetMobcol()->GetTransform()->SetPosition(Vector2(0.0f, 0.0f));
-	Monstermove();
 	MapCollision();
-	Attack();
-	
-	PLAYER->Attack();
+
+
+	if (_mob1->GetcurState() == _mob1->Mob_TAKEN)
+	{
+		monsterTaken += DELTA_TIME;
+	}
+	if (PLAYER->GetCurState() == PLAYER->Taken)
+	{
+		playerTaken += DELTA_TIME;
+		
+	}
+
+
+	if (monsterTaken >= 0.4f)
+	{
+		Monstermove();
+		MonsterAttack();
+	}
+
+	if (playerTaken >= 0.5f)
+	{
+		PlayerAttack();
+	}
+
+		PLAYER->Attack();
+
 
 
 	if (PLAYER->invincibility >= 0.5f)
@@ -80,6 +102,8 @@ void DNF::Render()
 void DNF::PostRender()
 {
 	ImGui::Text("taken : %f",Taken);
+	ImGui::Text("playertaken : %f",playerTaken);
+	ImGui::Text("monstertaken : %f",monsterTaken);
 	_mob1->PostRender();
 	//_map1->PostRender();
 	PLAYER->PostRender();
@@ -170,62 +194,48 @@ void DNF::MapCollision()
 	}
 }
 
-void DNF::Attack()
+void DNF::MonsterAttack()
 {
-	Vector2 Direction;
-	Vector2 MobPos;
-	Vector2 PlayerPos;
-	MobPos = _mob1->GetCol()->GetTransform()->GetPos();
-	PlayerPos = PLAYER->GetCol()->GetTransform()->GetPos();
-
-	Direction =  MobPos - PlayerPos;
-	Direction.Normalize();
-
 	if (_mob1->Hp() > 0.0f)
 	{
 		if (PLAYER->AttackT_F() && PLAYER->GetAttack()->IsCollision(_mob1->GetCol()))
 		{
-			
-		
-				_mob1->SetAction(_mob1->Mob_TAKENDAMAGE);
-				
-			
+
+
+			_mob1->SetAction(_mob1->Mob_TAKEN);
+
+
 			_mob1->TakenDamage(PLAYER->Damage());
 			PLAYER->GetAttack()->GetTransform()->SetPosition(Vector2(0.0f, 0.0f));
-
+			
+			monsterTaken = 0.0f;
 		}
 		if (PLAYER->sillTF && PLAYER->skillcol->IsCollision(_mob1->GetCol()))
 		{
-			_mob1->SetAction(_mob1->Mob_TAKENDAMAGE);
-		
+			_mob1->SetAction(_mob1->Mob_TAKEN);
 
-			_mob1->TakenDamage(50);
+
+			_mob1->TakenDamage(500);
 			PLAYER->skillcol->GetTransform()->SetPosition(Vector2(0.0f, 0.0f));
+			monsterTaken = 0.0f;
 		}
 	}
+}
+
+void DNF::PlayerAttack()
+{
 	if (PLAYER->Hp() > 0.0f)
 	{
 		if (_mob1->AttackT_F() && _mob1->GetMobcol()->IsCollision(PLAYER->GetCol()))
 		{
-			Taken += DELTA_TIME;
-	
+			
+			
 			PLAYER->invincibility += DELTA_TIME;
 
 			if (PLAYER->invincibility > 0.5)
 			{
-				if (Taken >= 2.0f)
-				{
-					Taken = 0.0f;
-				}
-				if (Taken <= 0.5f)
-				{
-					PLAYER->SetAction(PLAYER->Taken);
-					
-					
-				}
-
+				PLAYER->SetAction(PLAYER->Taken);
 				PLAYER->TakenDamage(_mob1->Damage());
-				
 				_mob1->GetMobcol()->GetTransform()->SetPosition(Vector2(0.0f, 0.0f));
 				_mob1->AttackChange(false);
 			}
@@ -233,7 +243,5 @@ void DNF::Attack()
 
 		}
 	}
-	
-
-
 }
+

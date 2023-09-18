@@ -219,6 +219,9 @@
     <ClInclude Include="Object\DUN\Map_Serria.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Object\DUN\MobHP.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ABD-DNF.cpp">
@@ -386,6 +389,9 @@
     <ClCompile Include="Object\DUN\Map_Serria.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Object\DUN\MobHP.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ABD-DNF.rc">
@@ -465,5 +471,6 @@
     <FxCompile Include="Shader\Serria.hlsl" />
     <FxCompile Include="Shader\TEXT.hlsl" />
     <FxCompile Include="Shader\playerText.hlsl" />
+    <FxCompile Include="Shader\MonsterHP.hlsl" />
   </ItemGroup>
 </Project>

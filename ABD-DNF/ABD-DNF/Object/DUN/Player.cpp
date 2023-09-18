@@ -13,7 +13,7 @@ Player::Player()
 	_playercol2 = make_shared<CircleCollider>(40);
 	_playercol3 = make_shared<CircleCollider>(41);
 	_trans = make_shared<Transform>();
-	skillcol = make_shared<CircleCollider>(30);
+	skillcol = make_shared<CircleCollider>(45);
 
 	CreateAction("Idle_L", L"Resource/DNF/Player/");
 	CreateAction("Walk_L", L"Resource/DNF/Player/");
@@ -85,11 +85,10 @@ void Player::Update()
 	SetCharactor();
 
 	
-	_Mp -= 0.1f;
 	
 
 	ui->hp->ChangeRatio(1 - (_Hp / 1000.0f));
-	ui->mp->ChangeRatio(1 - (_Mp / 1000.0f));
+	ui->mp->ChangeRatio(1 - (_Mp / 100.0f));
 	ui->Update();
 
 
@@ -180,7 +179,7 @@ void Player::Render()
 
 void Player::PostRender()
 {
-	ImGui::Text("Player");
+	/*ImGui::Text("Player");
 	ImGui::Text("adddamage : %d", damage);
 	ImGui::Text("adddefense : %d", defense);
 	ImGui::Text("cooltime : %f", cooltime);
@@ -189,7 +188,7 @@ void Player::PostRender()
 	ImGui::Text("pos.x : %f", _col->GetTransform()->GetPos().x);
 	ImGui::Text("pos.y : %f", _col->GetTransform()->GetPos().y);
 	ImGui::Text("WorldPos.x : %f", _col->GetTransform()->GetWorldPos().x);
-	ImGui::Text("WorldPos.y : %f", _col->GetTransform()->GetWorldPos().y);
+	ImGui::Text("WorldPos.y : %f", _col->GetTransform()->GetWorldPos().y);*/
 	
 	
 	_inven->PostRender();
@@ -534,14 +533,16 @@ void Player::Skill()
 	{
 		cooltime += DELTA_TIME;
 	}
-	if (cooltime >= 9.0f)
+	if (cooltime >= 5.0f)
 	{
 		cooltime = 0.0f;
 	}
-	if (KEY_DOWN('A') && cooltime == 0.0f)
+	if (KEY_DOWN('Z') && cooltime == 0.0f)
 	{
 
-		_Mp -= 50;
+		
+
+		_Mp -= 20;
 		SetAction(Skill1);
 		skillcol->GetTransform()->SetPosition(Vector2(40.0f, 0.0f));
 		EFFECT->Play("Hit", _playercol2->GetTransform()->GetWorldPos());

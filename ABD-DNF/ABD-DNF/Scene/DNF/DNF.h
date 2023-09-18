@@ -16,10 +16,12 @@ public:
 
 	void Monstermove();
 	void MapCollision();
-	void Attack();
-
+	void MonsterAttack();
+	void PlayerAttack();
 
 	float Taken = 0.0f;
+	float monsterTaken = 0.5f;
+	float playerTaken = 0.5f;
 private:
 
 

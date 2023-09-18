@@ -114,6 +114,7 @@ using namespace Microsoft::WRL;
 #include "Object/DUN/HP.h"
 #include "Object/DUN/MP.h"
 #include "Object/DUN/UI.h"
+#include "Object/DUN/MobHP.h"
 
 #include "Object/DUN/Player.h"
 #include "Object/DUN/Monster_mad.h"

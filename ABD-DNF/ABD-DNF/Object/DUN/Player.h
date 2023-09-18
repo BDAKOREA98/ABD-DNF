@@ -63,7 +63,7 @@ private:
 	bool _isAttack = false;
 
 	
-	float _Mp = 1000.0f;
+	float _Mp = 100.0f;
 	float cooltime = 0.0f;
 
 	float timer = 0.0f;

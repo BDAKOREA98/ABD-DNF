@@ -25,7 +25,7 @@ Monster_mad::Monster_mad()
 	CreateAction("Mob_RUN", L"Resource/DNF/Mob/");
 	CreateAction("Mob_ATTACK1", L"Resource/DNF/Mob/");
 	CreateAction("Mob_ATTACK2", L"Resource/DNF/Mob/");
-	CreateAction("Mob_TAKENDAMAGE", L"Resource/DNF/Mob/");
+	CreateAction("Mob_TAKEN", L"Resource/DNF/Mob/");
 
 	
 	
@@ -34,9 +34,11 @@ Monster_mad::Monster_mad()
 	_movecol->SetColorBlack();
 	
 
-
-
 	
+
+	hpbar = make_shared<MobHP>();
+	hpbar->_quadTransform->SetParent(_col->GetTransform());
+	hpbar->_quadTransform->AddVector2({ 0.0f, 50.0f });
 
 }
 
@@ -60,6 +62,7 @@ void Monster_mad::Update()
 		_mobcol->Update();
 		_trans->Update();
 		_movecol->Update();
+		hpbar->Update();
 	}
 }
 
@@ -74,20 +77,22 @@ void Monster_mad::Render()
 		_col->Render();
 		_mobcol->Render();
 		_movecol->Render();
+		hpbar->SetRatio(_Hp / (float)1000);
+		hpbar->PostRender();
 	}
 	
 }
 
 void Monster_mad::PostRender()
 {
-	ImGui::Text("----------------");
-	ImGui::Text("Mob");
+	//ImGui::Text("----------------");
+	//ImGui::Text("Mob");
 	//ImGui::Text("_curStateStartPos.x : %f", _actions[_curState]->GetStartPos().x);
 	//ImGui::Text("_curStateStartPos.y : %f", _actions[_curState]->GetStartPos().y);
-	ImGui::Text("Pos.x : %f", _col->GetTransform()->GetPos().x);
-	ImGui::Text("Pos.y : %f", _col->GetTransform()->GetPos().y);
-	ImGui::Text("Hp : %f", _Hp);
-	ImGui::Text("Damage : %f", _Damage);
+	//ImGui::Text("Pos.x : %f", _col->GetTransform()->GetPos().x);
+	//ImGui::Text("Pos.y : %f", _col->GetTransform()->GetPos().y);
+	//ImGui::Text("Hp : %f", _Hp);
+	//ImGui::Text("Damage : %f", _Damage);
 	//ImGui::Text("_attack : %f", _attackKey);
 	
 }
