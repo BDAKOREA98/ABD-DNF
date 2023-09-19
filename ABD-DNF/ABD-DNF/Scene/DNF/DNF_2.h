@@ -20,6 +20,7 @@ private:
 
 	shared_ptr<Map2> _map;
 	
+	shared_ptr<Mob_Tau> _mob1;
 	
 	bool _mobMove = true;
 };

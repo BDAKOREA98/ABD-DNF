@@ -1,4 +1,9 @@
-﻿  DirectXTexCompress.cpp
+﻿  DirectXTexUtil.cpp
+  BC.cpp
+  BC4BC5.cpp
+  BC6HBC7.cpp
+  BCDirectCompute.cpp
+  DirectXTexCompress.cpp
   DirectXTexCompressGPU.cpp
   DirectXTexConvert.cpp
   DirectXTexD3D11.cpp
@@ -15,4 +20,4 @@
   DirectXTexTGA.cpp
   DirectXTexWIC.cpp
   코드를 생성하고 있습니다...
-  DirectXTex_Desktop_2019_Win10.vcxproj -> C:\Users\82103\Desktop\덕\포트폴리오\던파(모작)\ABD-DNF\ABD-DNF\DXTex\Bin\Desktop_2019_Win10\x64\Debug\DirectXTex.lib
+  DirectXTex_Desktop_2019_Win10.vcxproj -> C:\Users\user\Desktop\BDA\ABD-DNF\ABD-DNF\DXTex\Bin\Desktop_2019_Win10\x64\Debug\DirectXTex.lib

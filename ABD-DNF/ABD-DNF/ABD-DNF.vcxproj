@@ -154,20 +154,21 @@
     <ClInclude Include="ABD-DNF.h" />
     <ClInclude Include="Framework\Utility\Font.h" />
     <ClInclude Include="Framework\Utility\Singleton.h" />
-    <ClInclude Include="Object\DUN\MobHP.h" />
-    <ClInclude Include="Object\DUN\Map_Serria.h" />
+    <ClInclude Include="Object\DUN\Mob\Mob_Tau.h" />
+    <ClInclude Include="Object\DUN\Mob\MobHP.h" />
+    <ClInclude Include="Object\DUN\Map\Map_Serria.h" />
     <ClInclude Include="Scene\DNF\Loading.h" />
-    <ClInclude Include="Object\DUN\MP.h" />
-    <ClInclude Include="Object\DUN\HP.h" />
-    <ClInclude Include="Object\DUN\Map2.h" />
-    <ClInclude Include="Object\DUN\PlayerManager.h" />
+    <ClInclude Include="Object\DUN\Player\MP.h" />
+    <ClInclude Include="Object\DUN\Player\HP.h" />
+    <ClInclude Include="Object\DUN\Map\Map2.h" />
+    <ClInclude Include="Object\DUN\Player\PlayerManager.h" />
     <ClInclude Include="Scene\DNF\DNF_2.h" />
-    <ClInclude Include="Object\DUN\Inventory.h" />
-    <ClInclude Include="Object\DUN\Item.h" />
-    <ClInclude Include="Object\DUN\Monster_mad.h" />
+    <ClInclude Include="Object\DUN\Player\Inventory.h" />
+    <ClInclude Include="Object\DUN\Player\Item.h" />
+    <ClInclude Include="Object\DUN\Mob\Monster_mad.h" />
     <ClInclude Include="Object\DUN\Creature.h" />
     <ClInclude Include="Framework\Animation\Action.h" />
-    <ClInclude Include="Object\DUN\Map.h" />
+    <ClInclude Include="Object\DUN\Map\Map.h" />
     <ClInclude Include="Object\BasicObject\EffectManager.h" />
     <ClInclude Include="Object\BasicObject\Effect.h" />
     <ClInclude Include="Framework\Camera\Camera.h" />
@@ -183,7 +184,7 @@
     <ClInclude Include="Framework\Math\MathUtility.h" />
     <ClInclude Include="Framework\Utility\tinyxml2.h" />
     <ClInclude Include="Object\BasicObject\Quad.h" />
-    <ClInclude Include="Object\DUN\Player.h" />
+    <ClInclude Include="Object\DUN\Player\Player.h" />
     <ClInclude Include="Scene\SceneManager.h" />
     <ClInclude Include="Scene\DNF\DNF.h" />
     <ClInclude Include="Framework\Device\Device.h" />
@@ -219,25 +220,26 @@
     <ClInclude Include="Framework\Render\VertexShader.h" />
     <ClInclude Include="Framework\Render\VertexLayout.h" />
     <ClInclude Include="Framework\Render\VertexBuffer.h" />
-    <ClInclude Include="Object\DUN\UI.h" />
+    <ClInclude Include="Object\DUN\Player\UI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ABD-DNF.cpp" />
     <ClCompile Include="Framework\Utility\Font.cpp" />
-    <ClCompile Include="Object\DUN\MobHP.cpp" />
-    <ClCompile Include="Object\DUN\Map_Serria.cpp" />
+    <ClCompile Include="Object\DUN\Mob\Mob_Tau.cpp" />
+    <ClCompile Include="Object\DUN\Mob\MobHP.cpp" />
+    <ClCompile Include="Object\DUN\Map\Map_Serria.cpp" />
     <ClCompile Include="Scene\DNF\Loading.cpp" />
-    <ClCompile Include="Object\DUN\MP.cpp" />
-    <ClCompile Include="Object\DUN\HP.cpp" />
-    <ClCompile Include="Object\DUN\Map2.cpp" />
-    <ClCompile Include="Object\DUN\PlayerManager.cpp" />
+    <ClCompile Include="Object\DUN\Player\MP.cpp" />
+    <ClCompile Include="Object\DUN\Player\HP.cpp" />
+    <ClCompile Include="Object\DUN\Map\Map2.cpp" />
+    <ClCompile Include="Object\DUN\Player\PlayerManager.cpp" />
     <ClCompile Include="Scene\DNF\DNF_2.cpp" />
-    <ClCompile Include="Object\DUN\Inventory.cpp" />
-    <ClCompile Include="Object\DUN\Item.cpp" />
-    <ClCompile Include="Object\DUN\Monster_mad.cpp" />
+    <ClCompile Include="Object\DUN\Player\Inventory.cpp" />
+    <ClCompile Include="Object\DUN\Player\Item.cpp" />
+    <ClCompile Include="Object\DUN\Mob\Monster_mad.cpp" />
     <ClCompile Include="Object\DUN\Creature.cpp" />
     <ClCompile Include="Framework\Animation\Action.cpp" />
-    <ClCompile Include="Object\DUN\Map.cpp" />
+    <ClCompile Include="Object\DUN\Map\Map.cpp" />
     <ClCompile Include="Object\BasicObject\EffectManager.cpp" />
     <ClCompile Include="Object\BasicObject\Effect.cpp" />
     <ClCompile Include="Framework\Camera\Camera.cpp" />
@@ -252,7 +254,7 @@
     <ClCompile Include="Framework\Math\MathUtility.cpp" />
     <ClCompile Include="Framework\Utility\tinyxml2.cpp" />
     <ClCompile Include="Object\BasicObject\Quad.cpp" />
-    <ClCompile Include="Object\DUN\Player.cpp" />
+    <ClCompile Include="Object\DUN\Player\Player.cpp" />
     <ClCompile Include="Scene\SceneManager.cpp" />
     <ClCompile Include="Scene\DNF\DNF.cpp" />
     <ClCompile Include="Framework\Device\Device.cpp" />
@@ -277,7 +279,7 @@
     <ClCompile Include="framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Object\DUN\UI.cpp" />
+    <ClCompile Include="Object\DUN\Player\UI.cpp" />
     <ClCompile Include="Scene\DNF\Start.cpp" />
     <ClCompile Include="Scene\DNF\SerriaRoom.cpp" />
   </ItemGroup>

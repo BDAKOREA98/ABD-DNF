@@ -162,43 +162,43 @@
     <ClInclude Include="Framework\Animation\Action.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\DUN\Map.h">
+    <ClInclude Include="Object\DUN\Map\Map.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Object\DUN\Creature.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\DUN\Player.h">
+    <ClInclude Include="Object\DUN\Player\Player.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\DUN\Monster_mad.h">
+    <ClInclude Include="Object\DUN\Mob\Monster_mad.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Scene\SceneManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\DUN\Item.h">
+    <ClInclude Include="Object\DUN\Player\Item.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\DUN\Inventory.h">
+    <ClInclude Include="Object\DUN\Player\Inventory.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Scene\DNF\DNF_2.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\DUN\Map2.h">
+    <ClInclude Include="Object\DUN\Map\Map2.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\DUN\PlayerManager.h">
+    <ClInclude Include="Object\DUN\Player\PlayerManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\DUN\UI.h">
+    <ClInclude Include="Object\DUN\Player\UI.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\DUN\HP.h">
+    <ClInclude Include="Object\DUN\Player\HP.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\DUN\MP.h">
+    <ClInclude Include="Object\DUN\Player\MP.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Scene\DNF\Loading.h">
@@ -216,10 +216,13 @@
     <ClInclude Include="Scene\DNF\SerriaRoom.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\DUN\Map_Serria.h">
+    <ClInclude Include="Object\DUN\Map\Map_Serria.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\DUN\MobHP.h">
+    <ClInclude Include="Object\DUN\Mob\MobHP.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\DUN\Mob\Mob_Tau.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -332,25 +335,25 @@
     <ClCompile Include="Framework\Animation\Action.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\DUN\Map.cpp">
+    <ClCompile Include="Object\DUN\Map\Map.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Object\DUN\Creature.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\DUN\Player.cpp">
+    <ClCompile Include="Object\DUN\Player\Player.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\DUN\Monster_mad.cpp">
+    <ClCompile Include="Object\DUN\Mob\Monster_mad.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Scene\SceneManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\DUN\Item.cpp">
+    <ClCompile Include="Object\DUN\Player\Item.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\DUN\Inventory.cpp">
+    <ClCompile Include="Object\DUN\Player\Inventory.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="framework.cpp">
@@ -359,19 +362,19 @@
     <ClCompile Include="Scene\DNF\DNF_2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\DUN\Map2.cpp">
+    <ClCompile Include="Object\DUN\Map\Map2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\DUN\PlayerManager.cpp">
+    <ClCompile Include="Object\DUN\Player\PlayerManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\DUN\UI.cpp">
+    <ClCompile Include="Object\DUN\Player\UI.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\DUN\HP.cpp">
+    <ClCompile Include="Object\DUN\Player\HP.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\DUN\MP.cpp">
+    <ClCompile Include="Object\DUN\Player\MP.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Scene\DNF\Loading.cpp">
@@ -386,10 +389,13 @@
     <ClCompile Include="Scene\DNF\SerriaRoom.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\DUN\Map_Serria.cpp">
+    <ClCompile Include="Object\DUN\Map\Map_Serria.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\DUN\MobHP.cpp">
+    <ClCompile Include="Object\DUN\Mob\MobHP.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\DUN\Mob\Mob_Tau.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

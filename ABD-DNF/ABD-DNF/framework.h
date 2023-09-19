@@ -105,22 +105,23 @@ using namespace Microsoft::WRL;
 #include "Object/BasicObject/EffectManager.h"
 
 //DUN
-#include "Object/DUN/Map.h"
-#include "Object/DUN/Map2.h"
-#include "Object/DUN/Map_Serria.h"
+#include "Object/DUN/Map/Map.h"
+#include "Object/DUN/Map/Map2.h"
+#include "Object/DUN/Map/Map_Serria.h"
 #include "Object/DUN/Creature.h"
-#include "Object/DUN/Item.h"
-#include "Object/DUN/Inventory.h"
-#include "Object/DUN/HP.h"
-#include "Object/DUN/MP.h"
-#include "Object/DUN/UI.h"
-#include "Object/DUN/MobHP.h"
+#include "Object/DUN/Player/Item.h"
+#include "Object/DUN/Player/Inventory.h"
+#include "Object/DUN/Player/HP.h"
+#include "Object/DUN/Player/MP.h"
+#include "Object/DUN/Player/UI.h"
+#include "Object/DUN/Mob/MobHP.h"
 
-#include "Object/DUN/Player.h"
-#include "Object/DUN/Monster_mad.h"
+#include "Object/DUN/Player/Player.h"
+#include "Object/DUN/Mob/Monster_mad.h"
+#include "Object/DUN/Mob/Mob_tau.h"
 
 // Camera
-#include "Object/DUN/PlayerManager.h"
+#include "Object/DUN/Player/PlayerManager.h"
 #include "Framework/Camera/Camera.h"
 
 #define PLAYER		PlayerManager::GetPlayer()
