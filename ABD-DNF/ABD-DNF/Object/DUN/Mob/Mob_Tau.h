@@ -30,6 +30,9 @@ public:
 	void Input();
 	void SetAction(State state);
 
+
+	void TakenDamage();
+
 	
 private:
 

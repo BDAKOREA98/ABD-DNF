@@ -34,6 +34,8 @@ public:
 	shared_ptr<CircleCollider> GetMobcol() { return _mobcol; }
 	shared_ptr<CircleCollider> GetMovecol() { return _movecol; }
 	float GetAttackKey() { return _attackKey; }
+
+	bool _alive = true;
 private:
 
 	bool _isAttack = false;

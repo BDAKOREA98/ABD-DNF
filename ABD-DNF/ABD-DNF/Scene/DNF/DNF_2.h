@@ -14,7 +14,7 @@ public:
 
 	void Monstermove();
 	void MapCollision();
-	void Attack();
+	void Battle();
 
 private:
 
@@ -23,5 +23,7 @@ private:
 	shared_ptr<Mob_Tau> _mob1;
 	
 	bool _mobMove = true;
+
+	float cameraMove = 0.0f;
 };
 

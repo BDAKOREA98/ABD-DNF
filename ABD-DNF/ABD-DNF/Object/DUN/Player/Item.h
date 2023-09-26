@@ -12,7 +12,9 @@ public:
 		PANTS,
 		BELT,
 		SHOES,
-		HEAD
+		HEAD,
+		QUEST,
+		POTION
 	};
 
 	Item();

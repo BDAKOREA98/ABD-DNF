@@ -31,7 +31,8 @@ SerriaRoom::SerriaRoom()
 	texttrans = make_shared<Transform>();
 	texttrans->SetParent(trans);
 	texttrans->SetPosition({ +500.0f, 0.0f });
-
+	SOUND->Add("serria", "Resource/DNF/Sound/Elvengard.mp3", true);
+	SOUND->Play("serria");
 
 }
 
@@ -76,7 +77,7 @@ void SerriaRoom::Render()
 void SerriaRoom::PostRender()
 {
 	PLAYER->PostRender();
-	//ImGui::Text("Count : %d", count);
+		//ImGui::Text("Count : %d", count);
 }
 
 void SerriaRoom::Text()

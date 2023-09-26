@@ -59,6 +59,9 @@ public:
 	shared_ptr<CircleCollider> _playercol3;
 
 	bool Text = false;
+
+	shared_ptr<Inventory> GetInven() { return _inven; }
+
 private:
 	bool _isAttack = false;
 

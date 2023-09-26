@@ -74,7 +74,19 @@ void DNF::Update()
 	{
 
 		_mob1->GetCol()->GetTransform()->SetPosition({-1000.0f, -1000.0f});
+		_mob1->_alive = false;
 	}
+
+	if (_mob1->_alive == false)
+	{
+
+		PLAYER->GetInven()->_haven[3][6]->SetQuad(L"Resource/DNF/Inventory/Quest.png");
+		PLAYER->GetInven()->_haven[3][6]->SetType(Item::QUEST);
+		PLAYER->GetInven()->_haven[3][6]->SetAbility(0);
+
+	}
+
+
 	if (PLAYER->Hp() > 0.0f)
 	{
 		PLAYER->Update();
@@ -105,7 +117,7 @@ void DNF::PostRender()
 	ImGui::Text("playertaken : %f",playerTaken);
 	ImGui::Text("monstertaken : %f",monsterTaken);
 	_mob1->PostRender();
-	//_map1->PostRender();
+	_map1->PostRender();
 	PLAYER->PostRender();
 		
 }

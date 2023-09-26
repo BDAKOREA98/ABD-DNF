@@ -3,7 +3,7 @@
 
 Start::Start()
 {
-	quad = make_shared<Quad>(L"Resource/DNF/Map/Start2.jpg");
+	quad = make_shared<Quad>(L"Resource/DNF/Map/Start.jpeg");
 	trans = make_shared<Transform>();
 	trans->SetScale({ 1.5f, 1.5f });
 

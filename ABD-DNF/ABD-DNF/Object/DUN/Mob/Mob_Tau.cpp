@@ -4,13 +4,13 @@
 Mob_Tau::Mob_Tau()
 {
 	_Hp = 1000.0f;
-	_Damage = 1.0f;
+	_Damage = 10.0f;
 
 	_col = make_shared<CircleCollider>(50);
 
 
 	_trans = make_shared<Transform>();
-	_col->GetTransform()->SetPosition(CENTER);
+	
 	_trans->SetParent(_col->GetTransform());
 	_trans->SetScale({ 1.5f, 1.5f });
 
@@ -21,6 +21,8 @@ Mob_Tau::Mob_Tau()
 	CreateAction("Tau_ATTACK1", L"Resource/DNF/Mob/");
 	CreateAction("Tau_DAMAGED", L"Resource/DNF/Mob/");
 	CreateAction("Tau_DOWN", L"Resource/DNF/Mob/");
+
+	ChangePS(L"Shader/DNF_Player_PS.hlsl");
 }
 
 Mob_Tau::~Mob_Tau()
@@ -54,11 +56,14 @@ void Mob_Tau::Render()
 
 void Mob_Tau::PostRender()
 {
+	ImGui::Text("POS.x %f", _col->GetTransform()->GetPos().x);
+	ImGui::Text("POS.y %f", _col->GetTransform()->GetPos().y);
+
 }
 
 float Mob_Tau::Damage()
 {
-    return 0.0f;
+    return _Damage;
 }
 
 void Mob_Tau::Input()
@@ -107,4 +112,12 @@ void Mob_Tau::SetAction(State state)
 	_actions[_curState]->Play();
 
 	_oldState = _curState;
+}
+
+void Mob_Tau::TakenDamage()
+{
+	
+	
+	SetAction(Tau_DAMAGED);
+
 }
